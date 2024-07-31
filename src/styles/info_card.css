@@ -1,0 +1,12 @@
+.info_card{
+    @apply flex flex-col gap-[6px] p-[10px] bg-[#EFEAE7] max-w-[160px];
+    h6{
+        @apply text-sm;
+    }
+    p{
+        @apply text-xs leading-6 min-h-[68px] justify-center flex flex-col ;
+    }
+    img{
+        @apply h-[161px]
+    }
+}

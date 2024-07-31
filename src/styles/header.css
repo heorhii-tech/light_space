@@ -1,0 +1,30 @@
+header {
+    @apply bg-cover bg-no-repeat mt-[50px];
+    background-color: rgba(1, 1, 1, 0.3);
+}
+
+.header {
+    @apply   font-sans h-[50vh] flex flex-col justify-between;
+    background-color: rgba(1, 1, 1, 0.3);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+    .header_nav_wrapper {
+        @apply mt-[-45px] px-[15px] flex items-center justify-between;
+    };
+    .header_main {
+            @apply max-w-[var(--container-bg)] flex justify-center text-white  mb-10;
+        }
+};
+
+
+.header_main h3,
+.header_main h6 {
+    @apply text-center;
+}
+
+.logo_wrapper {
+    @apply w-[87px];
+}
+
+.logo {
+    @apply w-[87px];
+}

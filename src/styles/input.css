@@ -1,0 +1,12 @@
+@import './header.css';
+@import "./form.css";
+@import "./common.css";
+@import "./burger_menu.css";
+@import "./textBlock.css";
+@import "./home_page.css";
+@import "./slider.css";
+@import "./info_card.css";
+@import "./my_account.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

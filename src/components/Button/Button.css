@@ -1,0 +1,41 @@
+.button{
+    font-family: 'Open Sans', sans-serif;
+    padding: 17.5px 0;
+    width: 360px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0.0125em;
+    text-transform: uppercase;
+    border-radius: 28px;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+.primary-button{
+     color: #F0F0F0;
+     background: #687D6B;
+ }
+.primary-button:hover{
+    background: #556658;
+}
+.secondary-button{
+    border: 1px solid #687D6B;
+    color: #474E54;
+    background: transparent;
+}
+.secondary-button:hover{
+    color: #F0F0F0;
+    background: #556658;
+}
+@media (max-width: 1350px) {
+    .button{
+        width: 300px;
+    }
+}
+@media (max-width: 850px) {
+    .button{
+        width: 200px;
+    }
+}

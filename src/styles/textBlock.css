@@ -1,0 +1,10 @@
+.text_block_wrapper{
+    @apply bg-[#E5E5E5] w-full px-[22px] font-sans pt-[48px] flex flex-col items-center;
+    .text_block_title{
+      @apply font-semibold text-xl;
+    };
+    .text_block_text_wrapper{
+        @apply flex flex-col mt-[24px] gap-4 text-sm;
+    }
+    
+}
