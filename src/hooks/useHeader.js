@@ -6,16 +6,18 @@ import { headerMenu } from "../constants/constants";
 const useHeader = () => {
   const [showHeader, setShowHeader] = useState(true);
   const location = useLocation();
+  const user = useSelector((state) => state.user);
 
-  const filterHeaderMenuFunction = (data, token) => {
-    if (token) {
+  const filterHeaderMenuFunction = (data) => {
+    if (user.token) {
       return data.filter(
-        (item) => item.item !== `Sign Up` && item.item !== `Login`
+        (item) => item.item !== `Login` && item.item !== `Sign Up`
       );
-    } else {
-      return data.filter((item) => item.item !== `My Account`);
+    }else{
+      return data;
     }
   };
+  
 
   useEffect(() => {
     if (location.pathname === `/login` || location.pathname === `/signup`) {

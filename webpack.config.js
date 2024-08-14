@@ -1,80 +1,62 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: "./src/index.jsx", // Точка входа в приложение
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
-    assetModuleFilename: "[name][ext]",
+    filename: "main.js", // Имя выходного файла
+    path: path.resolve(__dirname, "dist"), // Путь к директории для выходных файлов
+    assetModuleFilename: "[name][ext]", // Шаблон для имен файлов ресурсов
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        test: /\.(js|jsx)$/, // Регулярное выражение для файлов JavaScript и JSX
+        exclude: /node_modules/, // Исключить директорию node_modules
+        use: {
+          loader: "babel-loader", // Лоадер для транспиляции JS/JSX
+        },
+      },
+      {
+        test: /\.css$/i, // Регулярное выражение для CSS файлов
+        use: ["style-loader", "css-loader", "postcss-loader"], // Лоадеры для обработки CSS
+      },
+      {
+        test: /\.(png|jpg|svg|gif)$/, // Регулярное выражение для файлов изображений
+        type: "asset/resource", // Тип модуля для ресурсов
+      },
+
+      {
+        test: /\.pdf$/, // Регулярное выражение для PDF файлов
         use: [
           {
-            loader: "babel-loader",
+            loader: "file-loader", // Лоадер для обработки PDF файлов
             options: {
-              cacheDirectory: true,
-              // Опции могут быть добавлены сюда, если это необходимо
-            },
-          },
-        ],
-      },
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"],
-      },
-      {
-        test: /\.(png|jpg|svg|gif)$/,
-        type: "asset/resource",
-      },
-      {
-        test: /\.pdf$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[hash:8].[ext]",
-              outputPath: "files/",
+              name: "[name].[hash:8].[ext]", // Шаблон для имен файлов
+              outputPath: "files/", // Директория для выходных файлов
             },
           },
         ],
       },
     ],
-    noParse: /useMyAccount.js/, // Исключение из обработки
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx"], // Расширения файлов для автоматического разрешения
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Управление выходными данными",
-      template: "./src/index.html",
+      title: "Управление выходными данными", // Название страницы
+      template: "./src/index.html", // Шаблон HTML файла
     }),
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, "dist"),
+      directory: path.join(__dirname, "dist"), // Директория для статических файлов
     },
-    hot: true,
-    port: 5000,
+    compress: true, // Сжатие для улучшения производительности
+    port: 5000, // Порт для dev-сервера
     historyApiFallback: true,
-    watchFiles: {
-      paths: ["src/**/*"],
-      options: {
-        ignored: /useMyAccount.js/,
-      },
-    },
   },
-  cache: {
-    type: "filesystem",
-    cacheDirectory: path.resolve(__dirname, ".webpack_cache"),
-    buildDependencies: {
-      config: [__filename],
-    },
-  },
-  mode: "development",
+  mode: "production", // Режим сборки
 };

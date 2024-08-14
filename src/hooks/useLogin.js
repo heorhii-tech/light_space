@@ -6,13 +6,7 @@ import {
 import { useState, React } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/user/userSlice";
-import { auth } from "../firebaseConfig";
-import { doc, getDoc } from "firebase/firestore";
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth";
-import { db } from "../firebaseConfig";
+import AutoRedirect from "../components/autoRedirect/AutoRedirect";
 
 const useLogin = () => {
   const [email, setEmail] = useState(``);
@@ -20,14 +14,12 @@ const useLogin = () => {
   const [verify, setVerify] = useState(``);
   const [error, setError] = useState(``);
   const [logined, setLogined] = useState(false);
-
   const dispatch = useDispatch();
 
   const auth = getAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();
-
     setError(``);
     setVerify(``);
 
@@ -39,11 +31,10 @@ const useLogin = () => {
             dispatch(
               setUser({
                 token: user.accessToken,
+                name: user.displayName,
                 email: user.email,
-                uid: user.uid,
               })
             );
-
             setEmail(``);
             setPassword(``);
             setLogined(true);
