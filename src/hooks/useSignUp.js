@@ -1,12 +1,12 @@
 import { useEffect, useState, React } from "react";
 import { auth } from "../firebaseConfig";
+import { doc, setDoc } from "firebase/firestore";
 import {
   createUserWithEmailAndPassword,
-  updateProfile,
   sendEmailVerification,
 } from "firebase/auth";
+import { db } from "../firebaseConfig";
 import { message } from "antd";
-
 
 const useSignUp = () => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -36,17 +36,18 @@ const useSignUp = () => {
         email,
         password
       );
-      await sendEmailVerification(userCredential.user);
-      if (userCredential) {
-        await updateProfile(userCredential.user, {
-          displayName: name,
-          phoneNumber: tel,
-        });
+      const user = userCredential.user;
+      await sendEmailVerification(user);
+      await setDoc(doc(db, "users", user.uid), {
+        email: user.email,
+        name: name,
+        tel: tel,
+        createdAt: new Date(),
+      });
 
-        setPassword("");
-        setRegistered(true);
-        setEmail("");
-      }
+      setPassword("");
+      setRegistered(true);
+      setEmail("");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         setError("Email already is used");
