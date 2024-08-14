@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import BurgerMenu from "../burger_menu/BurgerMenu";
 import { headerMenu } from "../../constants/constants";
 import Icon from "../burger_menu/Icon";
+import { useSelector } from "react-redux";
 
 function HeaderNav({ logo, filterHeaderMenuFunction }) {
   const [burgerOpen, setBurgerOpen] = useState(false);
+  const user = useSelector((state) => state.user);
   const setBurgerMenu = () => {
     if (burgerOpen) {
       document.body.style.overflow = "auto";
@@ -14,7 +16,8 @@ function HeaderNav({ logo, filterHeaderMenuFunction }) {
       setBurgerOpen(true);
     }
   };
-  const filteredHeaderMenu = filterHeaderMenuFunction(headerMenu);
+
+  const filteredHeaderMenu = filterHeaderMenuFunction(headerMenu, user.token);
 
   return (
     <div className="header_nav_wrapper">
