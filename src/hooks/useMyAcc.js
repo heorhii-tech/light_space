@@ -48,10 +48,11 @@ const useMyAcc = () => {
     }
   };
 
-  const handleUpdateName = async () => {
+  const handleUpdateName = async (e) => {
+    e.preventDefault();
     try {
       await updateDoc(doc(db, "users", user.uid), { name });
-      dispatch(updateName({ name }));
+      dispatch(updateName({ name: name }));
       setName("");
     } catch (error) {
       console.error("Error updating name:", error);

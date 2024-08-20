@@ -1,0 +1,56 @@
+.auth_form_wrapper {
+    @apply bg-very-light-gray w-full pt-[100px] pb-[52px];
+
+    .login_form {
+        @apply w-[320px] m-auto flex flex-col gap-[24.5px];
+    }
+
+    .form_inputs_wrapper {
+        @apply flex flex-col gap-[12.24px];
+
+        input {
+            @apply py-4 px-5 rounded-[28px] bg-white border border-xanadu focus:ring-xanadu focus:border-xanadu;
+            @apply transition-all duration-500 ease-in-out;
+            @apply hover:scale-105 active:bg-xanadu-dark;;
+            
+        }
+    }
+
+    .buttons_wrapper {
+        @apply flex flex-col gap-[14px];
+
+        button {
+            @apply py-[17.5px] rounded-[28px] bg-xanadu text-very-light-gray;
+            @apply transition-all duration-500 ease-in-out;
+
+            &:first-child {
+                @apply bg-xanadu text-very-light-gray hover:bg-xanadu-dark active:bg-xanadu-darkest;
+
+            }
+
+            &:not(:first-child) {
+                @apply bg-very-light-gray border border-xanadu text-xanadu font-bold hover:bg-xanadu hover:text-very-light-gray;
+                @apply active:bg-xanadu-dark;
+
+                
+
+            }
+        }
+
+        a {
+            @apply text-center bg-very-light-gray border-[1px] border-xanadu font-bold py-[17.5px] rounded-[28px];
+            @apply transition-all duration-500 ease-in-out hover:bg-xanadu hover:text-very-light-gray;
+            @apply active:bg-xanadu-dark;
+
+           
+
+           
+        }
+    }
+
+    .res_password {
+        @apply underline text-base;
+
+      
+    }
+}

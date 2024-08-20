@@ -66,4 +66,6 @@ const infoCards = [
     path: imageOfCard4,
   },
 ];
-export { headerMenu, homePageText, infoCards };
+const addres = `Laboratorniy provylok 7, Kyiv Ukraine`;
+const tel = `+31638699561`;
+export { headerMenu, homePageText, infoCards, addres, tel };

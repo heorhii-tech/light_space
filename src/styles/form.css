@@ -1,9 +1,0 @@
-.auth_form{
-    @apply flex gap-5 mt-7 flex-col w-full m-auto;
-    input{
-        @apply border-2 p-2 border-black;
-    }
-    button{
-        @apply border-2 p-2 border-black;
-    }
-}

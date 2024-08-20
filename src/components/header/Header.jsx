@@ -11,34 +11,38 @@ function Header(props) {
   const { showHeader, setShowHeader, filterHeaderMenuFunction } = useHeader();
 
   return (
-    <header
-      style={
-        props.nav
-          ? { backgroundImage: `url(${props.image})` }
-          : { backgroundImage: `url(${props.image})` }
-      }
-    >
-      <div className="header">
-        <HeaderNav
-          logo={logo}
-          filterHeaderMenuFunction={filterHeaderMenuFunction}
-        />
-        <div className={showHeader ? `header_main` : `hidde`}>
-          <h3>
-            {props.title}
-            <br />
-            {props.titleText}
-          </h3>
-          <h6>{props.text}</h6>
-          {props.button ? (
-            <PrimaryButton text={props.button} link={props.buttonLink} />
-          ) : null}
-          {props.secondaryButton ? (
-            <SecondaryButton text={props.secondaryButton} />
-          ) : null}
+    <>
+      <HeaderNav
+        logo={logo}
+        filterHeaderMenuFunction={filterHeaderMenuFunction}
+        showHeader={showHeader}
+      />
+      <header
+        style={
+          props.nav
+            ? { backgroundImage: `url(${props.image})` }
+            : { backgroundImage: `url(${props.image})` }
+        }
+        className={showHeader ? `` : `hidde`}
+      >
+        <div className={`header`}>
+          <div className={`header_main`}>
+            <h3>
+              {props.title}
+              <br />
+              {props.titleText}
+            </h3>
+            <h6>{props.text}</h6>
+            {props.button ? (
+              <PrimaryButton text={props.button} link={props.buttonLink} />
+            ) : null}
+            {props.secondaryButton ? (
+              <SecondaryButton text={props.secondaryButton} />
+            ) : null}
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
 

@@ -3,8 +3,9 @@ import BurgerMenu from "../burger_menu/BurgerMenu";
 import { headerMenu } from "../../constants/constants";
 import Icon from "../burger_menu/Icon";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-function HeaderNav({ logo, filterHeaderMenuFunction }) {
+function HeaderNav({ logo, filterHeaderMenuFunction, showHeader }) {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const user = useSelector((state) => state.user);
   const setBurgerMenu = () => {
@@ -21,9 +22,9 @@ function HeaderNav({ logo, filterHeaderMenuFunction }) {
 
   return (
     <div className="header_nav_wrapper">
-      <div className="logo_wrapper">
+      <Link to="/" className="logo_wrapper">
         <img className="logo" src={logo}></img>
-      </div>
+      </Link>
       <Icon burgerOpen={burgerOpen} setBurgerMenu={setBurgerMenu} />
       {burgerOpen && (
         <BurgerMenu

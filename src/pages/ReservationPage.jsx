@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import Tables from "../components/tables/Tables";
+import ReservationForm from "../components/reservation_form/ReservationForm";
+
+import { useSelector } from "react-redux";
 
 function ReservationPage(props) {
-  const handleReserv = () => {
-    console.log(18);
-  };
+  const user = useSelector((state) => state.user);
+  const [currentTable, setCurrentTable] = useState(``);
+
   return (
     <div>
-      Reservation
-      <button onClick={handleReserv}>Reserv</button>
+      <Tables setCurrentTable={setCurrentTable} />
+      <ReservationForm user={user} currentTable={currentTable} />
     </div>
   );
 }
