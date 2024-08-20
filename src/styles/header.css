@@ -1,17 +1,15 @@
 header {
-    @apply bg-cover bg-no-repeat mt-[50px];
+    @apply bg-cover bg-no-repeat;
     background-color: rgba(1, 1, 1, 0.3);
 }
 
 .header {
-    @apply   font-sans h-[50vh] flex flex-col justify-between;
+    @apply font-sans h-[50vh] flex flex-col justify-end;
     background-color: rgba(1, 1, 1, 0.3);
     text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
-    .header_nav_wrapper {
-        @apply mt-[-45px] px-[15px] flex items-center justify-between;
-    };
+  
     .header_main {
-            @apply max-w-[var(--container-bg)] flex justify-center text-white  mb-10;
+            @apply max-w-[var(--container-bg)] flex justify-center text-white  mb-8;
         }
 };
 
@@ -27,4 +25,7 @@ header {
 
 .logo {
     @apply w-[87px];
+}
+.header_nav_wrapper{
+    @apply flex justify-between mt-5 px-3;
 }

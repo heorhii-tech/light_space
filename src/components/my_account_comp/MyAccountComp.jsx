@@ -39,15 +39,16 @@ function MyAccountComp() {
         <p className="user_tel">Tel: {user.tel || "Loading..."}</p>
       </div>
 
-      <div className="input_group">
+      <form className="input_group">
         <input
           type="text"
           placeholder="New name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
         <button onClick={handleUpdateName}>Change Name</button>
-      </div>
+      </form>
 
       <div className="input_group">
         <input
@@ -55,6 +56,7 @@ function MyAccountComp() {
           placeholder="New tel"
           value={tel}
           onChange={(e) => setTel(e.target.value)}
+          required
         />
         <button onClick={handleUpdateTel}>Change Tel</button>
       </div>

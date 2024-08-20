@@ -36,5 +36,5 @@ section {
     margin: 0 auto;
 }
 .hidde{
-    @apply hidden;
+    display: none;
 }

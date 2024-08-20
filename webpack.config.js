@@ -69,12 +69,6 @@ module.exports = {
       },
     },
   },
-  cache: {
-    type: "filesystem",
-    cacheDirectory: path.resolve(__dirname, ".webpack_cache"),
-    buildDependencies: {
-      config: [__filename],
-    },
-  },
+
   mode: "development",
 };

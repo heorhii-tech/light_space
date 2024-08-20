@@ -1,5 +1,5 @@
 @import './header.css';
-@import "./form.css";
+@import "./login.css";
 @import "./common.css";
 @import "./burger_menu.css";
 @import "./textBlock.css";
@@ -7,6 +7,8 @@
 @import "./slider.css";
 @import "./info_card.css";
 @import "./my_account.css";
+@import "./reservation.css";
+@import "./footer.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -3,13 +3,20 @@ import Header from "../header/Header";
 import imageCard1 from "../../assets/image-of-card-1.jpg";
 import imageCard2 from "../../assets/image-of-2-card.jpg";
 import image from "../../assets/header2.svg";
+import Footer from "../footer/Footer";
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Header nav={true} button="Book table" buttonLink="/book" image={image} />
+      <Header
+        nav={true}
+        button="Book table"
+        buttonLink="/reservation"
+        image={image}
+      />
 
       <main>{children}</main>
+      <Footer />
     </>
   );
 };

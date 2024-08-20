@@ -1,0 +1,9 @@
+.tables_wrapper{
+    @apply flex gap-2 mt-8  p-4;
+    .table_card{
+        @apply w-[200px] h-[200px] bg-slate-400 justify-center p-4;
+    }
+}
+.order_form{
+    @apply flex flex-col bg-slate-100 w-[400px] p-5 rounded-2xl gap-3 mb-10 mx-auto;
+}
