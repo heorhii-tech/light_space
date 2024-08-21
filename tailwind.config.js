@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "very-light-gray": "#EFEAE7",
+        "very-light-gray": "#FDF5F5",
         xanadu: "#687D6B",
         "xanadu-dark": "#556658", // Slightly darker version of Xanadu
         "xanadu-darkest": "#445147", // Even darker version of Xanadu

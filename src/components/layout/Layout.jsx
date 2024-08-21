@@ -7,7 +7,7 @@ import Footer from "../footer/Footer";
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <div className="main_wrapper">
       <Header
         nav={true}
         button="Book table"
@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
 
       <main>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 

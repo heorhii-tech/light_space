@@ -1,61 +1,29 @@
-/* src/Slider.css */
-.slider {
-    position: relative;
-    max-width: 1200px;
-    /* Увеличиваем ширину слайдера для отображения двух картинок */
-    margin: auto;
-    overflow: hidden;
-    background-color: #E5E5E5;
-   padding-top: 16px;
-   padding-bottom: 20px;
-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 2.5px;
-        cursor: pointer;
-        z-index: 100;
-        font-size: 24px;
-        
+.slider_wrapper{
+    @apply bg-very-light-gray pt-[22px] flex flex-col justify-center;
+    .slider{
+        @apply w-[90%] m-auto flex flex-col justify-center;
+        .slick-prev::before,
+            .slick-next::before {
+                color: black;
+                opacity: 0.7;
+                font-size: 30px;
+            }
+        .slick-prev{
+            left: -25px !important;
+        }
+        .slick-next{
+            right: -16px !important;
+
+                }
+        .slide{
+            display: flex !important;
+            justify-content: end !important;
+            width: 151px !important;
+            
+        }
+        .slick-list{
+            margin-left: 13px !important;
+        }
     }
-}
 
-.slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-    min-width: 50%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-
-}
-
-.info_card {
-    width: 100%;
-    height: auto;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.info_card img {
-    max-width: 100%;
-    height: auto;
-}
-
-
-
-.prev {
-    left: 0px;
-    
-}
-
-.next {
-    right: 0px;
 }

@@ -1,5 +1,5 @@
 .info_card{
-    @apply flex flex-col gap-[6px] p-[10px] bg-[#EFEAE7] max-w-[160px];
+    @apply flex flex-col gap-[6px] p-[10px] bg-[#EFEAE7] max-w-[160px] h-[283px];
     h6{
         @apply text-sm;
     }
