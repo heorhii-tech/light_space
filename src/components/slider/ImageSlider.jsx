@@ -1,47 +1,35 @@
 // src/Slider.js
 import React, { useState } from "react";
 import InfoCard from "../info_card/InfoCard";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const Slider = ({ data }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsToShow = 2;
-
-  const goToPreviousSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex <= 0 ? Math.max(0, data.length - itemsToShow) : prevIndex - 2
-    );
-  };
-
-  const goToNextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex >= data.length - itemsToShow ? 0 : prevIndex + 2
-    );
+const ImageSlider = ({ data }) => {
+  var settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
   };
 
   return (
-    <div className="slider">
-      <div
-        className="slides"
-        style={{ transform: `translateX(-${currentIndex * 50}%)` }}
-      >
-        {data.map((item, index) => (
-          <div className="slide" key={index}>
-            <InfoCard
-              hashtag={item.hashtag}
-              text={item.text}
-              path={item.path}
-            />
-          </div>
-        ))}
+    <div className="slider_wrapper">
+      <div className="slider">
+        <Slider {...settings}>
+          {data.map((item, index) => (
+            <div className="slide" key={index}>
+              <InfoCard
+                hashtag={item.hashtag}
+                text={item.text}
+                path={item.path}
+              />
+            </div>
+          ))}
+        </Slider>
       </div>
-      <button className="prev" onClick={goToPreviousSlide}>
-        &#10094;
-      </button>
-      <button className="next" onClick={goToNextSlide}>
-        &#10095;
-      </button>
     </div>
   );
 };
 
-export default Slider;
+export default ImageSlider;

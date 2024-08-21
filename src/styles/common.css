@@ -35,6 +35,9 @@ section {
     max-width: var(--container-bg);
     margin: 0 auto;
 }
+.main_wrapper{
+    @apply w-[400px] m-auto;
+}
 .hidde{
     display: none;
 }
