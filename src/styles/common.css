@@ -33,7 +33,7 @@ body {
 
 
 .main_wrapper{
-    @apply w-[400px] m-auto pb-6;
+    @apply max-w-[420px] m-auto pb-6;
 }
 .hidde{
     display: none;
