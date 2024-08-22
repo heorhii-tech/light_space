@@ -1,29 +1,18 @@
 import React, { useEffect } from "react";
-import { Button, message, Space } from "antd";
 import Form from "../../components/form/Form";
 import useLogin from "../../hooks/useLogin";
 import AutoRedirect from "../autoRedirect/AutoRedirect";
 
 function Login(props) {
-  const [messageApi, contextHolder] = message.useMessage();
   const {
     email,
     setEmail,
     password,
     setPassword,
     handleLogin,
-    verify,
     logined,
-    errorMes,
+    contextHolder,
   } = useLogin();
-  useEffect(() => {
-    if (errorMes) {
-      messageApi.open({
-        type: "error",
-        content: errorMes,
-      });
-    }
-  }, [errorMes]);
 
   return (
     <div>
@@ -38,7 +27,6 @@ function Login(props) {
         password={password}
       />
 
-      {verify}
       {logined && <AutoRedirect to={"/"} delay={0} />}
     </div>
   );
