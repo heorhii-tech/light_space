@@ -10,7 +10,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background: var(--color-primary-green);
-    @apply px-3;
+    @apply px-[7px];
 }
 
 
@@ -31,12 +31,9 @@ body {
     --container-bg: 1248px;
 }
 
-section {
-    max-width: var(--container-bg);
-    margin: 0 auto;
-}
+
 .main_wrapper{
-    @apply w-[400px] m-auto;
+    @apply w-[400px] m-auto pb-6;
 }
 .hidde{
     display: none;

@@ -1,5 +1,5 @@
 .text_block_wrapper{
-    @apply bg-[#E5E5E5] w-full px-[22px] font-sans pt-[48px] flex flex-col items-center;
+    @apply bg-very-light-gray w-full px-[22px] font-sans pt-[48px] flex flex-col items-center;
     .text_block_title{
       @apply font-semibold text-xl;
     };

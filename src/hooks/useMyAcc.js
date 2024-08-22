@@ -12,8 +12,10 @@ import { db } from "../firebaseConfig";
 
 const useMyAcc = () => {
   const [file, setFile] = useState("");
-  const [name, setName] = useState("");
+
   const [tel, setTel] = useState("");
+  const [changeName, setChangeName] = useState(false);
+  const [changePhone, setChangePhone] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
@@ -59,10 +61,11 @@ const useMyAcc = () => {
     }
   };
 
-  const handleUpdateTel = async () => {
+  const handleUpdateTel = async (e) => {
+    e.preventDefault();
     try {
-      await updateDoc(doc(db, "users", user.uid), { tel });
-      dispatch(updateTel({ tel }));
+      await updateDoc(doc(db, "users", user.uid), { tel: tel });
+      dispatch(updateTel({ tel: tel }));
       setTel("");
     } catch (error) {
       console.error("Error updating tel:", error);
@@ -77,14 +80,17 @@ const useMyAcc = () => {
     fetchUserData,
     uploadAvatar,
     setFile,
-    handleUpdateName,
+
     handleUpdateTel,
     handleUnLogin,
-    name,
-    setName,
+
     tel,
     setTel,
     file,
+    setChangeName,
+    changeName,
+    changePhone,
+    setChangePhone,
   };
 };
 

@@ -1,5 +1,5 @@
 .auth_form_wrapper {
-    @apply bg-very-light-gray w-full pt-[100px] pb-[52px];
+    @apply bg-very-light-gray w-full pt-[52px] pb-[52px];
 
     .login_form {
         @apply w-[320px] m-auto flex flex-col gap-[24.5px];

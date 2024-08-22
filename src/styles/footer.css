@@ -9,10 +9,16 @@ footer{
 }
 .footer_info_logo{
     @apply w-[58%] flex flex-col gap-[10px];
+    a{
+        @apply max-w-[87px]
+    }
     p {
             @apply max-w-[150px];
         }
 }
 .footer_social{
     @apply flex gap-[16px] w-[42%] pt-[10px];
+    img{
+        @apply max-w-[35px];
+    }
 }
