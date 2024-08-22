@@ -9,6 +9,7 @@
 @import "./my_account.css";
 @import "./reservation.css";
 @import "./footer.css";
+@import "./signup.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

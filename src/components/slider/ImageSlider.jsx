@@ -10,7 +10,7 @@ const ImageSlider = ({ data }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 2,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
   };
 
   return (

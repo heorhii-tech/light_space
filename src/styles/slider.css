@@ -1,5 +1,5 @@
 .slider_wrapper{
-    @apply bg-very-light-gray pt-[22px] flex flex-col justify-center;
+    @apply bg-very-light-gray pt-[22px] flex flex-col justify-center pb-6;
     .slider{
         @apply w-[90%] m-auto flex flex-col justify-center;
         .slick-prev::before,

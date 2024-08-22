@@ -18,7 +18,11 @@ const useHeader = () => {
   };
 
   useEffect(() => {
-    if (location.pathname === `/login` || location.pathname === `/signup`) {
+    if (
+      location.pathname === `/login` ||
+      location.pathname === `/signup` ||
+      location.pathname === `/my_account`
+    ) {
       setShowHeader(false);
     } else {
       setShowHeader(true);
