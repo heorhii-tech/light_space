@@ -46,7 +46,7 @@ header{
 }
 
 .header_nav_wrapper{
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
   display: flex;
   justify-content: space-between;
   padding-left: 0.75rem;
@@ -54,6 +54,7 @@ header{
 }
 
 .auth_form_wrapper{
+  height: 93vh;
   width: 100%;
   --tw-bg-opacity: 1;
   background-color: rgb(253 245 245 / var(--tw-bg-opacity));
@@ -66,6 +67,9 @@ header{
     display: flex;
   }
   .login_form{
+    height: 100%;
+  }
+  .login_form{
     width: 320px;
   }
   .login_form{
@@ -73,6 +77,9 @@ header{
   }
   .login_form{
     gap: 24.5px;
+  }
+  .form_inputs_wrapper{
+    margin-top: auto;
   }
   .form_inputs_wrapper{
     display: flex;
@@ -134,6 +141,9 @@ header{
       --tw-bg-opacity: 1;
       background-color: rgb(85 102 88 / var(--tw-bg-opacity));
     }
+  }
+  .buttons_wrapper{
+    margin-top: auto;
   }
   .buttons_wrapper{
     display: flex;
@@ -305,7 +315,7 @@ body {
 
 .main_wrapper{
   margin: auto;
-  width: 400px;
+  max-width: 420px;
   padding-bottom: 1.5rem;
 }
 
@@ -671,6 +681,7 @@ body {
 .my_acc_wrapper{
   margin: auto;
   display: flex;
+  height: 89vh;
   width: 380px;
   flex-direction: column;
   gap: 0.75rem;
@@ -768,7 +779,7 @@ body {
 }
 
 .my_acc_logout{
-  margin-top: 24px;
+  margin-top: auto;
   width: 100%;
   border-radius: 28px;
   --tw-bg-opacity: 1;
@@ -856,7 +867,10 @@ footer{
 
 .signup_form{
   margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   display: flex;
+  height: 100%;
   width: 320px;
   flex-direction: column;
   gap: 24.5px;

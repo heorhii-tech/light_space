@@ -1,12 +1,12 @@
 .auth_form_wrapper {
-    @apply bg-very-light-gray w-full pt-[52px] pb-[52px];
+    @apply bg-very-light-gray w-full pt-[52px] pb-[52px] h-[93vh];
 
     .login_form {
-        @apply w-[320px] m-auto flex flex-col gap-[24.5px];
+        @apply w-[320px] m-auto flex flex-col gap-[24.5px] h-full;
     }
 
     .form_inputs_wrapper {
-        @apply flex flex-col gap-[12.24px];
+        @apply flex flex-col gap-[12.24px] mt-auto;
 
         input {
             @apply py-4 px-5 rounded-[28px] bg-white border border-xanadu focus:ring-xanadu focus:border-xanadu;
@@ -17,7 +17,7 @@
     }
 
     .buttons_wrapper {
-        @apply flex flex-col gap-[14px];
+        @apply flex flex-col gap-[14px] mt-auto;
 
         button {
             @apply py-[17.5px] rounded-[28px] bg-xanadu text-very-light-gray;

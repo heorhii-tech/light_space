@@ -18,7 +18,7 @@ const useLogin = () => {
   const [email, setEmail] = useState(``);
   const [password, setPassword] = useState(``);
   const [verify, setVerify] = useState(``);
-  const [error, setError] = useState(``);
+  const [errorMes, setErrorMes] = useState(``);
   const [logined, setLogined] = useState(false);
 
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const useLogin = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    setError(``);
+    setErrorMes(``);
     setVerify(``);
 
     signInWithEmailAndPassword(auth, email, password)
@@ -55,7 +55,7 @@ const useLogin = () => {
       .catch((error) => {
         console.log(error.message);
         if (error.message === `Firebase: Error (auth/invalid-credential).`) {
-          setError(`invalid password or email.Please try again`);
+          setErrorMes(`invalid password or email.Please try again`);
         }
       });
   };
@@ -67,7 +67,7 @@ const useLogin = () => {
     setPassword,
     handleLogin,
     verify,
-    error,
+    errorMes,
     logined,
   };
 };

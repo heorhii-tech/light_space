@@ -59,26 +59,26 @@ function MyAccountComp() {
   return (
     <>
       <div className="my_acc_wrapper">
-        {user.avatar ? (
-          <div className="my_acc_edit_wrapper">
+        <div className="my_acc_edit_wrapper">
+          {user.avatar ? (
             <img className="avatar" src={user.avatar} />
-            <ModalChangeMyData
-              isModalOpen={isModAvatarOpen}
-              handleUpdate={uploadAvatar}
-              handleCancel={handleCancelAvatar}
-              showModal={showModalAvatar}
-              setData={setAvatar}
-              data={avatar}
-              placeholder={"New name"}
-              title={"Change avatar"}
-              type={`file`}
-              user={user}
-              file={avatar}
-            />
-          </div>
-        ) : (
-          <AvatarLoader />
-        )}
+          ) : (
+            <AvatarLoader />
+          )}
+          <ModalChangeMyData
+            isModalOpen={isModAvatarOpen}
+            handleUpdate={uploadAvatar}
+            handleCancel={handleCancelAvatar}
+            showModal={showModalAvatar}
+            setData={setAvatar}
+            data={avatar}
+            placeholder={"New name"}
+            title={"Change avatar"}
+            type={`file`}
+            user={user}
+            file={avatar}
+          />
+        </div>
         <form className="my_acc_name">
           <div className="my_acc_edit_wrapper">
             {user.name ? <p>{user.name}</p> : <LineLoader />}

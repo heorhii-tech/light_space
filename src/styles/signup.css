@@ -1,5 +1,5 @@
  .signup_form {
-     @apply w-[320px] m-auto flex flex-col gap-[24.5px];
+     @apply w-[320px] m-auto flex flex-col gap-[24.5px] my-auto h-full;
  }
 
  .form_inputs_wrapper {
