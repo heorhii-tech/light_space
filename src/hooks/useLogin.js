@@ -3,7 +3,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import { useState, React } from "react";
+import { useState, React, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/user/userSlice";
 import { auth } from "../firebaseConfig";
@@ -13,6 +13,7 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { db } from "../firebaseConfig";
+import { Button, Space, message } from "antd";
 
 const useLogin = () => {
   const [email, setEmail] = useState(``);
@@ -20,10 +21,27 @@ const useLogin = () => {
   const [verify, setVerify] = useState(``);
   const [errorMes, setErrorMes] = useState(``);
   const [logined, setLogined] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
 
   const dispatch = useDispatch();
 
   const auth = getAuth();
+  useEffect(() => {
+    if (errorMes) {
+      messageApi.open({
+        type: "error",
+        content: errorMes,
+      });
+    }
+  }, [errorMes]);
+  useEffect(() => {
+    if (verify) {
+      messageApi.open({
+        type: "error",
+        content: verify,
+      });
+    }
+  }, [verify]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -69,6 +87,7 @@ const useLogin = () => {
     verify,
     errorMes,
     logined,
+    contextHolder,
   };
 };
 
