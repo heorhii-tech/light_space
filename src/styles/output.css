@@ -28,13 +28,15 @@ header{
   }
   .header_main{
     --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
+    color: rgb(229 229 229 / var(--tw-text-opacity));
   }
 }
 
 .header_main h3,
 .header_main h6{
   text-align: center;
+  font-size: 34px;
+  font-weight: 600;
 }
 
 .logo_wrapper{
@@ -103,7 +105,7 @@ header{
     }
     input{
       --tw-bg-opacity: 1;
-      background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+      background-color: rgb(229 229 229 / var(--tw-bg-opacity));
     }
     input{
       padding-top: 1rem;
@@ -339,7 +341,7 @@ body {
   border-top-width: 2px;
   border-bottom-width: 2px;
   --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  border-color: rgb(229 229 229 / var(--tw-border-opacity));
 }
 
 @media (min-width: 1280px){
@@ -374,7 +376,7 @@ body {
   .line1,
     .line2{
     --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    background-color: rgb(229 229 229 / var(--tw-bg-opacity));
   }
   .line1{
     top: 50%;
@@ -446,7 +448,7 @@ body {
   }
   a{
     --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
+    color: rgb(229 229 229 / var(--tw-text-opacity));
   }
 }
 
@@ -457,8 +459,8 @@ body {
   align-items: center;
   --tw-bg-opacity: 1;
   background-color: rgb(253 245 245 / var(--tw-bg-opacity));
-  padding-left: 22px;
-  padding-right: 22px;
+  padding-left: 20px;
+  padding-right: 20px;
   padding-top: 48px;
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   .text_block_title{
@@ -655,7 +657,7 @@ body {
   }
   button{
     --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    background-color: rgb(229 229 229 / var(--tw-bg-opacity));
   }
   button{
     padding: 0.5rem;
@@ -795,7 +797,7 @@ body {
   padding-top: 17px;
   padding-bottom: 17px;
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(229 229 229 / var(--tw-text-opacity));
 }
 
 .tables_wrapper{
@@ -900,7 +902,7 @@ footer{
   }
   input{
     --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    background-color: rgb(229 229 229 / var(--tw-bg-opacity));
   }
   input{
     padding-top: 1rem;
@@ -1078,6 +1080,63 @@ footer{
   a:active{
     --tw-bg-opacity: 1;
     background-color: rgb(85 102 88 / var(--tw-bg-opacity));
+  }
+}
+
+.about_us_wrapper{
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  .text_block_wrapper{
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+  .slider_wrapper{
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+  .primary-button{
+    margin: auto;
+  }
+  .primary-button{
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  .primary-button{
+    max-width: 380px;
+  }
+  .info_card{
+    --tw-bg-opacity: 1;
+    background-color: rgb(217 217 217 / var(--tw-bg-opacity));
+  }
+}
+
+.our_values_wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 245 245 / var(--tw-bg-opacity));
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+.values_card{
+  display: flex;
+  height: 96px;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  img{
+    height: 40px;
+  }
+  img{
+    width: 40px;
   }
 }
 

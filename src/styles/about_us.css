@@ -1,0 +1,26 @@
+.about_us_wrapper{
+    @apply  w-full   bg-[#ffffff];
+    .text_block_wrapper{
+        @apply bg-[#ffffff];
+    }
+    .slider_wrapper{
+        @apply bg-[#ffffff];
+    }
+    .primary-button{
+        @apply  my-[32px] max-w-[380px] m-auto;
+    }
+
+    .info_card{
+        @apply bg-light_grey;
+    }
+}
+.our_values_wrapper{
+    @apply flex flex-col gap-6 py-[48px] bg-very-light-gray px-[22px] ;
+
+}
+.values_card{
+    @apply flex h-[96px] px-[16px] gap-4 items-center text-sm;
+    img{
+        @apply w-[40px] h-[40px];
+    }
+}

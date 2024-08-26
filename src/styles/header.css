@@ -16,7 +16,7 @@ header {
 
 .header_main h3,
 .header_main h6 {
-    @apply text-center;
+    @apply text-center text-[34px] font-semibold;
 }
 
 .logo_wrapper {

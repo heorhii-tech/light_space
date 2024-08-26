@@ -11,7 +11,11 @@ function ReservationPage(props) {
   return (
     <div>
       <Tables setCurrentTable={setCurrentTable} />
-      <ReservationForm user={user} currentTable={currentTable} />
+      <ReservationForm
+        user={user}
+        currentTable={currentTable}
+        setCurrentTable={setCurrentTable}
+      />
     </div>
   );
 }
