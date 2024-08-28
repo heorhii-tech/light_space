@@ -10,6 +10,7 @@ module.exports = {
         "xanadu-darkest": "#445147",
         light_grey: "#D9D9D9",
         white: "#E5E5E5",
+        pale_grey: "#E7E7E7",
       },
     },
   },

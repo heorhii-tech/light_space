@@ -801,40 +801,177 @@ body {
 }
 
 .tables_wrapper{
-  margin-top: 2rem;
-  display: flex;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-content: center;
   gap: 0.5rem;
+  background-color: #ffff;
   padding: 1rem;
+  padding-top: 32px;
   .table_card{
-    height: 200px;
+    margin: auto;
   }
   .table_card{
-    width: 200px;
+    display: grid;
+  }
+  .table_card{
+    height: 149px;
+  }
+  .table_card{
+    width: 151px;
+  }
+  .table_card{
+    background-repeat: no-repeat;
+  }
+  .table_card{
+    text-align: center;
+  }
+  .table_card{
+    align-items: center;
   }
   .table_card{
     justify-content: center;
   }
   .table_card{
-    --tw-bg-opacity: 1;
-    background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+    border-radius: 0.75rem;
   }
   .table_card{
     padding: 1rem;
   }
+  .table_card{
+    --tw-text-opacity: 1;
+    color: rgb(229 229 229 / var(--tw-text-opacity));
+  }
+  .table_card{
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: darken;
+    grid-template-rows: 40% 60%;
+    p{
+      align-self: flex-end;
+    }
+    p{
+      color: #ffff;
+    }
+    h5{
+      align-self: flex-start;
+    }
+    h5{
+      font-size: 12px;
+    }
+    h5{
+      color: #ffff;
+    }
+  }
 }
 
-.order_form{
+.reservation_form{
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2.5rem;
   display: flex;
-  width: 400px;
+  width: 370px;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
   border-radius: 1rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
-  padding: 1.25rem;
+  background-color: rgb(231 231 231 / var(--tw-bg-opacity));
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  input{
+    width: 100%;
+  }
+  input{
+    border-radius: 28px;
+  }
+  input{
+    --tw-bg-opacity: 1;
+    background-color: rgb(242 242 242 / var(--tw-bg-opacity));
+  }
+  input{
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  input{
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  p{
+    width: 100%;
+  }
+  p{
+    border-radius: 28px;
+  }
+  p{
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  p{
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .primary-button{
+    margin: auto;
+  }
+  .focused_table{
+    border-radius: 0.75rem;
+  }
+  .focused_table{
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: darken;
+    p{
+      margin: auto;
+    }
+    p{
+      text-align: center;
+    }
+    p{
+      font-size: 22px;
+    }
+    p{
+      --tw-text-opacity: 1;
+      color: rgb(229 229 229 / var(--tw-text-opacity));
+    }
+  }
+  .button_cancel_reservation{
+    margin: auto;
+  }
+  .button_cancel_reservation{
+    --tw-bg-opacity: 1;
+    background-color: rgb(153 27 27 / var(--tw-bg-opacity));
+  }
+  .button_cancel_reservation{
+    --tw-text-opacity: 1;
+    color: rgb(229 229 229 / var(--tw-text-opacity));
+  }
+}
+
+.reservation_page_wrapper{
+  .title{
+    background-color: #ffff;
+  }
+  .title{
+    padding-top: 57px;
+  }
+  .title{
+    text-align: center;
+  }
+  .title{
+    font-size: 32px;
+  }
+}
+
+.focused_table{
+  height: 150px;
+  width: 150px;
+}
+
+.ant-modal-content{
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0% !important;
 }
 
 footer{

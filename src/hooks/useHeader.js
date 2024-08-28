@@ -21,7 +21,8 @@ const useHeader = () => {
     if (
       location.pathname === `/login` ||
       location.pathname === `/signup` ||
-      location.pathname === `/my_account`
+      location.pathname === `/my_account` ||
+      location.pathname === `/reservation`
     ) {
       setShowHeader(false);
     } else {

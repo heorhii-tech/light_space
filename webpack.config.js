@@ -44,7 +44,6 @@ module.exports = {
         ],
       },
     ],
-    noParse: /useMyAccount.js/, // Исключение из обработки
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -62,12 +61,6 @@ module.exports = {
     hot: true,
     port: 5000,
     historyApiFallback: true,
-    watchFiles: {
-      paths: ["src/**/*"],
-      options: {
-        ignored: /useMyAccount.js/,
-      },
-    },
   },
 
   mode: "development",

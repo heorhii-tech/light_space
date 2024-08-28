@@ -4,8 +4,9 @@ import useTables from "../../hooks/useTables";
 import { useSelector } from "react-redux";
 import Table from "./Table";
 import useReservation from "../../hooks/useReservation";
+import { forgetCache } from "@apollo/client/cache/inmemory/reactiveVars";
 
-function Tables({ setCurrentTable }) {
+function Tables({ setCurrentTable, currentTable, setIsModalReservationOpen }) {
   const { fetchTables, user } = useTables();
   const tables = useSelector((state) => state.tables);
 
@@ -20,8 +21,10 @@ function Tables({ setCurrentTable }) {
           return (
             <Table
               setCurrentTable={setCurrentTable}
+              currentTable={currentTable}
               key={index}
               table={table}
+              setIsModalReservationOpen={setIsModalReservationOpen}
             />
           );
         })}

@@ -1,9 +1,58 @@
 .tables_wrapper{
-    @apply flex gap-2 mt-8  p-4;
+    @apply grid  grid-cols-2  gap-2 pt-[32px] justify-center p-4 bg-[#ffff] m-auto;
+    
+    
     .table_card{
-        @apply w-[200px] h-[200px] bg-slate-400 justify-center p-4;
+        @apply  w-[151px] h-[149px] bg-no-repeat grid  text-center m-auto;
+        
+        @apply rounded-xl justify-center  items-center p-4 text-white;
+        background-color: rgba(0, 0, 0, 0.4);    
+        background-blend-mode: darken;
+        grid-template-rows: 40% 60%;
+        
+        p{
+            @apply text-[#ffff] self-end;
+        }
+        h5{
+            @apply text-[12px] text-[#ffff] self-start;
+        }
     }
 }
-.order_form{
-    @apply flex flex-col bg-slate-100 w-[400px] p-5 rounded-2xl gap-3 mb-10 mx-auto;
+.reservation_form{
+    @apply flex flex-col bg-pale_grey w-[370px] px-[20px] py-[20px]  rounded-2xl gap-4 mb-10 mx-auto;
+    input{
+        @apply w-full py-[16px] px-[18px] rounded-[28px] bg-[#F2F2F2];
+    };
+    p{
+    @apply w-full py-[16px] px-[18px] rounded-[28px];
+    }
+    .primary-button{
+        @apply m-auto 
+    }
+    .focused_table{
+        @apply rounded-xl;
+        background-color: rgba(0, 0, 0, 0.4);
+            background-blend-mode: darken;
+        p{
+            @apply m-auto text-white text-[22px] text-center;
+        }
+    }
+    .button_cancel_reservation{
+        @apply bg-red-800 m-auto text-white;
+    }
+
+}
+.reservation_page_wrapper{
+    .title{
+        @apply bg-[#ffff] text-center pt-[57px] text-[32px];
+    }
+}
+.focused_table{
+@apply w-[150px] h-[150px] 
+}
+.ant-modal-content{
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding: 0% !important;
+    
 }

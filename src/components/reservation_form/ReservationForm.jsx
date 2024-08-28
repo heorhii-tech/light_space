@@ -3,8 +3,15 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useReservation from "../../hooks/useReservation";
 import { Button, Result } from "antd";
+import FocusedTable from "../tables/FocusedTable";
+import ButtonUniversal from "../Button/ButtonUniversal";
 
-function ReservationForm({ currentTable, setCurrentTable }) {
+function ReservationForm({
+  currentTable,
+  setCurrentTable,
+  focusedTable,
+  handleCancelReservation,
+}) {
   const {
     fetchReservations,
     user,
@@ -27,9 +34,14 @@ function ReservationForm({ currentTable, setCurrentTable }) {
   }, [currentTable]);
 
   return (
-    <form className="order_form" onSubmit={handleSubmitForm}>
-      <p>Table: {currentTable}</p>
-      <p>Name: {user.name}</p>
+    <form className="reservation_form" onSubmit={handleSubmitForm}>
+      <FocusedTable focusedTable={focusedTable} />
+      <input
+        type="text"
+        placeholder={`Table: ` + currentTable}
+        disabled
+      ></input>
+      <input type="text" placeholder={`Name: ` + user.name} disabled></input>
       {reserved && (
         <Result
           status="success"
@@ -85,7 +97,14 @@ function ReservationForm({ currentTable, setCurrentTable }) {
         </>
       )}
 
-      <button type="submit">Submit</button>
+      <button className="primary-button button" type="submit">
+        Submit
+      </button>
+      <ButtonUniversal
+        className={`button_cancel_reservation button`}
+        func={handleCancelReservation}
+        title={`Cancel`}
+      />
     </form>
   );
 }
