@@ -5,6 +5,8 @@ import useReservation from "../../hooks/useReservation";
 import { Button, Result } from "antd";
 import FocusedTable from "../tables/FocusedTable";
 import ButtonUniversal from "../Button/ButtonUniversal";
+import BackArrow from "../arrows/BackArrow";
+import BackArrowIcon from "../../assets/arrow-right.png";
 
 function ReservationForm({
   currentTable,
@@ -35,7 +37,15 @@ function ReservationForm({
 
   return (
     <form className="reservation_form" onSubmit={handleSubmitForm}>
-      <FocusedTable focusedTable={focusedTable} />
+      <div className="arrow_focused_table_wrapper">
+        <BackArrow
+          func={handleCancelReservation}
+          pathImg={BackArrowIcon}
+          className={`back_arrow_reservation_modal`}
+        />
+        <FocusedTable focusedTable={focusedTable} />
+      </div>
+
       <input
         type="text"
         placeholder={`Table: ` + currentTable}
@@ -68,6 +78,7 @@ function ReservationForm({
             dateFormat="MMMM d, yyyy h:mm aa"
             placeholderText="Select start time"
             minDate={new Date()}
+            required
             minTime={
               startDate
                 ? new Date(startDate.getTime() + 15 * 60000)
@@ -86,6 +97,7 @@ function ReservationForm({
             dateFormat="MMMM d, yyyy h:mm aa"
             placeholderText="Select end time"
             minDate={new Date()}
+            required
             minTime={
               startDate
                 ? new Date(startDate.getTime() + 15 * 60000)

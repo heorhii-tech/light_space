@@ -95,5 +95,5 @@ border-color: rgb(187, 9, 9) !important ;
 color: rgb(187, 9, 9) !important;
 }
 .my_acc_logout{
-    @apply w-full bg-xanadu py-[17px] rounded-[28px]  text-white mt-auto;
+    @apply w-full bg-xanadu py-[17px] rounded-[28px]  text-white mt-auto text-center;
 }

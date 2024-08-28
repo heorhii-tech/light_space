@@ -8,6 +8,7 @@ import LoginPage from "../../pages/LoginPage";
 import RequireAuth from "../../hoc/RequirAuth";
 import MyAccount from "../../pages/MyAccount";
 import AboutUs from "../../pages/AboutUs";
+import RedirectIfAuthenticated from "../../hoc/RedirectIfAuthenticated";
 
 function App(props) {
   return (
@@ -26,7 +27,14 @@ function App(props) {
               }
             />
             <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/login"
+              element={
+                <RedirectIfAuthenticated>
+                  <LoginPage />
+                </RedirectIfAuthenticated>
+              }
+            />
             <Route
               path="/my_account"
               element={

@@ -9,7 +9,6 @@ function RequireAuth({ children }) {
   if (!user.token) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
-
   return children;
 }
 

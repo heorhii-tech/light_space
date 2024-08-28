@@ -1,6 +1,7 @@
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   clearUser,
   updateName,
@@ -9,6 +10,7 @@ import {
 } from "../store/user/userSlice";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import AutoRedirect from "../components/autoRedirect/AutoRedirect";
 
 const useMyAcc = () => {
   const [file, setFile] = useState("");
@@ -73,6 +75,7 @@ const useMyAcc = () => {
   };
 
   const handleUnLogin = () => {
+    <AutoRedirect to={`/`} delay={10} />;
     dispatch(clearUser());
   };
 

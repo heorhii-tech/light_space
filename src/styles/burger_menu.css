@@ -1,5 +1,5 @@
 .burger_menu_icon_open {
-    @apply block w-[36px] h-[12px] xl:hidden border-y-2 border-white cursor-pointer;
+    @apply block w-[36px] h-[12px] xl:hidden border-y-2 border-white cursor-pointer self-center;
 }
 
 .burger_menu_icon_close {

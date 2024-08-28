@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import Tables from "../components/tables/Tables";
-import ReservationForm from "../components/reservation_form/ReservationForm";
-
 import { useSelector } from "react-redux";
 import ModalReservation from "../components/modalReservation/ModalReservation";
-
 import useModalReservation from "../hooks/useModalReservation";
 
 function ReservationPage(props) {

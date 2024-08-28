@@ -1,9 +1,9 @@
 .tables_wrapper{
-    @apply grid  grid-cols-2  gap-2 pt-[32px] justify-center p-4 bg-[#ffff] m-auto;
+    @apply flex flex-wrap  gap-[24px] pt-[32px] justify-center p-4 bg-[#ffff] m-auto;
     
     
     .table_card{
-        @apply  w-[151px] h-[149px] bg-no-repeat grid  text-center m-auto;
+        @apply  w-[151px] h-[149px] bg-no-repeat grid  text-center;
         
         @apply rounded-xl justify-center  items-center p-4 text-white;
         background-color: rgba(0, 0, 0, 0.4);    
@@ -30,7 +30,7 @@
         @apply m-auto 
     }
     .focused_table{
-        @apply rounded-xl;
+        @apply rounded-xl self-end;
         background-color: rgba(0, 0, 0, 0.4);
             background-blend-mode: darken;
         p{
@@ -40,6 +40,12 @@
     .button_cancel_reservation{
         @apply bg-red-800 m-auto text-white;
     }
+        .ant-modal-content {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            padding: 0% !important;
+    
+        }
 
 }
 .reservation_page_wrapper{
@@ -47,12 +53,12 @@
         @apply bg-[#ffff] text-center pt-[57px] text-[32px];
     }
 }
+.arrow_focused_table_wrapper{
+    @apply flex justify-between items-start;
+}
 .focused_table{
 @apply w-[150px] h-[150px] 
 }
-.ant-modal-content{
-    background-color: transparent !important;
-    box-shadow: none !important;
-    padding: 0% !important;
-    
+.back_arrow_reservation_modal{
+    @apply w-[40px];
 }

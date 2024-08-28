@@ -9,19 +9,10 @@ import useModalChangeName from "../../hooks/useModalChangeName";
 import ModalChangeMyData from "../modalChangeMyData/modalChangeMyData";
 import useModalChangeTel from "../../hooks/useModalChangeTel";
 import useModalChangeAvatar from "../../hooks/useModalChangeAvatar";
+import { Link } from "react-router-dom";
 
 function MyAccountComp() {
-  const {
-    fetchUserData,
-    file,
-    setFile,
-    handleUnLogin,
-
-    setChangeName,
-    changeName,
-    changePhone,
-    setChangePhone,
-  } = useMyAcc();
+  const { fetchUserData, handleUnLogin } = useMyAcc();
 
   const user = useSelector((state) => state.user);
   const {
@@ -57,70 +48,68 @@ function MyAccountComp() {
   }, [user.uid]);
 
   return (
-    <>
-      <div className="my_acc_wrapper">
+    <div className="my_acc_wrapper">
+      <div className="my_acc_edit_wrapper">
+        {user.avatar ? (
+          <img className="avatar" src={user.avatar} />
+        ) : (
+          <AvatarLoader />
+        )}
+        <ModalChangeMyData
+          isModalOpen={isModAvatarOpen}
+          handleUpdate={uploadAvatar}
+          handleCancel={handleCancelAvatar}
+          showModal={showModalAvatar}
+          setData={setAvatar}
+          data={avatar}
+          placeholder={"New name"}
+          title={"Change avatar"}
+          type={`file`}
+          user={user}
+          file={avatar}
+        />
+      </div>
+      <form className="my_acc_name">
         <div className="my_acc_edit_wrapper">
-          {user.avatar ? (
-            <img className="avatar" src={user.avatar} />
-          ) : (
-            <AvatarLoader />
-          )}
+          {user.name ? <p>{user.name}</p> : <LineLoader />}
           <ModalChangeMyData
-            isModalOpen={isModAvatarOpen}
-            handleUpdate={uploadAvatar}
-            handleCancel={handleCancelAvatar}
-            showModal={showModalAvatar}
-            setData={setAvatar}
-            data={avatar}
+            isModalOpen={isModaNameOpen}
+            handleUpdate={handleUpdateName}
+            handleCancel={handleCancelName}
+            showModal={showModalName}
+            setData={setName}
+            data={name}
             placeholder={"New name"}
-            title={"Change avatar"}
-            type={`file`}
-            user={user}
-            file={avatar}
+            title={"Change name"}
+            type={`text`}
           />
         </div>
-        <form className="my_acc_name">
-          <div className="my_acc_edit_wrapper">
-            {user.name ? <p>{user.name}</p> : <LineLoader />}
-            <ModalChangeMyData
-              isModalOpen={isModaNameOpen}
-              handleUpdate={handleUpdateName}
-              handleCancel={handleCancelName}
-              showModal={showModalName}
-              setData={setName}
-              data={name}
-              placeholder={"New name"}
-              title={"Change name"}
-              type={`text`}
-            />
-          </div>
-        </form>
-        <form onSubmit={handleUpdateTel} className="my_acc_number">
-          <div className="my_acc_edit_wrapper">
-            {user.tel ? <p>{user.tel}</p> : <LineLoader />}
-            <ModalChangeMyData
-              isModalOpen={isModaTelOpen}
-              handleUpdate={handleUpdateTel}
-              handleCancel={handleCancelTel}
-              showModal={showModalTel}
-              setData={setTel}
-              data={tel}
-              placeholder={"New number"}
-              title={"Change number"}
-              type={`text`}
-            />
-          </div>
-        </form>
-        <form className="my_acc_email">
-          <div className="my_acc_edit_wrapper">
-            {user.email ? <p>{user.email}</p> : <LineLoader />}
-          </div>
-        </form>
-        <button className="my_acc_logout" onClick={handleUnLogin}>
-          LOGOUT
-        </button>
-      </div>
-    </>
+      </form>
+      <form onSubmit={handleUpdateTel} className="my_acc_number">
+        <div className="my_acc_edit_wrapper">
+          {user.tel ? <p>{user.tel}</p> : <LineLoader />}
+          <ModalChangeMyData
+            isModalOpen={isModaTelOpen}
+            handleUpdate={handleUpdateTel}
+            handleCancel={handleCancelTel}
+            showModal={showModalTel}
+            setData={setTel}
+            data={tel}
+            placeholder={"New number"}
+            title={"Change number"}
+            type={`text`}
+          />
+        </div>
+      </form>
+      <form className="my_acc_email">
+        <div className="my_acc_edit_wrapper">
+          {user.email ? <p>{user.email}</p> : <LineLoader />}
+        </div>
+      </form>
+      <Link to={`/`} className="my_acc_logout">
+        <button onClick={handleUnLogin}>LOGOUT</button>
+      </Link>
+    </div>
   );
 }
 

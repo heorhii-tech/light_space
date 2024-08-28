@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 
 const AutoRedirect = ({ to, delay }) => {
   const [redirect, setRedirect] = React.useState(false);
+  console.log(11);
 
   useEffect(() => {
     const timer = setTimeout(() => {

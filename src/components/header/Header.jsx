@@ -6,9 +6,17 @@ import SecondaryButton from "../Button/SecondaryButton";
 import HeaderNav from "./HeaderNav";
 import logo from "../../assets/logo.png";
 import useHeader from "../../hooks/useHeader";
+import useMyAcc from "../../hooks/useMyAcc";
 
 function Header(props) {
-  const { showHeader, setShowHeader, filterHeaderMenuFunction } = useHeader();
+  const {
+    showHeader,
+
+    filterHeaderMenuFunction,
+    headerAuthLink,
+    pathImg,
+  } = useHeader();
+  const { handleUnLogin } = useMyAcc();
 
   return (
     <>
@@ -16,6 +24,10 @@ function Header(props) {
         logo={logo}
         filterHeaderMenuFunction={filterHeaderMenuFunction}
         showHeader={showHeader}
+        linkHeaderAuth={headerAuthLink}
+        funcHeaderAuth={handleUnLogin}
+        pathImgHeaderAuth={pathImg}
+        classNameHeaderAuth={`header_autth_icon`}
       />
       <header
         style={

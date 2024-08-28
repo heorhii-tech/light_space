@@ -1,11 +1,22 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { headerMenu } from "../constants/constants";
+import loginIcon from "../assets/login.png";
+import logoutIcon from "../assets/exit.png";
 
 const useHeader = () => {
   const [showHeader, setShowHeader] = useState(true);
+  const [headerAuthLink, setHeaderAuthLink] = useState(`#`);
+  const [pathImg, setPathImg] = useState(``);
+  const user = useSelector((state) => state.user);
   const location = useLocation();
+
+  useEffect(() => {
+    setHeaderAuthLink(!user.token ? `/login` : `/`);
+  }, [user.token]);
+  useEffect(() => {
+    setPathImg(!user.token ? loginIcon : logoutIcon);
+  }, [user.token]);
 
   const filterHeaderMenuFunction = (data, token) => {
     if (token) {
@@ -13,7 +24,9 @@ const useHeader = () => {
         (item) => item.item !== `Sign Up` && item.item !== `Login`
       );
     } else {
-      return data.filter((item) => item.item !== `My Account`);
+      return data.filter(
+        (item) => item.item !== `My Account` && item.item !== `Logout`
+      );
     }
   };
 
@@ -30,6 +43,12 @@ const useHeader = () => {
     }
   }, [location.pathname]);
 
-  return { showHeader, setShowHeader, filterHeaderMenuFunction };
+  return {
+    showHeader,
+    setShowHeader,
+    filterHeaderMenuFunction,
+    headerAuthLink,
+    pathImg,
+  };
 };
 export default useHeader;

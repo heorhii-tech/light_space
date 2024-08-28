@@ -4,8 +4,17 @@ import { headerMenu } from "../../constants/constants";
 import Icon from "../burger_menu/Icon";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import HeaderAuth from "./HeaderAuth";
 
-function HeaderNav({ logo, filterHeaderMenuFunction, showHeader }) {
+function HeaderNav({
+  logo,
+  filterHeaderMenuFunction,
+  showHeader,
+  pathImgHeaderAuth,
+  linkHeaderAuth,
+  funcHeaderAuth,
+  classNameHeaderAuth,
+}) {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const user = useSelector((state) => state.user);
   const setBurgerMenu = () => {
@@ -25,6 +34,13 @@ function HeaderNav({ logo, filterHeaderMenuFunction, showHeader }) {
       <Link to="/" className="logo_wrapper">
         <img className="logo" src={logo}></img>
       </Link>
+      <HeaderAuth
+        linkHeaderAuth={linkHeaderAuth}
+        funcHeaderAuth={funcHeaderAuth}
+        pathImgHeaderAuth={pathImgHeaderAuth}
+        classNameHeaderAuth={classNameHeaderAuth}
+      />
+
       <Icon burgerOpen={burgerOpen} setBurgerMenu={setBurgerMenu} />
       {burgerOpen && (
         <BurgerMenu
