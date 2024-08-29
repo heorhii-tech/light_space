@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import useLayout from "../../hooks/useLayout";
+import useHeader from "../../hooks/useHeader";
 
 const Layout = ({ children }) => {
-  const { image, title, button } = useLayout();
+  const { image, title, button } = useHeader();
 
   return (
     <div className="main_wrapper">

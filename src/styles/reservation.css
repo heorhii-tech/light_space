@@ -40,12 +40,7 @@
     .button_cancel_reservation{
         @apply bg-red-800 m-auto text-white;
     }
-        .ant-modal-content {
-            background-color: transparent !important;
-            box-shadow: none !important;
-            padding: 0% !important;
-    
-        }
+       
 
 }
 .reservation_page_wrapper{
@@ -62,3 +57,9 @@
 .back_arrow_reservation_modal{
     @apply w-[40px];
 }
+ .ant-modal-content {
+     background-color: transparent !important;
+     box-shadow: none !important;
+     padding: 0% !important;
+
+ }

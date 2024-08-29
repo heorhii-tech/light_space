@@ -8,6 +8,9 @@ const useHeader = () => {
   const [showHeader, setShowHeader] = useState(true);
   const [headerAuthLink, setHeaderAuthLink] = useState(`#`);
   const [pathImg, setPathImg] = useState(``);
+  const [image, setImage] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [button, setButton] = useState(null);
   const user = useSelector((state) => state.user);
   const location = useLocation();
 
@@ -43,12 +46,41 @@ const useHeader = () => {
     }
   }, [location.pathname]);
 
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/":
+        setImage(ImageHome);
+        setTitle(null);
+        setButton("BOOK");
+        break;
+      case "/about_us":
+        setImage(ImageAboutUs);
+        setTitle("About us");
+        setButton(null);
+        break;
+      case "/contact":
+        setImage(ImageAboutUs);
+        setTitle("About us");
+        setButton(null);
+        break;
+
+      default:
+        setImage(null);
+        setTitle(null);
+        setButton(null);
+        break;
+    }
+  }, [location.pathname]);
+
   return {
     showHeader,
     setShowHeader,
     filterHeaderMenuFunction,
     headerAuthLink,
     pathImg,
+    image,
+    title,
+    button,
   };
 };
 export default useHeader;
