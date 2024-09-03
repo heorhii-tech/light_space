@@ -22,6 +22,7 @@ function ModalChangeMyData({
       </Button>
       <Modal
         title={title}
+       
         open={isModalOpen}
         okButtonProps={{ className: "custom-ok-button", disabled: !data }}
         cancelButtonProps={{ className: "custom-cancel-button" }}

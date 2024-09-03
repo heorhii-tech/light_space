@@ -1,6 +1,7 @@
 header {
     @apply bg-cover bg-no-repeat;
     background-color: rgba(1, 1, 1, 0.3);
+    background-position: center;
 }
 
 .header {

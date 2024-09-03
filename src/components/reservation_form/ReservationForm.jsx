@@ -26,7 +26,6 @@ function ReservationForm({
     handleSubmitForm,
     formatDate,
     formatTime,
-    closeReservResult,
   } = useReservation(currentTable, setCurrentTable);
 
   useEffect(() => {
@@ -46,12 +45,6 @@ function ReservationForm({
         <FocusedTable focusedTable={focusedTable} />
       </div>
 
-      <input
-        type="text"
-        placeholder={`Table: ` + currentTable}
-        disabled
-      ></input>
-      <input type="text" placeholder={`Name: ` + user.name} disabled></input>
       {reserved && (
         <Result
           status="success"
@@ -60,7 +53,11 @@ function ReservationForm({
             startDate
           )} - ${formatTime(endDate)}`}
           extra={[
-            <Button type="primary" key="console" onClick={closeReservResult}>
+            <Button
+              type="primary"
+              key="console"
+              onClick={handleCancelReservation}
+            >
               Close
             </Button>,
           ]}
@@ -69,6 +66,16 @@ function ReservationForm({
 
       {currentTable && !reserved && (
         <>
+          <input
+            type="text"
+            placeholder={`Table: ` + currentTable}
+            disabled
+          ></input>
+          <input
+            type="text"
+            placeholder={`Name: ` + user.name}
+            disabled
+          ></input>
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
@@ -106,17 +113,16 @@ function ReservationForm({
             maxTime={new Date().setHours(22, 0, 0, 0)}
             filterTime={filterTime}
           />
+          <button className="primary-button button" type="submit">
+            Submit
+          </button>
+          <ButtonUniversal
+            className={`button_cancel_reservation button`}
+            func={handleCancelReservation}
+            title={`Cancel`}
+          />
         </>
       )}
-
-      <button className="primary-button button" type="submit">
-        Submit
-      </button>
-      <ButtonUniversal
-        className={`button_cancel_reservation button`}
-        func={handleCancelReservation}
-        title={`Cancel`}
-      />
     </form>
   );
 }

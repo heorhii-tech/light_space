@@ -3,6 +3,9 @@ import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import loginIcon from "../assets/login.png";
 import logoutIcon from "../assets/exit.png";
+import headerContacntImg from "../assets/headerContact.png";
+import ImageHome from "../assets/header2.svg";
+import ImageAboutUs from "../assets/aboutHeader.png";
 
 const useHeader = () => {
   const [showHeader, setShowHeader] = useState(true);
@@ -59,8 +62,8 @@ const useHeader = () => {
         setButton(null);
         break;
       case "/contact":
-        setImage(ImageAboutUs);
-        setTitle("About us");
+        setImage(headerContacntImg);
+        setTitle("Contact");
         setButton(null);
         break;
 
