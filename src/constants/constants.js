@@ -7,6 +7,12 @@ import imgValue2 from "../assets/circle.png";
 import imgValue3 from "../assets/colloboration.png";
 import imgValue4 from "../assets/Responsibility.png";
 import imgValue5 from "../assets/users.png";
+import imgContacts1 from "../assets/locationIcon.png";
+import imgContacts2 from "../assets/phoneIcon.png";
+import imgContacts3 from "../assets/telegramIcon.png";
+import imgContacts4 from "../assets/mailIcon.png";
+import imgContacts5 from "../assets/Instagram.png";
+
 const headerMenu = [
   {
     item: `Home`,
@@ -58,6 +64,18 @@ const aboutUsPageText = [
       `Our founders are three resilient women who recognized the importance of a workspace that stimulates and inspires creativity.`,
       `We started our journey in 2022 with the goal of creating the best coworking space in the city.`,
       `Our team consists of talented professionals from various fields, each bringing unique knowledge and experience. We come together to create a space where our clients can work, learn, and connect.`,
+    ],
+  },
+];
+const contactPageText = [
+  {
+    title: `Our contacts`,
+  },
+  {
+    text: [
+      `You can contact us in any way convenient for you. `,
+      `We are always ready to answer your questions and provide detailed information about our services and events.`,
+      ``,
     ],
   },
 ];
@@ -113,6 +131,38 @@ const valuesData = [
     color: `white`,
   },
 ];
+const contactsInfoData = [
+  {
+    img: imgContacts1,
+    text: `Our address: 7 Laboratornyi lane, Kyiv, Alter Ego residential complex.`,
+    bgColor: `#687D6B`,
+    color: `white`,
+  },
+  {
+    img: imgContacts2,
+    text: `Flexibility: We find optimal solutions for each client.`,
+    bgColor: `#687D6B`,
+    color: `white`,
+  },
+  {
+    img: imgContacts3,
+    text: `Collaboration: We believe that only by working together can we achieve greater success.`,
+    bgColor: `#687D6B`,
+    color: `white`,
+  },
+  {
+    img: imgContacts4,
+    text: `Responsibility: We strive to achieve the best possible results in our work..`,
+    bgColor: `#687D6B`,
+    color: `white`,
+  },
+  {
+    img: imgContacts5,
+    text: `Customer Focus: We always prioritize the needs of our clients.`,
+    bgColor: `#687D6B`,
+    color: `white`,
+  },
+];
 const addres = `Laboratorniy provylok 7, Kyiv Ukraine`;
 const tel = `+31638699561`;
 export {
@@ -123,4 +173,6 @@ export {
   tel,
   aboutUsPageText,
   valuesData,
+  contactPageText,
+  contactsInfoData,
 };

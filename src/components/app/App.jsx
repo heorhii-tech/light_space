@@ -9,6 +9,7 @@ import RequireAuth from "../../hoc/RequirAuth";
 import MyAccount from "../../pages/MyAccount";
 import AboutUs from "../../pages/AboutUs";
 import RedirectIfAuthenticated from "../../hoc/RedirectIfAuthenticated";
+import ContactPage from "../../pages/ContactPage";
 
 function App(props) {
   return (
@@ -27,6 +28,7 @@ function App(props) {
               }
             />
             <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route
               path="/login"
               element={

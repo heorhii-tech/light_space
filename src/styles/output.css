@@ -4,6 +4,7 @@ header{
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(1, 1, 1, 0.3);
+  background-position: center;
 }
 
 .header{
@@ -808,6 +809,93 @@ body {
   color: rgb(229 229 229 / var(--tw-text-opacity));
 }
 
+.myacc-modal-class {
+  background-color: white !important;
+  box-shadow: none !important;
+  padding: 0% !important;
+}
+
+.reservation_page_wrapper {
+  .title{
+    position: relative;
+  }
+  .title{
+    z-index: 0;
+  }
+  .title{
+    background-color: #ffff;
+  }
+  .title{
+    padding-top: 57px;
+  }
+  .title{
+    text-align: center;
+  }
+  .title{
+    font-size: 32px;
+  }
+  .sub_title{
+    background-color: #ffff;
+  }
+  .sub_title{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .sub_title{
+    text-align: center;
+  }
+}
+
+.current_resrvation_wrapper{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  background-color: #ffff;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  .reservation{
+    border-radius: 1.5rem;
+  }
+  .reservation{
+    border-width: 1px;
+  }
+  .reservation{
+    --tw-border-opacity: 1;
+    border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  }
+  .reservation{
+    padding: 0.25rem;
+  }
+  .reservation{
+    p{
+      font-size: 10px;
+    }
+    button{
+      margin-top: 0.5rem;
+    }
+    button{
+      border-radius: 1.5rem;
+    }
+    button{
+      --tw-bg-opacity: 1;
+      background-color: rgb(153 27 27 / var(--tw-bg-opacity));
+    }
+    button{
+      padding: 0.5rem;
+    }
+    button{
+      font-size: 10px;
+    }
+    button{
+      --tw-text-opacity: 1;
+      color: rgb(229 229 229 / var(--tw-text-opacity));
+    }
+  }
+}
+
 .tables_wrapper{
   margin: auto;
   display: flex;
@@ -885,6 +973,11 @@ body {
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
   input{
     width: 100%;
   }
@@ -956,21 +1049,6 @@ body {
   }
 }
 
-.reservation_page_wrapper{
-  .title{
-    background-color: #ffff;
-  }
-  .title{
-    padding-top: 57px;
-  }
-  .title{
-    text-align: center;
-  }
-  .title{
-    font-size: 32px;
-  }
-}
-
 .arrow_focused_table_wrapper{
   display: flex;
   align-items: flex-start;
@@ -986,11 +1064,22 @@ body {
   width: 40px;
 }
 
-.ant-modal-content {
+.reserv-modal-class .ant-modal-content {
   background-color: transparent !important;
   box-shadow: none !important;
   padding: 0% !important;
 }
+
+.overlay{
+  position: fixed;
+  inset: 0px;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.5;
+  z-index: 9;
+  display: block;
+}
+
+/* Покрытие заднего фона при открытии формы */
 
 footer{
   margin-top: 0.75rem;
@@ -1295,9 +1384,44 @@ footer{
   }
 }
 
-/*
-! tailwindcss v3.4.10 | MIT License | https://tailwindcss.com
-*/
+.contact_page_wrapper{
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 234 231 / var(--tw-bg-opacity));
+  .text_block_title{
+    align-self: flex-start;
+  }
+}
+
+.our_contacts_infoBlock_wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 245 245 / var(--tw-bg-opacity));
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+.contacts_card{
+  display: flex;
+  height: 96px;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  img{
+    height: 40px;
+  }
+  img{
+    width: 40px;
+  }
+}
+
+/* ! tailwindcss v3.4.10 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
