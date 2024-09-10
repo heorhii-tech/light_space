@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import useMyAcc from "../../hooks/useMyAcc";
-import edit from "../../assets/edit.png";
-import AvatarLoader from "../skeletons/AvatarLoader";
 import LineLoader from "../skeletons/LineLoader";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Space } from "antd";
 
 import useModalChangeName from "../../hooks/useModalChangeName";
-import ModalChangeMyData from "../modalChangeMyData/modalChangeMyData";
+import ModalChangeMyData from "../modalChangeMyData/ModalChangeMyData.jsx";
 import useModalChangeTel from "../../hooks/useModalChangeTel";
 import useModalChangeAvatar from "../../hooks/useModalChangeAvatar";
 import { Link } from "react-router-dom";
