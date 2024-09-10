@@ -1,17 +1,12 @@
 import React from "react";
 
-function Table({
-  setCurrentTable,
-  table,
-  currentTable,
-  setIsModalReservationOpen,
-}) {
+function Table({ setCurrentTable, table, setIsModalReservationOpen }) {
   return (
     <div
       className="table_card"
       style={{ backgroundImage: `url(${table.img})` }}
       onClick={() => {
-        setCurrentTable(table.tableID);
+        setCurrentTable(table);
         setIsModalReservationOpen(true);
         document.body.style.overflow = "hidden";
       }}

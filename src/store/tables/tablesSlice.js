@@ -7,7 +7,7 @@ const tablesSlice = createSlice({
   },
   reducers: {
     setTables: (state, action) => {
-      return action.payload;
+      state.tables = action.payload;
     },
   },
 });

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import PrimaryButton from "../Button/PrimaryButton";
@@ -7,16 +7,24 @@ import HeaderNav from "./HeaderNav";
 import logo from "../../assets/logo.png";
 import useHeader from "../../hooks/useHeader";
 import useMyAcc from "../../hooks/useMyAcc";
+import AvatarLoader from "../skeletons/AvatarLoader";
 
 function Header(props) {
-  const {
-    showHeader,
-
-    filterHeaderMenuFunction,
-    headerAuthLink,
-    pathImg,
-  } = useHeader();
+  const { showHeader, filterHeaderMenuFunction, headerAuthLink, pathImg } =
+    useHeader();
   const { handleUnLogin } = useMyAcc();
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = props.image;
+    img.onload = () => {
+      setIsImageLoaded(true);
+    };
+  }, [props.image]);
+  useEffect(() => {
+    setIsImageLoaded(false);
+  }, [location.pathname]);
 
   return (
     <>
@@ -32,10 +40,12 @@ function Header(props) {
       <header
         style={
           props.nav
-            ? { backgroundImage: `url(${props.image})` }
-            : { backgroundImage: `url(${props.image})` }
+            ? { backgroundImage: isImageLoaded ? `url(${props.image})` : "" }
+            : { backgroundImage: isImageLoaded ? `url(${props.image})` : "" }
         }
-        className={showHeader ? `` : `hidde`}
+        className={`${showHeader ? "" : "hidde"} ${
+          !isImageLoaded ? "skeleton-background" : ""
+        }`}
       >
         <div className={`header`}>
           <div className={`header_main`}>

@@ -1,20 +1,14 @@
 import React, { useEffect } from "react";
-
-import useTables from "../../hooks/useTables";
-import { useSelector } from "react-redux";
 import Table from "./Table";
-import useReservation from "../../hooks/useReservation";
-import { forgetCache } from "@apollo/client/cache/inmemory/reactiveVars";
 import AvatarLoader from "../skeletons/AvatarLoader";
 
-function Tables({ setCurrentTable, currentTable, setIsModalReservationOpen }) {
-  const { fetchTables, user } = useTables();
-  const tables = useSelector((state) => state.tables);
 
-  useEffect(() => {
-    user.token && fetchTables();
-  }, [user.token]);
-
+function Tables({
+  setCurrentTable,
+  currentTable,
+  setIsModalReservationOpen,
+  tables,
+}) {
   return (
     <div className="tables_wrapper">
       {tables.length

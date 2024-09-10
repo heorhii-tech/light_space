@@ -4,6 +4,8 @@ import useMyAcc from "../../hooks/useMyAcc";
 import edit from "../../assets/edit.png";
 import AvatarLoader from "../skeletons/AvatarLoader";
 import LineLoader from "../skeletons/LineLoader";
+import { UserOutlined } from "@ant-design/icons";
+import { Avatar, Space } from "antd";
 
 import useModalChangeName from "../../hooks/useModalChangeName";
 import ModalChangeMyData from "../modalChangeMyData/modalChangeMyData";
@@ -53,7 +55,7 @@ function MyAccountComp() {
         {user.avatar ? (
           <img className="avatar" src={user.avatar} />
         ) : (
-          <AvatarLoader />
+          <Avatar shape="square" size={128} icon={<UserOutlined />} />
         )}
         <ModalChangeMyData
           isModalOpen={isModAvatarOpen}

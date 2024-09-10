@@ -7,9 +7,8 @@
 
      input {
          @apply py-4 px-5 rounded-[28px] bg-white border border-xanadu md:focus:ring-xanadu focus:border-xanadu;
-         @apply transition-all duration-500 ease-in-out;
-         @apply md:hover:scale-105 active:bg-xanadu-dark;
-         ;
+         
+         
 
      }
  }
@@ -22,13 +21,13 @@
          @apply transition-all duration-500 ease-in-out;
 
          &:first-child {
-             @apply bg-xanadu text-very-light-gray md:hover:bg-xanadu-dark md:active:bg-xanadu-darkest;
+             @apply bg-xanadu text-very-light-gray active:bg-xanadu-darkest;
 
          }
 
          &:not(:first-child) {
-             @apply bg-very-light-gray border border-xanadu text-xanadu font-bold md:hover:bg-xanadu md:hover:text-very-light-gray;
-             @apply md:active:bg-xanadu-dark;
+             @apply bg-very-light-gray border border-xanadu text-xanadu font-bold active:text-very-light-gray;
+             @apply active:bg-xanadu-dark;
 
 
 
@@ -37,7 +36,7 @@
 
      a {
          @apply text-center bg-very-light-gray border-[1px] border-xanadu font-bold py-[17.5px] rounded-[28px];
-         @apply transition-all duration-500 ease-in-out hover:bg-xanadu hover:text-very-light-gray;
+         @apply transition-all duration-500 ease-in-out active:text-very-light-gray;
          @apply active:bg-xanadu-dark;
 
 

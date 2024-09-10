@@ -18,7 +18,7 @@
      color: #F0F0F0;
      background: #687D6B;
  }
-.primary-button:hover{
+.primary-button:active{
     background: #556658;
 }
 .secondary-button{

@@ -37,7 +37,7 @@
     @apply bg-very-light-gray py-5;
 }
 .my_acc_wrapper{
-    @apply m-auto w-[380px] flex flex-col gap-3 h-[89vh];
+    @apply m-auto w-full px-[20px] flex flex-col gap-3 h-[89vh];
     .avatar{
         @apply w-[127px] h-[151px] rounded-xl mt-3;
     }

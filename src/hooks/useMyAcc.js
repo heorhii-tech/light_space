@@ -1,6 +1,8 @@
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { UserOutlined } from "@ant-design/icons";
+import { Avatar, Space } from "antd";
 
 import {
   clearUser,
