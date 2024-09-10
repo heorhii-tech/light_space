@@ -7,6 +7,7 @@ module.exports = {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
     assetModuleFilename: "[name][ext]",
+    publicPath: "/", // Для корректной работы роутера
   },
   module: {
     rules: [
@@ -18,7 +19,6 @@ module.exports = {
             loader: "babel-loader",
             options: {
               cacheDirectory: true,
-              // Опции могут быть добавлены сюда, если это необходимо
             },
           },
         ],
@@ -33,15 +33,10 @@ module.exports = {
       },
       {
         test: /\.pdf$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[hash:8].[ext]",
-              outputPath: "files/",
-            },
-          },
-        ],
+        type: "asset/resource",
+        generator: {
+          filename: "files/[name].[hash:8][ext]",
+        },
       },
     ],
   },
@@ -60,8 +55,7 @@ module.exports = {
     },
     hot: true,
     port: 5000,
-    historyApiFallback: true,
+    historyApiFallback: true, // Перенаправляет все запросы на index.html
   },
-
-  mode: "development",
+  mode: process.env.NODE_ENV === "production" ? "production" : "development", // Определение режима
 };
