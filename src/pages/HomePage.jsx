@@ -18,7 +18,7 @@ function HomePage(props) {
         <div className="home-page__info">
           <div className="home-page__info-content">
             <TextBlock data={homePageText} />
-            <PrimaryButton text={`BOOK`} link={`/reservations`} />
+            <PrimaryButton text={`BOOK`} link={`/reservation`} />
           </div>
           <ImageSlider data={infoCards} />
         </div>
