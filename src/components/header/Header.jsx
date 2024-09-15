@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
-import PrimaryButton from "../Button/PrimaryButton";
-import SecondaryButton from "../Button/SecondaryButton";
+
+import PrimaryButton from "../common/buttons/PrimaryButton";
+import SecondaryButton from "../common/buttons/SecondaryButton";
 import HeaderNav from "./HeaderNav";
 import logo from "../../assets/logo.png";
 import useHeader from "../../hooks/useHeader";
 import useMyAcc from "../../hooks/useMyAcc";
-import AvatarLoader from "../skeletons/AvatarLoader";
 
 function Header(props) {
-  const { showHeader, filterHeaderMenuFunction, headerAuthLink, pathImg } =
-    useHeader();
+  const {
+    showHeader,
+    filterHeaderMenuFunction,
+    headerAuthLink,
+    pathImg,
+    customStyleHeader,
+  } = useHeader();
   const { handleUnLogin } = useMyAcc();
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
@@ -36,6 +39,7 @@ function Header(props) {
         funcHeaderAuth={handleUnLogin}
         pathImgHeaderAuth={pathImg}
         classNameHeaderAuth={`header_autth_icon`}
+        customStyleHeader={customStyleHeader}
       />
       <header
         style={

@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import Title from "../common/texts/Title";
 
 function Form({
   type,
@@ -13,6 +14,7 @@ function Form({
   setTel,
   password,
   setPassword,
+  text,
 }) {
   return (
     <div className="auth_form_wrapper">
@@ -20,6 +22,7 @@ function Form({
         className={type === "login" ? `login_form` : `signup_form`}
         onSubmit={handleSubmit}
       >
+        <Title text={text} />
         <div className="form_inputs_wrapper">
           <input
             type="email"
@@ -59,7 +62,7 @@ function Form({
           )}
         </div>
         <p className={type === `login` ? `res_password` : `hidde`}>
-          Forgot your password?
+          <NavLink to={`/reset_password`}>Forgot your password?</NavLink>
         </p>
         <div className="buttons_wrapper">
           <button type="submit">

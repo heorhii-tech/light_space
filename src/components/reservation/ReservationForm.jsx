@@ -3,9 +3,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Button, Result } from "antd";
 import FocusedTable from "../tables/FocusedTable";
-import ButtonUniversal from "../Button/ButtonUniversal";
+import ButtonUniversal from "../common/buttons/ButtonUniversal";
 import BackArrow from "../arrows/BackArrow";
-import BackArrowIcon from "../../assets/arrow-right.png";
+import BackArrowIcon from "../../assets/arrow-left.png";
 
 function ReservationForm({
   currentTable,
@@ -109,7 +109,7 @@ function ReservationForm({
             Submit
           </button>
           <ButtonUniversal
-            className={`button_cancel_reservation button`}
+            className={`cancel_button button`}
             func={closeReservResult}
             title={`Cancel`}
           />

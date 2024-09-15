@@ -1,8 +1,24 @@
+.login-page {
+    @apply w-full bg-[#ffff] pb-[75px];
+
+    @apply xl:bg-[#ffff] xl:pb-[75px];
+}
+
 .auth_form_wrapper {
-    @apply bg-very-light-gray w-full pt-[52px] pb-[52px] h-[90vh];
+    @apply bg-very-light-shade-of-orange w-full pt-[52px] pb-[52px] h-[90vh];
+    @apply xl:max-w-[658px] xl:h-auto xl:mt-[96px] xl:mb-[75px] xl:rounded-[28px] xl:m-auto xl:px-[45px];
+
+    .univarsal_title_wrapper {
+        @apply text-center;
+
+        .title {
+            @apply font-semibold text-xl text-xanadu;
+        }
+    }
 
     .login_form {
         @apply w-[320px] m-auto flex flex-col gap-[24.5px] h-full;
+        @apply xl:w-full;
     }
 
     .form_inputs_wrapper {
@@ -10,7 +26,6 @@
 
         input {
             @apply py-4 px-5 rounded-[28px] bg-white border border-xanadu focus:border-xanadu;
-            
         }
     }
 
@@ -23,26 +38,20 @@
 
             &:first-child {
                 @apply bg-xanadu text-very-light-gray active:bg-xanadu-darkest;
-
             }
 
             &:not(:first-child) {
-                @apply bg-very-light-gray border border-xanadu text-xanadu font-bold md:hover:bg-xanadu hover:text-very-light-gray;
-                @apply md:active:bg-xanadu-dark;
-
-                
-
+                @apply bg-very-light-gray border border-xanadu text-xanadu font-bold;
+                @apply md:hover:bg-xanadu hover:text-very-light-gray md:active:bg-xanadu-dark;
             }
         }
 
         a {
-            @apply text-center bg-very-light-gray border-[1px] border-xanadu font-bold py-[17.5px] rounded-[28px];      
+            @apply text-center bg-very-light-gray border-[1px] border-xanadu font-bold py-[17.5px] rounded-[28px];
         }
     }
 
     .res_password {
         @apply underline text-base;
-
-      
     }
 }

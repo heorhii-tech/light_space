@@ -1,10 +1,10 @@
 import React from "react";
-import ButtonUniversal from "../Button/ButtonUniversal";
+import ButtonUniversal from "../common/buttons/ButtonUniversal";
 
 function CurrentUserReservations({
   currentUserReservations,
   handleDeleteCurrentReservation,
-  title
+  title,
 }) {
   return (
     <div className="current_resrvation_wrapper">

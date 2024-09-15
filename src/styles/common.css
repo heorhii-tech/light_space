@@ -10,7 +10,8 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background: var(--color-primary-green);
-    @apply px-[7px];
+    @apply px-[7px] xl:pt-[40px];
+    
 }
 
 
@@ -33,8 +34,11 @@ body {
 
 
 .main_wrapper{
-    @apply max-w-[420px] m-auto pb-6;
+    @apply max-w-[420px] m-auto pb-6 xl:max-w-full;
 }
 .hidde{
     display: none;
+}
+.extra-header__background{
+    @apply xl:bg-xanadu xl:h-[50px];
 }

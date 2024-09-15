@@ -5,14 +5,16 @@ import InformationBlock from "../components/information_block/InformationBlock";
 
 function ContactPage(props) {
   return (
-    <div className="contact_page_wrapper">
-      <TextBlock data={contactPageText} />
-      <InformationBlock
-        data={contactsInfoData}
-        className={`our_contacts_infoBlock_wrapper`}
-        classNameCard={`contacts_card`}
-      />
-    </div>
+    <section className="contact-page">
+      <div className="contact-page__wrapper">
+        <TextBlock data={contactPageText} />
+        <InformationBlock
+          data={contactsInfoData}
+          className={`our_contacts_infoBlock_wrapper`}
+          classNameCard={`contacts_card`}
+        />
+      </div>
+    </section>
   );
 }
 

@@ -16,7 +16,7 @@ const useSignUp = () => {
   const [password, setPassword] = useState("");
   const [tel, setTel] = useState("");
   const [name, setName] = useState("");
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     if (error) {
       messageApi.open({
@@ -29,6 +29,7 @@ const useSignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     try {
       const userCredential = await createUserWithEmailAndPassword(
@@ -48,12 +49,15 @@ const useSignUp = () => {
       setPassword("");
       setRegistered(true);
       setEmail("");
+      setLoading(false);
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         setError("Email already is used");
+        setLoading(false);
       } else {
         console.log(error);
         setError("An error occurred during sign up");
+        setLoading(false);
       }
     }
   };
@@ -70,6 +74,7 @@ const useSignUp = () => {
     tel,
     name,
     password,
+    loading,
   };
 };
 

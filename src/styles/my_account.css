@@ -1,6 +1,12 @@
-
+.my-account {
+    @apply bg-very-light-gray py-5 xl:pt-0;
+    .my-account__background{
+        @apply xl:bg-xanadu xl:h-[50px];
+    }
+}
 .account_wrapper {
     @apply flex flex-col w-full gap-6 bg-[#EFEAE7] items-center p-6;
+  
    
 
     .avatar {
@@ -33,9 +39,7 @@
         @apply border-2 border-gray-500 rounded-lg w-48 p-2 bg-white hover:bg-gray-100 transition ease-in-out duration-150;
     }
 }
-.my_account_section{
-    @apply bg-very-light-gray py-5;
-}
+
 .my_acc_wrapper{
     @apply m-auto w-full px-[20px] flex flex-col gap-3 h-[89vh];
     .avatar{

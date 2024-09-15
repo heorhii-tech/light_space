@@ -6,11 +6,12 @@ import HomePage from "../../pages/HomePage";
 import SignUpPage from "../../pages/SignUpPage";
 import LoginPage from "../../pages/LoginPage";
 import RequireAuth from "../../hoc/RequirAuth";
-import MyAccount from "../../pages/MyAccount";
-import AboutUs from "../../pages/AboutUs";
+import MyAccountPage from "../../pages/MyAccountPage";
+import AboutUsPage from "../../pages/AboutUsPage";
 import RedirectIfAuthenticated from "../../hoc/RedirectIfAuthenticated";
 import ContactPage from "../../pages/ContactPage";
 import ReservationHistoryPage from "../../pages/ReservationHistoryPage";
+import ResetPasswordPage from "../../pages/ResetPasswordPage";
 
 function App(props) {
   return (
@@ -19,7 +20,7 @@ function App(props) {
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/about_us" element={<AboutUs />} />
+            <Route path="/about_us" element={<AboutUsPage />} />
 
             <Route
               path="/reservation"
@@ -31,6 +32,7 @@ function App(props) {
             />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/reset_password" element={<ResetPasswordPage />} />
             <Route
               path="/login"
               element={
@@ -43,7 +45,7 @@ function App(props) {
               path="/my_account"
               element={
                 <RequireAuth>
-                  <MyAccount />
+                  <MyAccountPage />
                 </RequireAuth>
               }
             />

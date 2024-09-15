@@ -175,6 +175,7 @@ const useReservations = (handleCloseModalReservation) => {
       fetchReservations(currentTable);
     }
   }, [currentTable]);
+  
 
   return {
     fetchCurrentUserReservations,

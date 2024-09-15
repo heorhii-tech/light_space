@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   const { image, title, button } = useHeader();
 
   return (
-    <div className="main_wrapper">
+    <>
       <Header
         nav={true}
         button={button}
@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
 
       <main>{children}</main>
       <Footer />
-    </div>
+    </>
   );
 };
 

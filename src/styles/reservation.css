@@ -1,4 +1,5 @@
 .reservation_page_wrapper {
+   
     .title {
         @apply bg-[#ffff] text-center pt-[57px] text-[32px] relative z-0 ;
     }
@@ -7,6 +8,19 @@
         @apply bg-[#ffff] px-[20px] text-center;
     }
 }
+.reservation-page{
+    @apply bg-[#ffff];
+}
+.reservation-page__wrapper{
+    @apply xl:max-w-[1400px] xl:mx-auto xl:py-[50px];
+    .univarsal_title_wrapper{
+        @apply xl:text-[48px] xl:m-auto xl:max-w-[570px] text-center;
+       
+    }
+}
+ .reservation-page__background {
+     @apply xl:bg-xanadu xl:h-[50px];
+ }
 .current_resrvation_wrapper{
     @apply bg-[#ffff] px-[20px] text-center py-[30px] grid grid-cols-2 gap-4;
     .reservation{
@@ -21,21 +35,22 @@
 }
 .tables_wrapper{
     @apply flex flex-wrap  gap-[24px] pt-[32px] justify-center p-4 bg-[#ffff] m-auto;
-    
+    @apply xl:grid xl:grid-cols-4;
     
     .table_card{
-        @apply  w-[151px] h-[149px] bg-no-repeat grid  text-center;
-        
-        @apply rounded-xl justify-center  items-center p-4 text-white;
+        @apply  w-[151px] h-[149px]  bg-contain grid text-center rounded-xl justify-center items-center p-4 text-white;
+        @apply xl:bg-cover xl:w-auto xl:h-[280px] xl:text-[34px] duration-300 ease-out xl:hover:scale-105 xl:cursor-pointer;
         background-color: rgba(0, 0, 0, 0.4);    
         background-blend-mode: darken;
         grid-template-rows: 40% 60%;
         
         p{
             @apply text-[#ffff] self-end;
+            @apply xl:text-[34px];
         }
         h5{
             @apply text-[12px] text-[#ffff] self-start;
+            @apply xl:text-[20px];
         }
     }
     
@@ -43,6 +58,8 @@
 .reservation_form{
     @apply flex flex-col bg-pale_grey w-[370px] px-[20px] py-[20px]  rounded-2xl gap-4 mb-10 mx-auto;
     @apply fixed z-10 left-1/2 top-1/2;
+    @apply xl:w-[500px];
+    
     transform: translate(-50%, -50%);
     
     
@@ -56,23 +73,25 @@
         @apply  w-full;
     }
     .focused_table{
-        @apply rounded-xl self-end;
+        @apply rounded-xl self-end bg-cover;
         background-color: rgba(0, 0, 0, 0.4);
             background-blend-mode: darken;
+
         p{
             @apply m-auto text-white text-[22px] text-center;
         }
     }
-    .button_cancel_reservation{
-        @apply bg-red-800 w-full text-white;
-    }
+   
        
 
 }
 
 .arrow_focused_table_wrapper{
     @apply flex justify-between items-start;
-}
+    img{
+        @apply transition xl:hover:scale-110 duration-300 ease-in-out xl:cursor-pointer;
+    }
+    }
 .focused_table{
 @apply w-[150px] h-[150px] 
 }

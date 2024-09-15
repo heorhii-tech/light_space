@@ -13,7 +13,7 @@ import imgContacts3 from "../assets/telegramIcon.png";
 import imgContacts4 from "../assets/mailIcon.png";
 import imgContacts5 from "../assets/Instagram.png";
 
-const headerMenu = [
+const burgerMenu = [
   {
     item: `Home`,
     link: `/`,
@@ -43,27 +43,54 @@ const headerMenu = [
     link: `/my_account`,
   },
 ];
+const headerMenu = [
+  {
+    item: `Home`,
+    link: `/`,
+  },
+  {
+    item: `About us`,
+    link: `/about_us`,
+  },
+  {
+    item: `Contact`,
+    link: `/contact`,
+  },
+  {
+    item: `Reservation`,
+    link: `/reservation`,
+  },
+
+  {
+    item: `Account`,
+    link: `/my_account`,
+  },
+];
 const homePageText = [
   {
-    title: `Welcome to Light Space`,
+    title: ``,
   },
   {
     text: [
       `Discover a dynamic and inspiring environment tailored for productivity and innovation.`,
       `Our coworking space offers flexible solutions to meet the diverse needs of freelancers, startups, and established businesses alike.`,
       `Whether you're looking for a private office, a dedicated desk, or a vibrant communal area, we provide the perfect setting to foster collaboration and growth.`,
+      `With state-of-the-art amenities, high-speed internet, and a supportive community, you'll have everything you need to stay focused and achieve your goals.`,
+      `Join a network of like-minded professionals and unlock new opportunities to expand your business and connect with others.`,
     ],
   },
 ];
 const aboutUsPageText = [
   {
-    title: `We are a young team of professionals engaged in the development and management of Svitlo Space.`,
+    title: ``,
   },
   {
     text: [
       `Our founders are three resilient women who recognized the importance of a workspace that stimulates and inspires creativity.`,
       `We started our journey in 2022 with the goal of creating the best coworking space in the city.`,
       `Our team consists of talented professionals from various fields, each bringing unique knowledge and experience. We come together to create a space where our clients can work, learn, and connect.`,
+      `We are committed to providing top-notch services and amenities to ensure a productive and enjoyable experience for everyone who walks through our doors.`,
+      `Our vision is to foster a collaborative environment where innovation thrives and ideas flourish.`,
     ],
   },
 ];
@@ -166,7 +193,7 @@ const contactsInfoData = [
 const addres = `Laboratorniy provylok 7, Kyiv Ukraine`;
 const tel = `+31638699561`;
 export {
-  headerMenu,
+  burgerMenu,
   homePageText,
   infoCards,
   addres,
@@ -175,4 +202,5 @@ export {
   valuesData,
   contactPageText,
   contactsInfoData,
+  headerMenu,
 };

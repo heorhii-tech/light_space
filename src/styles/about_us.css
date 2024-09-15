@@ -1,21 +1,43 @@
-.about_us_wrapper{
+.about-us{
     @apply  w-full   bg-[#ffffff];
     .text_block_wrapper{
-        @apply bg-[#ffffff];
+        @apply bg-[#ffffff] ;
+    }
+    .text_block_text_wrapper{
+        @apply xl:mt-0;
     }
     .slider_wrapper{
         @apply bg-[#ffffff];
     }
     .primary-button{
-        @apply  my-[32px] max-w-[380px] m-auto;
+        @apply  my-[32px] max-w-[380px]  xl:self-end xl:my-0 xl:mr-auto;
     }
 
     .info_card{
         @apply bg-light_grey;
     }
+    .univarsal_title_wrapper{
+        @apply xl:max-w-[963px];
+            h1 {
+                @apply xl:text-[34px]
+            }
+    }
+  
+}
+.about-us__wrapper{
+    @apply max-w-[400px] m-auto xl:max-w-[1400px] xl:m-auto xl:pt-[96px] ;
+    .univarsal_title_wrapper{
+        @apply xl:mt-8;
+    }
+}
+.about-us__info{
+    @apply xl:grid xl:grid-cols-2 xl:mt-6 xl:pb-[64px];
+    .slider_wrapper{
+        @apply xl:row-span-2
+    }
 }
 .our_values_wrapper{
-    @apply flex flex-col gap-6 py-[48px] bg-very-light-gray px-[22px] ;
+    @apply flex flex-col gap-6 py-[48px] px-[22px] xl:px-0 bg-very-light-gray  xl:bg-[#ffff] ;
 
 }
 .values_card{

@@ -11,7 +11,6 @@ const ModalReservation = ({
   filterTime,
   formatDate,
   formatTime,
-  focusedTable,
   reservDate,
   setReservDates,
 }) => {

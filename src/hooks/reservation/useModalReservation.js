@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const useModalReservation = () => {
   const [isModalReservationOpen, setIsModalReservationOpen] = useState(false);
@@ -16,6 +16,15 @@ const useModalReservation = () => {
 
     document.body.style.overflow = "auto";
   };
+  useEffect(() => {
+    if (isModalReservationOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `23px`;
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+  }, [isModalReservationOpen]);
   return {
     setIsModalReservationOpen,
     showModalReservation,

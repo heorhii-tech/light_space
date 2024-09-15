@@ -17,6 +17,7 @@
 .primary-button{
      color: #F0F0F0;
      background: #687D6B;
+     @apply xl:hover:bg-xanadu-hover active:bg-xandu-active transition  duration-300 ease-in-out;
  }
 .primary-button:active{
     background: #556658;
@@ -29,6 +30,10 @@
 .secondary-button:hover{
     color: #F0F0F0;
     background: #556658;
+}
+.cancel_button{
+    @apply bg-red-800 w-full text-white;
+    @apply duration-300 ease-in-out active:bg-red-button-active xl:hover:bg-red-button-hover;
 }
 @media (max-width: 1350px) {
     .button{

@@ -1,8 +1,9 @@
 import React from "react";
 import useSignUp from "../../hooks/useSignUp";
-import Form from "../../components/form/Form";
-import { Button, Result } from "antd";
+import Form from "../auth_form/Form";
+import { Result } from "antd";
 import AutoRedirect from "../autoRedirect/AutoRedirect";
+import SpinLoader from "../common/skeletons/SpinLoader";
 
 function SignUp() {
   const {
@@ -17,13 +18,16 @@ function SignUp() {
     tel,
     password,
     name,
+    loading,
   } = useSignUp();
 
   return (
     <div>
+      {loading && <SpinLoader />}
       {contextHolder}
       {!registered && (
         <Form
+          text={`SIGN UP`}
           type={`signup`}
           handleSubmit={handleSignUp}
           setEmail={setEmail}
@@ -37,10 +41,13 @@ function SignUp() {
         />
       )}
       {registered && (
-        <Result
-          status="success"
-          title="Нou've been successfully registered. Verify your account via the email link"
-        />
+        <div className="result_signup_wrapper">
+          <Result
+            status="success"
+            title="You have been successfully registered. Confirm your account using the link received via email. 
+           After 3 seconds you will be redirected to the homepage"
+          />
+        </div>
       )}
       {registered && <AutoRedirect to={`/`} delay={3000} />}
     </div>

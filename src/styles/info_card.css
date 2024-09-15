@@ -1,5 +1,5 @@
 .info_card{
-    @apply flex flex-col gap-[6px] p-[10px] bg-[#EFEAE7] max-w-[160px] h-[283px];
+    @apply flex flex-col gap-[6px] p-[10px] bg-[#EFEAE7]  h-[283px] xl:h-[432px];
     h6{
         @apply text-sm;
     }
@@ -7,6 +7,8 @@
         @apply text-xs leading-6 min-h-[68px] justify-center flex flex-col ;
     }
     img{
-        @apply h-[161px]
+        @apply h-[161px] xl:h-[293px];
+
     }
+        
 }

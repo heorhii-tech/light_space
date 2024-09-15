@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
-import Form from "../../components/form/Form";
+import Form from "../auth_form/Form";
 import useLogin from "../../hooks/useLogin";
 import AutoRedirect from "../autoRedirect/AutoRedirect";
-import useMyAcc from "../../hooks/useMyAcc";
+
+import SpinLoader from "../common/skeletons/SpinLoader";
+import Title from "../common/texts/Title";
 
 function Login(props) {
   const {
@@ -13,11 +15,14 @@ function Login(props) {
     handleLogin,
     logined,
     contextHolder,
+    loading,
   } = useLogin();
 
   return (
     <div>
       {contextHolder}
+      {loading && <SpinLoader />}
+
       <Form
         setEmail={setEmail}
         setPassword={setPassword}
@@ -26,6 +31,7 @@ function Login(props) {
         handleSubmit={handleLogin}
         email={email}
         password={password}
+        text={`LOG IN`}
       />
 
       {logined && <AutoRedirect to={"/"} delay={0} />}

@@ -1,5 +1,14 @@
  .signup_form {
      @apply w-[320px] m-auto flex flex-col gap-[24.5px] my-auto h-full;
+    .univarsal_title_wrapper {
+            @apply text-center;
+    
+            .title {
+                @apply font-semibold text-xl text-xanadu;
+            }
+    
+            
+        }
  }
 
  .form_inputs_wrapper {
@@ -43,4 +52,7 @@
 
 
      }
+ }
+ .result_signup_wrapper{
+    @apply bg-[#ffff] h-[90vh] flex items-center;
  }

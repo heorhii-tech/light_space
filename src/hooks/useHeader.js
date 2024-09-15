@@ -14,6 +14,8 @@ const useHeader = () => {
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState(null);
   const [button, setButton] = useState(null);
+  const [customStyleHeader, setCustomStyleHeader] = useState(false);
+
   const user = useSelector((state) => state.user);
   const location = useLocation();
 
@@ -41,11 +43,14 @@ const useHeader = () => {
       location.pathname === `/login` ||
       location.pathname === `/signup` ||
       location.pathname === `/my_account` ||
-      location.pathname === `/reservation`
+      location.pathname === `/reservation` ||
+      location.pathname === `/reset_password`
     ) {
       setShowHeader(false);
+      setCustomStyleHeader(true);
     } else {
       setShowHeader(true);
+      setCustomStyleHeader(false);
     }
   }, [location.pathname]);
 
@@ -84,6 +89,7 @@ const useHeader = () => {
     image,
     title,
     button,
+    customStyleHeader,
   };
 };
 export default useHeader;

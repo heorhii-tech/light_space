@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import useMyAcc from "../../hooks/useMyAcc";
-import LineLoader from "../skeletons/LineLoader";
+import LineLoader from "../common/skeletons/LineLoader";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Space } from "antd";
 

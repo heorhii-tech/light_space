@@ -12,6 +12,7 @@
 @import "./signup.css";
 @import "./about_us.css";
 @import "./contact.css";
+@import "./reset_password_page.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

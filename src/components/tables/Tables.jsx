@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Table from "./Table";
-import AvatarLoader from "../skeletons/AvatarLoader";
-
+import AvatarLoader from "../common/skeletons/AvatarLoader";
 
 function Tables({
   setCurrentTable,

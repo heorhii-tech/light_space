@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import CurrentUserReservations from "../components/reservation/CurrentUserReservations";
 import useReservations from "../hooks/reservation/useReservations";
 import Tables from "../components/tables/Tables";
-import useTables from "../hooks/useTables";
 import useModalReservation from "../hooks/reservation/useModalReservation";
 import ModalReservation from "../components/reservation/ModalReservation";
 import useTimeFilters from "../hooks/reservation/useTimeFilters";
-
 import { NavLink } from "react-router-dom";
+import Title from "../components/common/texts/Title";
 
 function ReservationsPage(props) {
   // Custom hook for managing modal reservation state
@@ -42,42 +41,47 @@ function ReservationsPage(props) {
   const tables = useSelector((state) => state.tables.tables);
 
   return (
-    <div>
-      {/* Component to display current user's reservations */}
-      <CurrentUserReservations
-        currentUserReservations={currentUserReservations}
-        handleDeleteCurrentReservation={handleDeleteCurrentReservation}
-        title={`You dont have current reservations`}
-      />
-      <NavLink to={`/reservations_history`}>All reservations</NavLink>
+    <section className="reservation-page">
+      <div className="extra-header__background"></div>
+      <div className="reservation-page__wrapper">
+        {/* Component to display current user's reservations */}
+        <CurrentUserReservations
+          currentUserReservations={currentUserReservations}
+          handleDeleteCurrentReservation={handleDeleteCurrentReservation}
+          title={`You dont have current reservations`}
+        />
+        <NavLink to={`/reservations_history`}>All reservations</NavLink>
 
-      {/* Component to display tables and handle table selection */}
-      <Tables
-        tables={tables}
-        setCurrentTable={setCurrentTable}
-        setIsModalReservationOpen={setIsModalReservationOpen}
-      />
+        <Title text={`Choose a table`} />
 
-      {/* Modal for reservation creation or modification */}
-      {isModalReservationOpen && (
-        <>
-          <div className="overlay"></div>
-          <ModalReservation
-            user={user}
-            currentTable={currentTable}
-            tables={tables}
-            reserved={reserved}
-            handleSubmitForm={handleSubmitForm}
-            filterTime={filterTime}
-            formatDate={formatDate}
-            formatTime={formatTime}
-            closeReservResult={closeReservationResultModal}
-            reservDate={reservDate}
-            setReservDates={setReservDate}
-          />
-        </>
-      )}
-    </div>
+        {/* Component to display tables and handle table selection */}
+        <Tables
+          tables={tables}
+          setCurrentTable={setCurrentTable}
+          setIsModalReservationOpen={setIsModalReservationOpen}
+        />
+
+        {/* Modal for reservation creation or modification */}
+        {isModalReservationOpen && (
+          <>
+            <div className="overlay"></div>
+            <ModalReservation
+              user={user}
+              currentTable={currentTable}
+              tables={tables}
+              reserved={reserved}
+              handleSubmitForm={handleSubmitForm}
+              filterTime={filterTime}
+              formatDate={formatDate}
+              formatTime={formatTime}
+              closeReservResult={closeReservationResultModal}
+              reservDate={reservDate}
+              setReservDates={setReservDate}
+            />
+          </>
+        )}
+      </div>
+    </section>
   );
 }
 

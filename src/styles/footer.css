@@ -2,7 +2,8 @@ footer{
   @apply mt-3;  
 }
 .footer_info{
-    @apply flex  justify-between px-[18px] text-very-light-gray;
+    @apply flex  justify-between px-[18px] text-very-light-gray xl:py-[42px] xl:max-w-[1400px] xl:m-auto;
+    @apply xl:px-0;
     @apply text-[12px] font-normal;
    
     
@@ -17,7 +18,7 @@ footer{
         }
 }
 .footer_social{
-    @apply flex gap-[16px] w-[42%] pt-[10px];
+    @apply flex gap-[16px] w-[42%] pt-[10px] xl:justify-end;
     img{
         @apply max-w-[35px];
     }

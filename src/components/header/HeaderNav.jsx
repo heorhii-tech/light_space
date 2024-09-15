@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import BurgerMenu from "../burger_menu/BurgerMenu";
-import { headerMenu } from "../../constants/constants";
+import { burgerMenu, headerMenu } from "../../constants/constants";
 import Icon from "../burger_menu/Icon";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import HeaderAuth from "./HeaderAuth";
+import HeaderNavLinks from "./HeaderNavLinks";
 
 function HeaderNav({
   logo,
@@ -14,6 +15,7 @@ function HeaderNav({
   linkHeaderAuth,
   funcHeaderAuth,
   classNameHeaderAuth,
+  customStyleHeader,
 }) {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const user = useSelector((state) => state.user);
@@ -27,13 +29,18 @@ function HeaderNav({
     }
   };
 
-  const filteredHeaderMenu = filterHeaderMenuFunction(headerMenu, user.token);
+  const filteredBurgerMenu = filterHeaderMenuFunction(burgerMenu, user.token);
 
   return (
-    <div className="header_nav_wrapper">
+    <div
+      className={`header_nav_wrapper ${
+        customStyleHeader ? `add_style_header` : ``
+      }`}
+    >
       <Link to="/" className="logo_wrapper">
         <img className="logo" src={logo}></img>
       </Link>
+      <HeaderNavLinks headerMenu={headerMenu} />
       <HeaderAuth
         linkHeaderAuth={linkHeaderAuth}
         funcHeaderAuth={funcHeaderAuth}
@@ -44,7 +51,7 @@ function HeaderNav({
       <Icon burgerOpen={burgerOpen} setBurgerMenu={setBurgerMenu} />
       {burgerOpen && (
         <BurgerMenu
-          headerMenu={filteredHeaderMenu}
+          headerMenu={filteredBurgerMenu}
           setBurgerMenu={setBurgerMenu}
         />
       )}

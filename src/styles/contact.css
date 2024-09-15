@@ -1,11 +1,17 @@
-.contact_page_wrapper{
+.contact-page{
     @apply bg-very-light-shade-of-orange;
     .text_block_title{
         @apply self-start;
     }
+    .text_block_wrapper{
+        @apply bg-transparent;
+    }
+}
+.contact-page__wrapper{
+    @apply xl:max-w-[1400px] m-auto xl:pt-[94px];
 }
 .our_contacts_infoBlock_wrapper {
-    @apply flex flex-col gap-6 pt-[24px] pb-[48px] bg-very-light-gray px-[22px];
+    @apply flex flex-col gap-6 pt-[24px] pb-[48px] px-[22px] xl:px-0;
 
 }
 

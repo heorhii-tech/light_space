@@ -22,6 +22,7 @@ const useLogin = () => {
   const [errorMes, setErrorMes] = useState(``);
   const [logined, setLogined] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
+  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -48,6 +49,7 @@ const useLogin = () => {
 
     setErrorMes(``);
     setVerify(``);
+    setLoading(true);
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -67,13 +69,16 @@ const useLogin = () => {
             setLogined(true);
           } else {
             setVerify(`Please verify your email`);
+            setLoading(false);
           }
+          setLoading(false);
         });
       })
       .catch((error) => {
         console.log(error.message);
         if (error.message === `Firebase: Error (auth/invalid-credential).`) {
           setErrorMes(`invalid password or email.Please try again`);
+          setLoading(false);
         }
       });
   };
@@ -88,6 +93,7 @@ const useLogin = () => {
     errorMes,
     logined,
     contextHolder,
+    loading,
   };
 };
 
