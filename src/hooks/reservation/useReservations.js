@@ -8,7 +8,9 @@ import {
   getDocs,
   doc,
   deleteDoc,
+ 
 } from "firebase/firestore";
+
 import { parseISO } from "date-fns";
 import { useSelector } from "react-redux";
 import useTimeFilters from "./useTimeFilters";
@@ -175,7 +177,7 @@ const useReservations = (handleCloseModalReservation) => {
       fetchReservations(currentTable);
     }
   }, [currentTable]);
-  
+ 
 
   return {
     fetchCurrentUserReservations,

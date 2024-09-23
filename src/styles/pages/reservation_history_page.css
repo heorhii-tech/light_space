@@ -1,0 +1,14 @@
+.reservation-history-page{
+    @apply bg-[#ffff] pb-9;
+    .univarsal_title_wrapper{
+        @apply text-3xl text-center;
+    };
+    .universal_desc_wreapper{
+        @apply mt-[34px];
+        @apply xl:text-2xl xl:mt-[40px];
+    }
+}
+.reservation-history-page__wrapper{
+    @apply py-[20px];
+    @apply xl:max-w-[1400px] m-auto ;
+}

@@ -1,11 +1,12 @@
-import React from 'react'
-import './Button.css'
+import React from "react";
+import "./Button.css";
+import { Link } from "react-router-dom";
 
-const SecondaryButton = (props) => {
-    return (
-        <button type="button" className="secondary-button button" style={{width: `${props.width}`}}>
-            {props.text}
-        </button>
-    )
-}
-export default SecondaryButton
+const SecondaryButton = ({ link, text }) => {
+  return (
+    <Link to={link} type="button" className="secondary-button button">
+      {text}
+    </Link>
+  );
+};
+export default SecondaryButton;

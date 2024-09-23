@@ -6,9 +6,10 @@ import ImageSlider from "../components/slider/ImageSlider";
 import Title from "../components/common/texts/Title";
 
 import PrimaryButton from "../components/common/buttons/PrimaryButton";
+import FeedBackForm from "../components/forms/reviews_form/FeedBackForm";
 
 function HomePage(props) {
-  const { homePageText, infoCards } = useHomaPage();
+  const { homePageText, infoCards, handleReviewSubmit } = useHomaPage();
   return (
     <section className="home-page">
       <div className="home-page__wrapper">
@@ -21,6 +22,14 @@ function HomePage(props) {
             <PrimaryButton text={`BOOK`} link={`/reservation`} />
           </div>
           <ImageSlider data={infoCards} />
+          <PrimaryButton text={`BOOK`} link={`/reservation`} />
+        </div>
+        <div className="home-page__feedback_wrapper">
+          <Title text={`SEND US A MESSAGE`} />
+          <FeedBackForm
+            handleReviewSubmit={handleReviewSubmit}
+            className={`home-page__review_form`}
+          />
         </div>
       </div>
     </section>

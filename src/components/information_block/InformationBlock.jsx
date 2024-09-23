@@ -1,9 +1,11 @@
 import React from "react";
 import InformationCard from "./InformationCard";
+import Title from "../common/texts/Title";
 
-function InformationBlock({ data, className, classNameCard }) {
+function InformationBlock({ data, className, classNameCard, title }) {
   return (
     <div className={className}>
+      <Title text={title} />
       {data.map((item, index) => {
         return (
           <InformationCard

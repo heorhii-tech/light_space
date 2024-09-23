@@ -1,18 +1,21 @@
-@import './header.css';
-@import "./login.css";
-@import "./common.css";
-@import "./burger_menu.css";
-@import "./textBlock.css";
-@import "./home_page.css";
-@import "./slider.css";
-@import "./info_card.css";
+
+@import "./pages/login.css";
+@import "./pages/signup.css";
+@import "./pages/about_us.css";
+@import "./pages/reservation.css";
+@import "./pages/home_page.css";
+@import "./pages/contact.css";
+@import "./pages/reset_password_page.css";
+@import "./pages/reservation_history_page.css";
+
+@import "./components/burger_menu.css";
+@import "./components/textBlock.css";
+@import "./components/header.css";
+@import "./components/slider.css";
+@import "./components/info_card.css";
 @import "./my_account.css";
-@import "./reservation.css";
-@import "./footer.css";
-@import "./signup.css";
-@import "./about_us.css";
-@import "./contact.css";
-@import "./reset_password_page.css";
+@import "./components/footer.css";
+@import "./common.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -42,3 +42,17 @@ body {
 .extra-header__background{
     @apply xl:bg-xanadu xl:h-[50px];
 }
+.univarsal_title_wrapper{
+    @apply w-full px-[20px];
+};
+.universal_desc_wreapper{
+    @apply w-full px-[20px];
+}
+input:-webkit-autofill {
+    background-color: white !important;
+    /* Убедитесь, что цвет фон задается */
+    color: black !important;
+    /* Цвет текста также можно задать */
+}
+
+/* Примените другие свойства по вашему усмотрению */

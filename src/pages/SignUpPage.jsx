@@ -1,9 +1,13 @@
 import React from "react";
-import SignUpFire from "../components/signUp/SignUp";
 import SignUp from "../components/signUp/SignUp";
 
 function SignUpPage(props) {
-  return <SignUp />;
+  return (
+    <section className="sigup-page">
+      <div className="extra-header__background"></div>
+      <SignUp />
+    </section>
+  );
 }
 
 export default SignUpPage;

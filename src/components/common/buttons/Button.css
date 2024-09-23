@@ -1,7 +1,8 @@
 .button{
     font-family: 'Open Sans', sans-serif;
     padding: 17.5px 0;
-    width: 360px;
+    max-width: 360px;
+    width: 100%;
     text-align: center;
     font-weight: 600;
     font-size: 14px;
@@ -27,9 +28,10 @@
     color: #474E54;
     background: transparent;
 }
-.secondary-button:hover{
-    color: #F0F0F0;
-    background: #556658;
+
+.secondary-button{
+    @apply transition duration-700 ease-in-out;
+    @apply xl:hover:bg-xanadu-dark xl:hover:text-secondary-button-hover;
 }
 .cancel_button{
     @apply bg-red-800 w-full text-white;
@@ -37,11 +39,11 @@
 }
 @media (max-width: 1350px) {
     .button{
-        width: 300px;
+        max-width: 360px;
     }
 }
-@media (max-width: 375px) {
+@media (max-width: 420px) {
     .button{
-        width: 300px;
+        max-width: 325px;
     }
 }

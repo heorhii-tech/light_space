@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import Title from "../common/texts/Title";
+import Title from "../../common/texts/Title";
+import ButtonUniversal from "../../common/buttons/ButtonUniversal";
+import SecondaryButton from "../../common/buttons/SecondaryButton";
 
 function Form({
   type,
@@ -65,14 +67,15 @@ function Form({
           <NavLink to={`/reset_password`}>Forgot your password?</NavLink>
         </p>
         <div className="buttons_wrapper">
-          <button type="submit">
-            {type === "login" ? "LOG IN" : "SIGN UP"}
-          </button>
-          {type === `login` ? (
-            <Link to="/signup">CREATE ACCOUNT</Link>
-          ) : (
-            <Link to="/login">LOGIN</Link>
-          )}
+          <ButtonUniversal
+            type="submit"
+            title={type === "login" ? "LOG IN" : "SIGN UP"}
+          ></ButtonUniversal>
+
+          <SecondaryButton
+            text={type === "login" ? "CREATE ACCOUNT" : "LOG IN"}
+            link={type === "login" ? "/signup" : "/login"}
+          />
         </div>
       </form>
     </div>

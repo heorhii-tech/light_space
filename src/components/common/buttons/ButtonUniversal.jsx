@@ -1,15 +1,8 @@
 import React from "react";
 
-function ButtonUniversal({ className, title, func, func1,type }) {
+function ButtonUniversal({ className, title, func, type }) {
   return (
-    <button
-    type={type}
-      onClick={() => {
-        func();
-        func1;
-      }}
-      className={className}
-    >
+    <button type={type} onClick={func} className={className}>
       {title}
     </button>
   );

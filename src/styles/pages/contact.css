@@ -1,0 +1,50 @@
+.contact-page{
+    @apply bg-very-light-shade-of-orange;
+    .text_block_title{
+        @apply self-start;
+    }
+    .text_block_wrapper{
+        @apply bg-transparent;
+    }
+}
+.contact-page__wrapper{
+    @apply pt-[48px];
+    @apply xl:max-w-[1400px] m-auto xl:pt-[94px];
+    .univarsal_title_wrapper {
+            @apply xl:px-0 xl:max-w-[373px];
+    
+            .title {
+                @apply text-[20px] font-semibold;
+                @apply xl:text-3xl;
+            }
+        }
+   
+}
+.our_contacts_infoBlock_wrapper {
+    @apply flex flex-col gap-6 pt-[24px] pb-[48px] px-[22px] xl:px-0;
+    @apply xl:grid xl:grid-cols-3;
+    .univarsal_title_wrapper {
+            @apply px-0 max-w-[325px];
+            @apply xl:max-w-[373px];
+    
+            .title {
+                @apply font-normal text-sm;
+                @apply xl:text-base;
+            }
+        }
+
+}
+
+.contacts_card {
+    @apply flex h-[96px] py-[18px] px-[16px] gap-4 items-center text-sm;
+    @apply xl:py-[36px] xl:shadow-lg xl:shadow-slate-300 xl:min-h-[120px];
+    @apply duration-300 ease-out xl:hover:scale-105 xl:cursor-pointer;
+
+    img {
+        @apply w-[40px] h-[40px];
+    }
+    p{
+       
+        @apply text-base;
+    }
+}

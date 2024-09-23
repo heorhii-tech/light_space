@@ -1,5 +1,5 @@
 .login-page {
-    @apply w-full bg-[#ffff] pb-[75px];
+    @apply w-full bg-[#ffff];
 
     @apply xl:bg-[#ffff] xl:pb-[75px];
 }
@@ -46,9 +46,7 @@
             }
         }
 
-        a {
-            @apply text-center bg-very-light-gray border-[1px] border-xanadu font-bold py-[17.5px] rounded-[28px];
-        }
+        
     }
 
     .res_password {

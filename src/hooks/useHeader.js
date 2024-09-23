@@ -44,7 +44,8 @@ const useHeader = () => {
       location.pathname === `/signup` ||
       location.pathname === `/my_account` ||
       location.pathname === `/reservation` ||
-      location.pathname === `/reset_password`
+      location.pathname === `/reset_password` ||
+      location.pathname === `/reservations_history`
     ) {
       setShowHeader(false);
       setCustomStyleHeader(true);

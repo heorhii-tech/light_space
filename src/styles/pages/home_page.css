@@ -1,0 +1,125 @@
+.home-page{
+    @apply bg-very-light-gray;
+    .home-page__wrapper{
+        @apply py-[40px];
+        @apply xl:max-w-[1400px] m-auto xl:py-[94px];
+    }
+
+    .univarsal_title_wrapper{
+        @apply w-full px-[20px];
+        @apply xl:max-w-[963px] xl:px-0 ;
+        h1{
+            @apply text-xl font-semibold;;
+            @apply xl:text-3xl;
+        }
+    }
+    .home-page__info{
+       
+        @apply m-auto xl:grid xl:grid-cols-2 xl:pt-8;  
+        .primary-button{
+            @apply block m-auto;
+            @apply xl:hidden xl:m-0;
+        }
+    };
+    .home-page__info-content{
+        @apply flex flex-col gap-8;
+        
+        .primary-button{
+            @apply hidden m-auto;
+            @apply xl:block xl:m-0 xl:mt-auto;
+        }
+    }
+    
+
+}
+.home-page__feedback_wrapper{
+    @apply px-[20px] mt-7 pt-6;
+    @apply bg-[#ffff] xl:max-w-[766px] xl:p-8 xl:m-auto xl:mt-[64px];
+    .univarsal_title_wrapper{
+        @apply m-auto text-center;
+    }
+}
+.home-page__review_form {
+    @apply flex flex-col gap-2 mt-5;
+    @apply  xl:gap-4 xl:m-auto xl:mt-6;
+   
+
+    div {
+        @apply flex flex-col gap-2 xl:pr-6;
+    
+        @apply xl:bg-white rounded-lg xl:grid xl:grid-rows-2;
+        @apply xl:grid-cols-reviev-form-labels_inputs xl:items-center xl:grid-rows-1;
+        input,select,textarea{
+            @apply w-full;
+            @apply border-[1px] border-input-mobile-normal-border rounded-[28px];
+            @apply xl:bg-white py-3 px-6 xl:rounded-[8px] xl:rounded-l-none;
+            @apply xl:border-none;
+        }
+        input[type="text"]{
+            @apply xl:cursor-text;
+        }
+        input[type="datetime-local"]{
+            @apply pr-0;
+           
+        }
+        select{
+            @apply xl:cursor-pointer;
+        }
+        textarea{
+            @apply min-h-[200px];
+            @apply xl:min-h-32 flex items-center xl:cursor-text ;
+        }
+        label{
+            @apply xl:border-r-2 xl:h-full xl:flex xl:items-center rounded-r-none xl:py-3 xl:px-6;
+            border-color: rgb(15, 23, 42,0.30);
+        }
+        span{
+            @apply absolute text-red-800 text-xs bottom-0 left-0 xl:cursor-pointer;
+        }
+            input:focus-visible,
+            select:focus-visible,
+            textarea:focus-visible {
+                outline: none;
+            }
+        
+    }
+    .calendar-overlay{
+        @apply hidden;
+        @apply block xl:w-full xl:h-full;
+    }
+    .date-input-container {
+        @apply relative;
+        }
+    .gender-input-container {
+         @apply xl:pr-6 ;
+    
+    select {
+        @apply xl:pl-5 xl:focus-visible:border-0;
+            }
+        label{
+            @apply pr-0 max-w-[210px] xl:pl-[24px];
+        }     
+    }
+    .checkbox-input-container{
+        @apply flex gap-3 text-sm mt-6;
+        input,label{
+            @apply xl:cursor-pointer;
+        }
+    }
+    .primary-button{
+        @apply mt-6;
+    }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition-delay: 9999s;
+    transition-delay: 9999s;
+}
+
+}
+
+
+
+

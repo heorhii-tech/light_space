@@ -1,20 +1,14 @@
-.reservation_page_wrapper {
-   
-    .title {
-        @apply bg-[#ffff] text-center pt-[57px] text-[32px] relative z-0 ;
-    }
 
-    .sub_title {
-        @apply bg-[#ffff] px-[20px] text-center;
-    }
-}
 .reservation-page{
     @apply bg-[#ffff];
 }
 .reservation-page__wrapper{
-    @apply xl:max-w-[1400px] xl:mx-auto xl:py-[50px];
+    @apply py-[20px];
+    @apply xl:max-w-[1400px] xl:mx-auto xl:py-[20px];
     .univarsal_title_wrapper{
-        @apply xl:text-[48px] xl:m-auto xl:max-w-[570px] text-center;
+        @apply text-3xl text-center mt-8;
+        @apply xl:text-3xl xl:max-w-[570px] xl:mt-10 xl:text-left;
+        
        
     }
 }
@@ -22,24 +16,30 @@
      @apply xl:bg-xanadu xl:h-[50px];
  }
 .current_resrvation_wrapper{
-    @apply bg-[#ffff] px-[20px] text-center py-[30px] grid grid-cols-2 gap-4;
+    @apply bg-[#ffff]  text-center py-[30px] grid xl:grid-cols-2  gap-4 max-w-[314px] m-auto;
+    @apply xl:max-w-full xl:px-[20px] xl:justify-items-center;
     .reservation{
-        @apply  border-[1px] border-black rounded-3xl p-1;
-        p{
-            @apply text-[10px];
-        }
-        button{
-            @apply rounded-3xl bg-red-800 text-[10px] text-white p-2 mt-2;
-        }
+      @apply bg-pale_grey rounded-[20px] flex flex-col gap-[10px] xl:items-center;
+      @apply px-[17px] py-[33px] xl:gap-3 shadow-lg shadow-slate-300 ;
+      @apply xl:px-[74px] xl:py-[35px] xl:max-w-[535px] xl:w-full ;
+      h3,h5{
+        @apply bg-gray-95 xl:w-full py-3 px-5 rounded-[23px] text-left text-black-50 ;
+      }
+      .primary-button{
+        @apply mt-[3px];
+        @apply xl:max-w-full xl:mt-[14px];
+      }
+      
     }
 }
 .tables_wrapper{
-    @apply flex flex-wrap  gap-[24px] pt-[32px] justify-center p-4 bg-[#ffff] m-auto;
+    @apply flex flex-wrap  gap-[24px] pt-[20px] justify-center p-4 bg-[#ffff] m-auto;
     @apply xl:grid xl:grid-cols-4;
     
     .table_card{
-        @apply  w-[151px] h-[149px]  bg-contain grid text-center rounded-xl justify-center items-center p-4 text-white;
-        @apply xl:bg-cover xl:w-auto xl:h-[280px] xl:text-[34px] duration-300 ease-out xl:hover:scale-105 xl:cursor-pointer;
+        @apply  w-[151px] h-[149px]   grid text-center rounded-xl justify-center items-center p-4 text-white;
+        @apply shadow-lg shadow-slate-300;
+        @apply bg-cover xl:w-auto xl:h-[280px] xl:text-[34px] duration-300 ease-out xl:hover:scale-105 xl:cursor-pointer;
         background-color: rgba(0, 0, 0, 0.4);    
         background-blend-mode: darken;
         grid-template-rows: 40% 60%;
@@ -70,7 +70,7 @@
     @apply w-full py-[16px] px-[18px] rounded-[28px];
     }
     .primary-button{
-        @apply  w-full;
+        @apply  max-w-full;
     }
     .focused_table{
         @apply rounded-xl self-end bg-cover;

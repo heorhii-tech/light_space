@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Button, Result } from "antd";
+
 import FocusedTable from "../tables/FocusedTable";
 import ButtonUniversal from "../common/buttons/ButtonUniversal";
 import BackArrow from "../arrows/BackArrow";
@@ -32,23 +32,6 @@ function ReservationForm({
         />
         <FocusedTable focusedTable={currentTable} />
       </div>
-
-      {reserved && (
-        <Result
-          status="success"
-          title={`You reserved table ${currentTable.tableID}`}
-          subTitle={`Reservation time ${formatDate(
-            reservDate.startDate
-          )} ${formatTime(reservDate.startDate)} - ${formatTime(
-            reservDate.endDate
-          )}`}
-          extra={[
-            <Button type="primary" key="console" onClick={closeReservResult}>
-              CLOSE
-            </Button>,
-          ]}
-        />
-      )}
 
       {currentTable && !reserved && (
         <>

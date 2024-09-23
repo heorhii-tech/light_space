@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
-import Form from "../auth_form/Form";
+import Form from "../forms/auth_form/Form";
 import useLogin from "../../hooks/useLogin";
 import AutoRedirect from "../autoRedirect/AutoRedirect";
 
 import SpinLoader from "../common/skeletons/SpinLoader";
-import Title from "../common/texts/Title";
 
 function Login(props) {
   const {

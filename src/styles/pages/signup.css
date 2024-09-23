@@ -1,5 +1,10 @@
+ .sigup-page{
+   @apply w-full bg-[#ffff];
+   @apply xl:bg-[#ffff] xl:pb-[75px];
+ }
  .signup_form {
-     @apply w-[320px] m-auto flex flex-col gap-[24.5px] my-auto h-full;
+        @apply w-[320px] m-auto flex flex-col gap-[24.5px] h-full;
+        @apply xl:w-full;
     .univarsal_title_wrapper {
             @apply text-center;
     
@@ -31,27 +36,17 @@
 
          &:first-child {
              @apply bg-xanadu text-very-light-gray active:bg-xanadu-darkest;
+             @apply xl:hover:bg-xanadu-hover;
 
          }
 
-         &:not(:first-child) {
-             @apply bg-very-light-gray border border-xanadu text-xanadu font-bold active:text-very-light-gray;
-             @apply active:bg-xanadu-dark;
-
-
-
-         }
+        
+     }
+     .button{
+        @apply max-w-full;
      }
 
-     a {
-         @apply text-center bg-very-light-gray border-[1px] border-xanadu font-bold py-[17.5px] rounded-[28px];
-         @apply transition-all duration-500 ease-in-out active:text-very-light-gray;
-         @apply active:bg-xanadu-dark;
-
-
-
-
-     }
+   
  }
  .result_signup_wrapper{
     @apply bg-[#ffff] h-[90vh] flex items-center;

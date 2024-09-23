@@ -95,16 +95,9 @@ const aboutUsPageText = [
   },
 ];
 const contactPageText = [
-  {
-    title: `Our contacts`,
-  },
-  {
-    text: [
       `You can contact us in any way convenient for you. `,
       `We are always ready to answer your questions and provide detailed information about our services and events.`,
       ``,
-    ],
-  },
 ];
 const infoCards = [
   {
@@ -167,25 +160,25 @@ const contactsInfoData = [
   },
   {
     img: imgContacts2,
-    text: `Flexibility: We find optimal solutions for each client.`,
+    text: `+380 (67) 000 00 00`,
     bgColor: `#687D6B`,
     color: `white`,
   },
   {
     img: imgContacts3,
-    text: `Collaboration: We believe that only by working together can we achieve greater success.`,
+    text: `Telegram:@svitlospace`,
     bgColor: `#687D6B`,
     color: `white`,
   },
   {
     img: imgContacts4,
-    text: `Responsibility: We strive to achieve the best possible results in our work..`,
+    text: `Svitlo.space.pro@gmail.com`,
     bgColor: `#687D6B`,
     color: `white`,
   },
   {
     img: imgContacts5,
-    text: `Customer Focus: We always prioritize the needs of our clients.`,
+    text: `instagram.com/svitlo.space`,
     bgColor: `#687D6B`,
     color: `white`,
   },

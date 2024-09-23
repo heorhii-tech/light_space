@@ -1,6 +1,6 @@
 import React from "react";
 import useSignUp from "../../hooks/useSignUp";
-import Form from "../auth_form/Form";
+import Form from "../forms/auth_form/Form";
 import { Result } from "antd";
 import AutoRedirect from "../autoRedirect/AutoRedirect";
 import SpinLoader from "../common/skeletons/SpinLoader";

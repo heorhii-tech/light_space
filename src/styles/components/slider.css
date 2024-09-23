@@ -34,10 +34,23 @@
                         width: 272px !important;
                     }
                 }
-        .slick-list{
-            margin-left: 13px !important;
+                @media (min-width: 1280px) {
+                    .slick-list {
+                        margin-left: 13px !important;
+                    }
+                }
+                 @media (min-width: 1280px) {
+                    .slick-list {
+                    margin-left: 13px !important;
+                     }
+                 }
+        @media (max-width: 1280px) {
+            .slick-list {
+                margin-left: 21px !important;
+            }
         }
-    }
+   
+                }
        
   
 }

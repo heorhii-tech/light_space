@@ -17,9 +17,16 @@ module.exports = {
         "red-button": "#991b1b",
         "red-button-hover": "#b32b2b",
         "red-button-active": "#b32b2b",
+        "secondary-button-hover": "#F0F0F0",
+        "gray-95": "#F2F2F2",
+        "black-50": "rgba(0, 0, 0, 0.5)", // Black with 50% opacity
+        "input-mobile-normal-border": "#474E54",
       },
       spacing: {
         "custom-height-full": "calc(100vh - 20px)",
+      },
+      gridTemplateColumns: {
+        "reviev-form-labels_inputs": "30% 70%",
       },
     },
   },

@@ -2,6 +2,9 @@ import { homePageText } from "../constants/constants";
 import { infoCards } from "../constants/constants";
 
 const useHomaPage = () => {
-  return { homePageText, infoCards };
+  const handleReviewSubmit = (data) => {
+    console.log(data);
+  };
+  return { homePageText, infoCards, handleReviewSubmit };
 };
 export default useHomaPage;

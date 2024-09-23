@@ -12,7 +12,7 @@ import useModalChangeAvatar from "../../hooks/useModalChangeAvatar";
 import { Link } from "react-router-dom";
 
 function MyAccountComp() {
-  const { fetchUserData, handleUnLogin } = useMyAcc();
+  const {  handleUnLogin } = useMyAcc();
 
   const user = useSelector((state) => state.user);
   const {
@@ -40,12 +40,6 @@ function MyAccountComp() {
     isModAvatarOpen,
     uploadAvatar,
   } = useModalChangeAvatar();
-
-  useEffect(() => {
-    if (user.uid) {
-      fetchUserData();
-    }
-  }, [user.uid]);
 
   return (
     <div className="my_acc_wrapper">

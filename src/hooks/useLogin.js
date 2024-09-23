@@ -4,16 +4,12 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { useState, React, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../store/user/userSlice";
 import { auth } from "../firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth";
 import { db } from "../firebaseConfig";
-import { Button, Space, message } from "antd";
+import { message } from "antd";
 
 const useLogin = () => {
   const [email, setEmail] = useState(``);
@@ -25,6 +21,7 @@ const useLogin = () => {
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
+
 
   const auth = getAuth();
   useEffect(() => {
@@ -43,6 +40,8 @@ const useLogin = () => {
       });
     }
   }, [verify]);
+
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -82,6 +81,7 @@ const useLogin = () => {
         }
       });
   };
+ 
 
   return {
     email,

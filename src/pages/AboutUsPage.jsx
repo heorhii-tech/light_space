@@ -20,8 +20,9 @@ function AboutUsPage(props) {
           <ImageSlider data={infoCards} />
           <PrimaryButton text={`BOOK`} link={`/reservation`} />
         </div>
-        <Title text={`Our values`} />
+
         <InformationBlock
+          title={`Our values`}
           data={valuesData}
           className={`our_values_wrapper`}
           classNameCard={`values_card`}
