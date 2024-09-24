@@ -506,6 +506,11 @@
       line-height: 2.25rem;
     }
   }
+  @media (min-width: 1280px){
+    .universal-subtitle__wrapper{
+      font-weight: 600;
+    }
+  }
 }
 
 .values_card{
@@ -2187,6 +2192,7 @@ header{
 @media (min-width: 1280px){
   .my-account{
     padding-top: 0px;
+    min-height: 90vh;
   }
 }
 
@@ -2322,17 +2328,53 @@ header{
   gap: 0.75rem;
   padding-left: 20px;
   padding-right: 20px;
-  .avatar{
-    margin-top: 0.75rem;
+}
+
+@media (min-width: 1280px){
+  .my_acc_wrapper{
+    max-height: 350px;
+    max-width: 750px;
+    flex-direction: row;
+    gap: 0px;
+    --tw-bg-opacity: 1;
+    background-color: rgb(239 234 231 / var(--tw-bg-opacity));
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    margin-top: 6rem;
+    justify-content: space-between;
+    border-radius: 28px;
   }
-  .avatar{
-    height: 151px;
-  }
-  .avatar{
-    width: 127px;
-  }
-  .avatar{
-    border-radius: 0.75rem;
+}
+
+.my_acc_wrapper{
+  .my_acc_avatar{
+    @media (min-width: 1280px){
+      .my_acc_edit_wrapper{
+        flex-direction: column;
+      }
+    }
+    .avatar{
+      margin-top: 0.75rem;
+    }
+    .avatar{
+      height: 151px;
+    }
+    .avatar{
+      width: 127px;
+    }
+    .avatar{
+      border-radius: 0.75rem;
+    }
+    @media (min-width: 1280px){
+      .avatar{
+        height: 190px;
+      }
+    }
+    @media (min-width: 1280px){
+      .avatar{
+        width: 150px;
+      }
+    }
   }
   .my_acc_name{
     margin-top: 12px;
@@ -2372,6 +2414,31 @@ header{
   .my_acc_edit_input_wrapper{
     .my_acc_edit_input_close{
       width: 25px;
+    }
+  }
+  .my_acc_info_wrapper{
+    display: flex;
+  }
+  .my_acc_info_wrapper{
+    height: 100%;
+  }
+  .my_acc_info_wrapper{
+    max-width: 500px;
+  }
+  .my_acc_info_wrapper{
+    flex-direction: column;
+  }
+  .my_acc_info_wrapper{
+    gap: 0.75rem;
+  }
+  @media (min-width: 1280px){
+    .my_acc_info_wrapper{
+      width: 100%;
+    }
+  }
+  @media (min-width: 1280px){
+    .my_acc_info_wrapper{
+      gap: 1.25rem;
     }
   }
   .edit_button{
