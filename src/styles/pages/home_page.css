@@ -1,7 +1,7 @@
 .home-page{
     @apply bg-very-light-gray;
     .home-page__wrapper{
-        @apply py-[40px];
+        @apply pt-[40px];
         @apply xl:max-w-[1400px] m-auto xl:py-[94px];
     }
 
@@ -33,7 +33,7 @@
 
 }
 .home-page__feedback_wrapper{
-    @apply px-[20px] mt-7 pt-6;
+    @apply px-[20px] mt-7 py-6;
     @apply bg-[#ffff] xl:max-w-[766px] xl:p-8 xl:m-auto xl:mt-[64px];
     .univarsal_title_wrapper{
         @apply m-auto text-center;

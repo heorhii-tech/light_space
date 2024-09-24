@@ -1005,7 +1005,6 @@
   background-color: rgb(253 245 245 / var(--tw-bg-opacity));
   .home-page__wrapper{
     padding-top: 40px;
-    padding-bottom: 40px;
   }
   .home-page__wrapper{
     margin: auto;
@@ -1129,6 +1128,7 @@
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   background-color: #ffff;
 }
 
@@ -1647,6 +1647,8 @@ input:-webkit-autofill:active {
 
 .reset_password_form{
   display: flex;
+  width: 100%;
+  max-width: 360px;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
