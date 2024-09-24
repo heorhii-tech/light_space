@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 import edit from "../../assets/edit.png";
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Edit";
 
 function ModalChangeMyData({
   isModalOpen,
@@ -14,15 +16,29 @@ function ModalChangeMyData({
   type,
   file,
   user,
+  editButtonText,
 }) {
   return (
     <>
-      <Button className="edit_button" type="primary" onClick={showModal}>
-        <img src={edit} />
+      <Button
+        sx={{
+          width: {
+            xs: "157px", // 100% ширины для мобильных устройств
+            sm: "175px", // 140px для устройств с шириной больше 600px
+          },
+          paddingX: {
+            sm: 3,
+          },
+          alignSelf: "center",
+        }}
+        variant="outlined"
+        startIcon={<DeleteIcon />}
+        onClick={showModal}
+      >
+        {editButtonText}
       </Button>
       <Modal
         title={title}
-       
         open={isModalOpen}
         okButtonProps={{ className: "custom-ok-button", disabled: !data }}
         cancelButtonProps={{ className: "custom-cancel-button" }}

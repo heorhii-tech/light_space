@@ -48,11 +48,15 @@
    .my_acc_avatar{
     .my_acc_edit_wrapper{
         @apply xl:flex-col;
+        p{
+            @apply self-center;
+        }
     }
     .avatar {
             @apply w-[127px] h-[151px] rounded-xl mt-3;
-            @apply xl:w-[150px] xl:h-[190px]
+            @apply xl:w-[175px] xl:h-[204px]
         }
+       
    }
     .my_acc_name{
         @apply text-2xl font-semibold mt-[12px];
@@ -63,6 +67,9 @@
     }
     .my_acc_edit_wrapper{
         @apply flex gap-4  w-full justify-between;
+        p {
+                @apply self-center;
+            }
         
         
     }
@@ -76,7 +83,7 @@
 
     }
     .my_acc_info_wrapper{
-        @apply flex flex-col gap-3 max-w-[500px] xl:w-full h-full;
+        @apply flex flex-col gap-7 max-w-[500px] xl:w-full h-full;
         @apply xl:gap-5;
     }
    
