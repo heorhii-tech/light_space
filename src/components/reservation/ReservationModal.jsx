@@ -31,11 +31,7 @@ export default function BasicModal({ open, handleClose, reserved, children }) {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      {!reserved ? (
-        <Box sx={style}>{children[0]}</Box>
-      ) : (
-        <Box sx={style}>{children[1]}</Box>
-      )}
+      {!reserved ? <Box>{children[0]}</Box> : <Box>{children[1]}</Box>}
     </Modal>
   );
 }
