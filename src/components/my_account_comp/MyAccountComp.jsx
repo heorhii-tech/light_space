@@ -62,6 +62,7 @@ function MyAccountComp() {
             type={`file`}
             user={user}
             file={avatar}
+            editButtonText={`EDIT AVATAR`}
           />
         </div>
       </div>
@@ -79,6 +80,7 @@ function MyAccountComp() {
               placeholder={"New name"}
               title={"Change name"}
               type={`text`}
+              editButtonText={`EDIT NAME`}
             />
           </div>
         </form>
@@ -95,6 +97,7 @@ function MyAccountComp() {
               placeholder={"New number"}
               title={"Change number"}
               type={`text`}
+              editButtonText={`EDIT NUMBER`}
             />
           </div>
         </form>

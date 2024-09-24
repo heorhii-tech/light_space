@@ -2353,6 +2353,11 @@ header{
         flex-direction: column;
       }
     }
+    .my_acc_edit_wrapper{
+      p{
+        align-self: center;
+      }
+    }
     .avatar{
       margin-top: 0.75rem;
     }
@@ -2367,12 +2372,12 @@ header{
     }
     @media (min-width: 1280px){
       .avatar{
-        height: 190px;
+        height: 204px;
       }
     }
     @media (min-width: 1280px){
       .avatar{
-        width: 150px;
+        width: 175px;
       }
     }
   }
@@ -2402,6 +2407,11 @@ header{
   .my_acc_edit_wrapper{
     gap: 1rem;
   }
+  .my_acc_edit_wrapper{
+    p{
+      align-self: center;
+    }
+  }
   .my_acc_edit_input_wrapper{
     display: flex;
   }
@@ -2429,7 +2439,7 @@ header{
     flex-direction: column;
   }
   .my_acc_info_wrapper{
-    gap: 0.75rem;
+    gap: 1.75rem;
   }
   @media (min-width: 1280px){
     .my_acc_info_wrapper{
