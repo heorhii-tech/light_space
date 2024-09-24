@@ -4,18 +4,14 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import FocusedTable from "../tables/FocusedTable";
 import ButtonUniversal from "../common/buttons/ButtonUniversal";
-import BackArrow from "../arrows/BackArrow";
-import BackArrowIcon from "../../assets/arrow-left.png";
 
 function ReservationForm({
   currentTable,
   reserved,
   handleSubmitForm,
   filterTime,
-  formatDate,
-  formatTime,
   user,
-  closeReservResult,
+  closeModal,
   reservDate,
   setReservDates,
 }) {
@@ -24,12 +20,7 @@ function ReservationForm({
       className="reservation_form"
       onSubmit={(e) => handleSubmitForm(e, currentTable.tableID)}
     >
-      <div className="arrow_focused_table_wrapper">
-        <BackArrow
-          func={closeReservResult}
-          pathImg={BackArrowIcon}
-          className={`back_arrow_reservation_modal`}
-        />
+      <div className="focused_table_wrapper">
         <FocusedTable focusedTable={currentTable} />
       </div>
 
@@ -93,8 +84,9 @@ function ReservationForm({
           </button>
           <ButtonUniversal
             className={`cancel_button button`}
-            func={closeReservResult}
+            func={closeModal}
             title={`Cancel`}
+            type={`button`}
           />
         </>
       )}

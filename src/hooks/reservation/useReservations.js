@@ -8,7 +8,6 @@ import {
   getDocs,
   doc,
   deleteDoc,
- 
 } from "firebase/firestore";
 
 import { parseISO } from "date-fns";
@@ -148,7 +147,7 @@ const useReservations = (handleCloseModalReservation) => {
   };
 
   // Close the reservation result modal and reset states
-  const closeReservationResultModal = () => {
+  const closeReservationModal = () => {
     setReserved(false);
     setReservDate((prevState) => ({
       ...prevState,
@@ -177,7 +176,10 @@ const useReservations = (handleCloseModalReservation) => {
       fetchReservations(currentTable);
     }
   }, [currentTable]);
- 
+
+  useEffect(() => {
+    reserved && fetchCurrentUserReservations();
+  }, [reserved]);
 
   return {
     fetchCurrentUserReservations,
@@ -189,7 +191,7 @@ const useReservations = (handleCloseModalReservation) => {
     currentTable,
     setCurrentTable,
     fetchReservations,
-    closeReservationResultModal,
+    closeReservationModal,
     handleSubmitForm,
     disabledTimes,
     filterTime,

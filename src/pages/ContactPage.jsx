@@ -10,7 +10,7 @@ function ContactPage(props) {
       <div className="contact-page__wrapper">
         <Title text={`OUR CONTACTS`} />
         <InformationBlock
-          title={contactPageText}
+          subTitle={contactPageText}
           data={contactsInfoData}
           className={`our_contacts_infoBlock_wrapper`}
           classNameCard={`contacts_card`}

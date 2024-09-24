@@ -6,7 +6,7 @@
     @apply py-[20px];
     @apply xl:max-w-[1400px] xl:mx-auto xl:py-[20px];
     .univarsal_title_wrapper{
-        @apply text-3xl text-center mt-8;
+        @apply text-2xl text-center mt-8;
         @apply xl:text-3xl xl:max-w-[570px] xl:mt-10 xl:text-left;
         
        
@@ -56,7 +56,7 @@
     
 }
 .reservation_form{
-    @apply flex flex-col bg-pale_grey w-[370px] px-[20px] py-[20px]  rounded-2xl gap-4 mb-10 mx-auto;
+    @apply flex flex-col bg-pale_grey w-[360px] px-[20px] py-[20px]  rounded-2xl gap-4 mb-10 mx-auto;
     @apply fixed z-10 left-1/2 top-1/2;
     @apply xl:w-[500px];
     
@@ -69,7 +69,7 @@
     p{
     @apply w-full py-[16px] px-[18px] rounded-[28px];
     }
-    .primary-button{
+    .button{
         @apply  max-w-full;
     }
     .focused_table{
@@ -86,7 +86,7 @@
 
 }
 
-.arrow_focused_table_wrapper{
+.focused_table_wrapper{
     @apply flex justify-between items-start;
     img{
         @apply transition xl:hover:scale-110 duration-300 ease-in-out xl:cursor-pointer;
@@ -95,9 +95,7 @@
 .focused_table{
 @apply w-[150px] h-[150px] 
 }
-.back_arrow_reservation_modal{
-    @apply w-[40px];
-}
+
  .reserv-modal-class .ant-modal-content {
      background-color: transparent !important;
      box-shadow: none !important;

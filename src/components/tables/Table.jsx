@@ -8,7 +8,6 @@ function Table({ setCurrentTable, table, setIsModalReservationOpen }) {
       onClick={() => {
         setCurrentTable(table);
         setIsModalReservationOpen(true);
-        document.body.style.overflow = "hidden";
       }}
     >
       <p>{table.tableID}</p>

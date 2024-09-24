@@ -17,22 +17,15 @@
     .info_card{
         @apply bg-light_grey;
     }
-         .univarsal_title_wrapper {
-             @apply w-full px-[20px];
-             @apply xl:max-w-[963px] xl:px-0;
-    
-            .title {
-                 @apply text-xl font-semibold;
-                 @apply xl:text-3xl;
-             }
-         }
+   
   
 }
 .about-us__wrapper{
     @apply max-w-[400px] m-auto pt-12;
     @apply xl:max-w-[1400px] xl:m-auto xl:pt-[96px] ;
     .univarsal_title_wrapper{
-        @apply xl:mt-8 p-0;
+        
+        @apply xl:mt-8 xl:text-3xl font-semibold xl:max-w-[963px] xl:px-0;
     }
 }
 .about-us__info{
@@ -44,6 +37,9 @@
 .our_values_wrapper{
     @apply flex flex-col gap-6 py-[48px] px-[22px] xl:px-0 bg-very-light-gray;
     @apply xl:bg-[#ffff] xl:px-0 xl:grid xl:grid-cols-3;
+    .universal-subtitle__wrapper{
+        @apply xl:text-3xl xl:self-center;
+    }
 
 }
 .values_card{

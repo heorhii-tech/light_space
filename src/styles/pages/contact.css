@@ -32,6 +32,14 @@
                 @apply xl:text-base;
             }
         }
+    .universal-subtitle__wrapper {
+        @apply xl:self-center xl:max-w-[412px];
+        h4{
+            @apply text-sm;
+            @apply xl:text-lg;
+
+        }
+     }
 
 }
 

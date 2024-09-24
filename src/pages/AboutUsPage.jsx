@@ -22,7 +22,7 @@ function AboutUsPage(props) {
         </div>
 
         <InformationBlock
-          title={`Our values`}
+          subTitle={`Our values`}
           data={valuesData}
           className={`our_values_wrapper`}
           classNameCard={`values_card`}

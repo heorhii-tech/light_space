@@ -1,26 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import CurrentUserReservations from "../components/reservation/current_reservations/CurrentUserReservations";
 import useReservations from "../hooks/reservation/useReservations";
 import Tables from "../components/tables/Tables";
-import useModalReservation from "../hooks/reservation/useModalReservation";
-import ModalReservation from "../components/reservation/ModalReservation";
 import useTimeFilters from "../hooks/reservation/useTimeFilters";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Title from "../components/common/texts/Title";
 import useUser from "../hooks/useUser";
-import BasicModal from "../components/common/modals/BasicModal";
+import BasicModal from "../components/reservation/ReservationModal";
 import useBasicModalReserv from "../hooks/reservation/useBasicModal";
 import ReservationForm from "../components/reservation/ReservationForm";
 import NavTabs from "../components/common/nav_tabs/NavTabs";
+import SuccessResult from "../components/reservation/SuccessReservResult";
 
 function ReservationsPage(props) {
   // Custom hook for managing modal reservation state
-  const {
-    setIsModalReservationOpen,
-    handleCloseModalReservation,
-    isModalReservationOpen,
-  } = useModalReservation();
 
   // Custom hook for fetching tables
   const { openModalReserv, handleCloseModalReserv, handleOpenModalReserv } =
@@ -33,12 +27,12 @@ function ReservationsPage(props) {
     currentTable,
     setCurrentTable,
     user,
-    closeReservationResultModal,
     reserved,
     handleSubmitForm,
     reservDate,
     filterTime,
-  } = useReservations(handleCloseModalReservation);
+    closeReservationModal,
+  } = useReservations(handleCloseModalReserv);
 
   // Custom hook for formatting date and time
   const { formatDate, formatTime } = useTimeFilters();
@@ -77,7 +71,11 @@ function ReservationsPage(props) {
           title={`You dont have current reservations`}
         />
 
-        <BasicModal open={openModalReserv} handleClose={handleCloseModalReserv}>
+        <BasicModal
+          open={openModalReserv}
+          handleClose={closeReservationModal}
+          reserved={reserved}
+        >
           <ReservationForm
             user={user}
             currentTable={currentTable}
@@ -88,27 +86,16 @@ function ReservationsPage(props) {
             formatTime={formatTime}
             reservDate={reservDate}
             setReservDates={setReservDate}
+            closeModal={closeReservationModal}
+          />
+          <SuccessResult
+            reservDate={reservDate}
+            currentTable={currentTable}
+            formatDate={formatDate}
+            formatTime={formatTime}
+            closeModal={closeReservationModal}
           />
         </BasicModal>
-
-        {/* Modal for reservation creation or modification */}
-        {isModalReservationOpen && (
-          <>
-            <ModalReservation
-              user={user}
-              currentTable={currentTable}
-              tables={tables}
-              reserved={reserved}
-              handleSubmitForm={handleSubmitForm}
-              filterTime={filterTime}
-              formatDate={formatDate}
-              formatTime={formatTime}
-              closeReservResult={closeReservationResultModal}
-              reservDate={reservDate}
-              setReservDates={setReservDate}
-            />
-          </>
-        )}
       </div>
     </section>
   );
