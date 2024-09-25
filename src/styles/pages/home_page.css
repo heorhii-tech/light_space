@@ -59,8 +59,10 @@
             @apply xl:cursor-text;
         }
         input[type="datetime-local"]{
-            @apply pr-0;
            
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
         select{
             @apply xl:cursor-pointer;

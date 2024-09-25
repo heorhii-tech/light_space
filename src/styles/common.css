@@ -78,3 +78,19 @@ input:-webkit-autofill:active {
     box-shadow: 0 0 0 1000px white inset;
     -webkit-text-fill-color: #000;
 }
+input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    /* Включаем дефолтный вид для Safari */
+    -moz-appearance: checkbox;
+    /* Включаем дефолтный вид для Firefox */
+    appearance: checkbox;
+    /* Включаем дефолтный вид для всех остальных браузеров */
+    width: auto;
+    /* Возвращаем стандартный размер */
+    height: auto;
+    /* Возвращаем стандартный размер */
+    padding: 0;
+    /* Убираем внутренние отступы, которые могут быть применены к другим инпутам */
+    border-radius: 0;
+    /* Отменяем стили для закругления */
+}
