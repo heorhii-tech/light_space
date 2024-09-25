@@ -21,9 +21,11 @@ function HeaderAuth({
           sm: 0,
         },
         backgroundColor: "transparent",
-        "&:hover": {
-          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)", // Добавление тени
-        },
+        ...(window.innerWidth > 768 && {
+          "&:hover": {
+            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.3)",
+          },
+        }),
       }}
     >
       <img
