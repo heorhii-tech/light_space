@@ -1271,7 +1271,16 @@
       }
     }
     input[type="datetime-local"]{
+      height: 52px;
+      /* Устанавливаем постоянную высоту */
+      line-height: normal;
+      /* Для корректного отображения текста внутри */
+      padding: 0 24px;
+      /* Убираем внутренние отступы */
+      box-sizing: border-box;
+      /* Убедитесь, что padding не влияет на общую высоту */
       -webkit-appearance: none;
+      /* Убираем дефолтные стили в Safari */
       -moz-appearance: none;
       appearance: none;
     }

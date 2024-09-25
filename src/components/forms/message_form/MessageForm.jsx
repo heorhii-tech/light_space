@@ -62,7 +62,6 @@ function MessageForm({ handleReviewSubmit, className }) {
           type="datetime-local"
           className="date-input"
           id="date"
-          placeholder="Select date"
           {...register("date")}
         />
         {/* span to open input date onClick */}
