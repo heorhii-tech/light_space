@@ -38,7 +38,8 @@
     @apply flex flex-col gap-6 py-[48px] px-[22px] xl:px-0 bg-very-light-gray;
     @apply xl:bg-[#ffff] xl:px-0 xl:grid xl:grid-cols-3;
     .universal-subtitle__wrapper{
-        @apply xl:text-3xl xl:font-semibold xl:self-center;
+        @apply text-xl font-semibold;
+        @apply xl:text-3xl xl:self-center;
     }
 
 }

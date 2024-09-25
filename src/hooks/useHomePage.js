@@ -1,10 +1,47 @@
+import { useState } from "react";
 import { homePageText } from "../constants/constants";
 import { infoCards } from "../constants/constants";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-const useHomaPage = () => {
-  const handleReviewSubmit = (data) => {
-    console.log(data);
+const useHomePage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isModaSuccesslOpen, setIsModaSucceslOpen] = useState(false);
+  const handleReviewSubmit = async ({
+    name,
+    email,
+    gender,
+    date,
+    message,
+    personalData,
+  }) => {
+    setIsLoading(true);
+    try {
+      const db = getFirestore();
+
+      const docRef = await addDoc(collection(db, "reviews"), {
+        name,
+        email,
+        gender,
+        visitedTime: date,
+        message,
+        personalData,
+      });
+      if (docRef.id) {
+        setIsLoading(false);
+        setIsModaSucceslOpen(true);
+      }
+    } catch (e) {
+      console.error("Error adding document:", e);
+      setIsLoading(false);
+    }
   };
-  return { homePageText, infoCards, handleReviewSubmit };
+  return {
+    homePageText,
+    infoCards,
+    handleReviewSubmit,
+    isLoading,
+    isModaSuccesslOpen,
+    setIsModaSucceslOpen,
+  };
 };
-export default useHomaPage;
+export default useHomePage;

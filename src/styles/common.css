@@ -56,3 +56,25 @@ input:-webkit-autofill {
 }
 
 /* Примените другие свойства по вашему усмотрению */
+input,
+select,
+textarea {
+    -webkit-appearance: none;
+    /* Убираем дефолтные стили Safari */
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    padding: 10px;
+    /* Управляем внутренними отступами */
+    box-sizing: border-box;
+    /* Для контроля размеров */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+    box-shadow: 0 0 0 1000px white inset;
+    -webkit-text-fill-color: #000;
+}

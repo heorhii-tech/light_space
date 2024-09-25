@@ -1,9 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import PrimaryButton from "../../common/buttons/PrimaryButton";
 import ButtonUniversal from "../../common/buttons/ButtonUniversal";
 
-function FeedBackForm({ handleReviewSubmit, className }) {
+function MessageForm({ handleReviewSubmit, className }) {
   const {
     register,
     handleSubmit,
@@ -86,7 +85,7 @@ function FeedBackForm({ handleReviewSubmit, className }) {
         <textarea
           id="review"
           placeholder="Enter your review"
-          {...register("review", { required: "Review is required" })}
+          {...register("message", { required: "Review is required" })}
         />
         {errors.review && <span>{errors.review.message}</span>}
       </div>
@@ -95,7 +94,7 @@ function FeedBackForm({ handleReviewSubmit, className }) {
           id="personal"
           type="checkbox"
           required
-          {...register("personal-data")}
+          {...register("personalData")}
         />
         <label htmlFor="personal">Approved for personal data processing</label>
       </fieldset>
@@ -109,4 +108,4 @@ function FeedBackForm({ handleReviewSubmit, className }) {
   );
 }
 
-export default FeedBackForm;
+export default MessageForm;
