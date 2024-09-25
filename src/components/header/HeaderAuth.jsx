@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function HeaderAuth({
   pathImgHeaderAuth,
@@ -8,11 +9,29 @@ function HeaderAuth({
   classNameHeaderAuth,
 }) {
   return (
-    <div className={classNameHeaderAuth} onClick={funcHeaderAuth}>
-      <Link to={linkHeaderAuth}>
-        <img src={pathImgHeaderAuth} />
-      </Link>
-    </div>
+    <Button
+      className="header_auth_icon"
+      variant="text"
+      component={Link} // Используем MUI Button с роутером Link
+      to={linkHeaderAuth}
+      onClick={funcHeaderAuth}
+      sx={{
+        marginLeft: {
+          xs: "auto",
+          sm: 0,
+        },
+        backgroundColor: "transparent",
+        "&:hover": {
+          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)", // Добавление тени
+        },
+      }}
+    >
+      <img
+        style={{ maxWidth: "40px" }}
+        src={pathImgHeaderAuth}
+        alt="auth icon"
+      />
+    </Button>
   );
 }
 

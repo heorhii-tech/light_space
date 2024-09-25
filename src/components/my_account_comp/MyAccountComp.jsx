@@ -9,7 +9,7 @@ import useModalChangeName from "../../hooks/useModalChangeName";
 import ModalChangeMyData from "../modalChangeMyData/ModalChangeMyData.jsx";
 import useModalChangeTel from "../../hooks/useModalChangeTel";
 import useModalChangeAvatar from "../../hooks/useModalChangeAvatar";
-import { Link } from "react-router-dom";
+import ButtonUniversal from "../common/buttons/ButtonUniversal";
 
 function MyAccountComp() {
   const { handleUnLogin } = useMyAcc();
@@ -106,9 +106,12 @@ function MyAccountComp() {
             {user.email ? <p>{user.email}</p> : <LineLoader />}
           </div>
         </form>
-        <Link to={`/`} className="my_acc_logout">
-          <button onClick={handleUnLogin}>LOGOUT</button>
-        </Link>
+
+        <ButtonUniversal
+          className={"primary-button button"}
+          title={`LOG OUT`}
+          func={handleUnLogin}
+        />
       </div>
     </div>
   );

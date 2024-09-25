@@ -61,6 +61,7 @@ function MessageForm({ handleReviewSubmit, className }) {
         <input
           type="datetime-local"
           className="date-input"
+          title="Select date"
           id="date"
           {...register("date")}
         />

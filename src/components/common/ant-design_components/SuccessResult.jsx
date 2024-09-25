@@ -8,8 +8,16 @@ const SuccesResult = ({
   isModalOpen,
   handleCancel,
 }) => {
+  const isMobile = window.innerWidth <= 768;
   return (
-    <Modal open={isModalOpen} onCancel={handleCancel} footer={false}>
+    <Modal
+      style={{
+        maxWidth: isMobile ? "320px" : "auto",
+      }}
+      open={isModalOpen}
+      onCancel={handleCancel}
+      footer={false}
+    >
       <Result
         status="success"
         title={title}

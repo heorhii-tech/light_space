@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import HeaderAuth from "./HeaderAuth";
 import HeaderNavLinks from "./HeaderNavLinks";
+import Button from "@mui/material/Button";
 
 function HeaderNav({
   logo,
@@ -37,9 +38,20 @@ function HeaderNav({
         customStyleHeader ? `add_style_header` : ``
       }`}
     >
-      <Link to="/" className="logo_wrapper">
+      <Button
+        sx={{
+          backgroundColor: "transparent",
+          transition: "box-shadow 0.3s ease-in-out",
+          "&:hover": {
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+          },
+        }}
+        component={Link}
+        to="/"
+        className="logo_wrapper"
+      >
         <img className="logo" src={logo}></img>
-      </Link>
+      </Button>
       <HeaderNavLinks headerMenu={headerMenu} />
       <HeaderAuth
         linkHeaderAuth={linkHeaderAuth}

@@ -49,5 +49,10 @@
    
  }
  .result_signup_wrapper{
-    @apply bg-[#ffff] h-[90vh] flex items-center;
+    @apply bg-[#ffff] h-[90vh] flex items-center max-w-[360px] m-auto;
+    @apply xl:max-w-[470px];
+    .ant-result-title{
+        @apply text-sm;
+        @apply xl:text-xl;
+    }
  }

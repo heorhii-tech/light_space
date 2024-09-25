@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import React from "react";
-export default function ResetPasswordForm({ handlePasswordReset }) {
+export default function ResetPasswordForm({ handlePasswordReset, className }) {
   const {
     register,
     handleSubmit,
@@ -14,7 +14,7 @@ export default function ResetPasswordForm({ handlePasswordReset }) {
   };
 
   return (
-    <form className="reset_password_form" onSubmit={handleSubmit(onSubmit)}>
+    <form className={className} onSubmit={handleSubmit(onSubmit)}>
       <input placeholder="Email" {...register("email", { required: true })} />
 
       {errors.email && <span>This field is required</span>}

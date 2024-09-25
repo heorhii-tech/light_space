@@ -2,10 +2,10 @@ import React from "react";
 import CurrentUserReservations from "../components/reservation/current_reservations/CurrentUserReservations";
 import useReservations from "../hooks/reservation/useReservations";
 import PassedReservations from "../components/reservation/passed_reservations/PassedReservations";
-import Title from "../components/common/texts/Title";
+
 import Description from "../components/common/texts/Description";
 import NavTabs from "../components/common/nav_tabs/NavTabs";
-import { useLocale } from "antd/es/locale";
+
 import { useLocation } from "react-router-dom";
 
 function ReservationHistoryPage(props) {

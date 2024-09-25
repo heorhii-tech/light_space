@@ -12,11 +12,9 @@ function Login(props) {
     password,
     setPassword,
     handleLogin,
-    logined,
     contextHolder,
     loading,
   } = useLogin();
-
   return (
     <div>
       {contextHolder}
@@ -32,8 +30,6 @@ function Login(props) {
         password={password}
         text={`LOG IN`}
       />
-
-      {logined && <AutoRedirect to={"/"} delay={0} />}
     </div>
   );
 }

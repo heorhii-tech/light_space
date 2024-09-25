@@ -42,7 +42,7 @@
 }
 
 .my_acc_wrapper{
-    @apply m-auto w-full px-[20px] flex flex-col gap-3 h-[89vh];
+    @apply m-auto w-full px-[20px] flex flex-col gap-3 h-[86vh];
     @apply xl:py-10 xl:max-w-[750px] xl:max-h-[350px] xl:flex-row xl:gap-0 xl:bg-very-light-shade-of-orange;
     @apply xl:rounded-[28px] xl:mt-24 xl:justify-between;
    .my_acc_avatar{
@@ -96,7 +96,9 @@
             background-color: transparent !important;
             scale: 1.05;
         }
-   
+    button{
+        @apply mt-auto;
+    }
 }
 .custom-ok-button {
     background-color: #687D6B;

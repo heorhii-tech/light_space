@@ -17,7 +17,11 @@ function SuccessResult({
       sx={{
         textAlign: "center",
         padding: "20px",
-        maxWidth: "500px",
+        maxWidth: {
+          xs: "300px",
+          sm: "500px",
+        },
+        transform: "translateY(50%)",
         margin: "auto",
         boxShadow: "none",
         border: "none",

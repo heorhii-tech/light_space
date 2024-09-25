@@ -6,22 +6,21 @@ import {
 import { useState, React, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../store/user/userSlice";
-import { auth } from "../firebaseConfig";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebaseConfig";
+
 import { message } from "antd";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const useLogin = () => {
   const [email, setEmail] = useState(``);
   const [password, setPassword] = useState(``);
   const [verify, setVerify] = useState(``);
   const [errorMes, setErrorMes] = useState(``);
-  const [logined, setLogined] = useState(false);
+
   const [messageApi, contextHolder] = message.useMessage();
   const [loading, setLoading] = useState(false);
+  const [relocatePath, setRelocatePath] = useState(``);
 
   const dispatch = useDispatch();
-
 
   const auth = getAuth();
   useEffect(() => {
@@ -40,8 +39,6 @@ const useLogin = () => {
       });
     }
   }, [verify]);
-
-
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -65,7 +62,6 @@ const useLogin = () => {
 
             setEmail(``);
             setPassword(``);
-            setLogined(true);
           } else {
             setVerify(`Please verify your email`);
             setLoading(false);
@@ -81,7 +77,6 @@ const useLogin = () => {
         }
       });
   };
- 
 
   return {
     email,
@@ -91,9 +86,9 @@ const useLogin = () => {
     handleLogin,
     verify,
     errorMes,
-    logined,
     contextHolder,
     loading,
+    relocatePath,
   };
 };
 

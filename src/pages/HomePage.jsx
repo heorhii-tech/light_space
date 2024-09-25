@@ -36,23 +36,22 @@ function HomePage(props) {
           <ImageSlider data={infoCards} />
           <PrimaryButton text={`BOOK`} link={`/reservation`} />
         </div>
-        <div className="home-page__feedback_wrapper">
-          {!isModaSuccesslOpen ? (
-            <>
-              <Title text={`SEND US A MESSAGE`} />
-              <FeedBackForm
-                handleReviewSubmit={handleReviewSubmit}
-                className={`home-page__review_form`}
-              />
-            </>
-          ) : (
-            <SuccesResult
-              title={`Successfully sent message`}
-              isModalOpen={isModaSuccesslOpen}
-              handleCancel={() => setIsModaSucceslOpen(false)}
+
+        {!isModaSuccesslOpen ? (
+          <div className="home-page__feedback_wrapper">
+            <Title text={`SEND US A MESSAGE`} />
+            <FeedBackForm
+              handleReviewSubmit={handleReviewSubmit}
+              className={`home-page__review_form`}
             />
-          )}
-        </div>
+          </div>
+        ) : (
+          <SuccesResult
+            title={`Successfully sent message`}
+            isModalOpen={isModaSuccesslOpen}
+            handleCancel={() => setIsModaSucceslOpen(false)}
+          />
+        )}
       </div>
     </section>
   );

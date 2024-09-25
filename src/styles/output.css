@@ -351,10 +351,31 @@
 }
 
 .result_signup_wrapper{
+  margin: auto;
   display: flex;
   height: 90vh;
+  max-width: 360px;
   align-items: center;
   background-color: #ffff;
+}
+
+@media (min-width: 1280px){
+  .result_signup_wrapper{
+    max-width: 470px;
+  }
+}
+
+.result_signup_wrapper{
+  .ant-result-title{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  @media (min-width: 1280px){
+    .ant-result-title{
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+  }
 }
 
 .about-us{
@@ -1631,18 +1652,41 @@ input:-webkit-autofill:active {
   }
 }
 
-.reset_password_page_wrapper{
+.reset-password-page{
+  min-height: 90vh;
+  background-color: #ffff;
+  padding-bottom: 2.25rem;
+  padding-top: 1.75rem;
+}
+
+@media (min-width: 1280px){
+  .reset-password-page{
+    padding-top: 0px;
+  }
+}
+
+.reset-password-page__wrapper{
   display: flex;
-  height: 90vh;
-  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  background-color: #ffff;
-  padding-left: 20px;
-  padding-right: 20px;
+  gap: 1.25rem;
+}
+
+@media (min-width: 1280px){
+  .reset-password-page__wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6rem;
+    max-width: 600px;
+  }
+}
+
+.reset-password-page__wrapper{
   .univarsal_title_wrapper{
+    text-align: center;
+  }
+  .univarsal_title_wrapper {
     .title{
       font-size: 1.25rem;
       line-height: 1.75rem;
@@ -1654,31 +1698,62 @@ input:-webkit-autofill:active {
       --tw-text-opacity: 1;
       color: rgb(104 125 107 / var(--tw-text-opacity));
     }
-  };
-  .univarsal_desc_wrapper {
-    .title{
-      font-size: 0.875rem;
-      line-height: 1.25rem;
-    }
+  }
+  .universal_desc_wreapper{
+    text-align: center;
   }
 }
 
-.reset_password_form{
+.reset-password-page__form{
   display: flex;
   width: 100%;
-  max-width: 360px;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  background-color: #ffff;
   padding-top: 1.75rem;
   padding-bottom: 1.75rem;
-  input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+@media (min-width: 1280px){
+  .reset-password-page__form{
+    max-width: 500px;
+    gap: 1.5rem;
+    border-radius: 1.5rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(239 234 231 / var(--tw-bg-opacity));
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
+}
+
+.reset-password-page__form {
+  .button{
+    max-width: 100%;
+  }
+}
+
+.reset-password-page__form input{
+  width: 100%;
+  border-radius: 0.375rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+  padding: 0.5rem;
+}
+
+@media (min-width: 1280px){
+  .reset-password-page__form input{
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.reset-password-page__form input {
+  /* Поля ввода в форме */
 }
 
 .reservation-history-page{
@@ -2025,16 +2100,16 @@ header{
   top: 6px;
 }
 
-.header_autth_icon{
+.header_auth_icon {
+  width: 40px;
   margin-left: auto;
   margin-right: 25px;
   display: flex;
-  width: 40px;
   align-items: center;
 }
 
-@media (min-width: 1280px){
-  .header_autth_icon{
+@media (min-width: 1280px) {
+  .header_auth_icon {
     margin-left: 80px;
   }
 }
@@ -2335,7 +2410,7 @@ header{
 .my_acc_wrapper{
   margin: auto;
   display: flex;
-  height: 89vh;
+  height: 86vh;
   width: 100%;
   flex-direction: column;
   gap: 0.75rem;
@@ -2479,6 +2554,9 @@ header{
   .edit_button:hover{
     background-color: transparent !important;
     scale: 1.05;
+  }
+  button{
+    margin-top: auto;
   }
 }
 
@@ -2700,6 +2778,13 @@ input[type="checkbox"] {
   /* Убираем внутренние отступы, которые могут быть применены к другим инпутам */
   border-radius: 0;
   /* Отменяем стили для закругления */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition-delay: 9999s;
 }
 
 /* ! tailwindcss v3.4.10 | MIT License | https://tailwindcss.com */
