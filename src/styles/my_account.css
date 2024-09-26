@@ -46,6 +46,7 @@
     @apply xl:py-10 xl:max-w-[750px] xl:max-h-[350px] xl:flex-row xl:gap-0 xl:bg-very-light-shade-of-orange;
     @apply xl:rounded-[28px] xl:mt-24 xl:justify-between;
    .my_acc_avatar{
+    @apply flex justify-center min-w-[150px];
     .my_acc_edit_wrapper{
         @apply xl:flex-col;
         p{
@@ -96,9 +97,7 @@
             background-color: transparent !important;
             scale: 1.05;
         }
-    button{
-        @apply mt-auto;
-    }
+   
 }
 .custom-ok-button {
     background-color: #687D6B;

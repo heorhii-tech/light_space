@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextBlock from "../components/text_block/TextBlock";
 import useAboutUs from "../hooks/useAboutUs";
 import ImageSlider from "../components/slider/ImageSlider";
@@ -9,6 +9,7 @@ import Title from "../components/common/texts/Title";
 
 function AboutUsPage(props) {
   const { aboutUsPageText, infoCards } = useAboutUs();
+
   return (
     <section className="about-us">
       <div className="about-us__wrapper">

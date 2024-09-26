@@ -18,7 +18,7 @@ function SuccessResult({
         textAlign: "center",
         padding: "20px",
         maxWidth: {
-          xs: "300px",
+          xs: "340px",
           sm: "500px",
         },
         transform: "translateY(50%)",

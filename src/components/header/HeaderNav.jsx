@@ -34,6 +34,7 @@ function HeaderNav({
 
   return (
     <div
+      id="header"
       className={`header_nav_wrapper ${
         customStyleHeader ? `add_style_header` : ``
       }`}
@@ -41,6 +42,7 @@ function HeaderNav({
       <Button
         sx={{
           backgroundColor: "transparent",
+          padding: "0",
           transition: "box-shadow 0.3s ease-in-out",
           ...(window.innerWidth > 768 && {
             "&:hover": {

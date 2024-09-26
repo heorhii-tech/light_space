@@ -15,7 +15,7 @@
     }
     .home-page__info{
        
-        @apply m-auto xl:grid xl:grid-cols-2 xl:pt-8;  
+        @apply m-auto xl:grid xl:grid-cols-2 xl:pt-8 pb-5;  
         .primary-button{
             @apply block m-auto;
             @apply xl:hidden xl:m-0;

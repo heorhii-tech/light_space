@@ -3,19 +3,16 @@ import PassedReservation from "./PassedReservation";
 import { Empty } from "antd";
 
 function PassedReservations({ passedUserReservations, title }) {
-  return (
-    <div className="current_resrvation_wrapper">
-      {passedUserReservations.length ? (
-        passedUserReservations.map((reservation) => (
-          <div className="reservation" key={reservation.reservationID}>
-            <PassedReservation reservation={reservation} />
-          </div>
-        ))
-      ) : (
-        <Empty />
-      )}
+  return passedUserReservations.length > 0 ? (
+    <div className="current_reservation_wrapper">
+      {passedUserReservations.map((reservation) => {
+        <div className="reservation" key={reservation.reservationID}>
+          <PassedReservation reservation={reservation} />
+        </div>;
+      })}
     </div>
+  ) : (
+    <Empty />
   );
 }
-
 export default PassedReservations;

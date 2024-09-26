@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { clearUser } from "../store/user/userSlice";
@@ -11,7 +11,12 @@ const useMyAcc = () => {
     <AutoRedirect to={`/`} delay={10} />;
     dispatch(clearUser());
   };
-
+  useEffect(() => {
+    const headerElement = document.getElementById("header");
+    if (headerElement) {
+      headerElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
   return {
     handleUnLogin,
   };

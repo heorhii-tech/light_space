@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { homePageText } from "../constants/constants";
 import { infoCards } from "../constants/constants";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
@@ -35,6 +35,12 @@ const useHomePage = () => {
       setIsLoading(false);
     }
   };
+  useEffect(() => {
+    const headerElement = document.getElementById("header");
+    if (headerElement) {
+      headerElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
   return {
     homePageText,
     infoCards,

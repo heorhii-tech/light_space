@@ -77,6 +77,12 @@ const useLogin = () => {
         }
       });
   };
+   useEffect(() => {
+     const headerElement = document.getElementById("header");
+     if (headerElement) {
+       headerElement.scrollIntoView({ behavior: "smooth" });
+     }
+   }, []);
 
   return {
     email,

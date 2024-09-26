@@ -80,6 +80,12 @@ const useHeader = () => {
         break;
     }
   }, [location.pathname]);
+    function scrollToHeader() {
+      const headerElement = document.getElementById("header");
+      if (headerElement) {
+        headerElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
 
   return {
     showHeader,
@@ -91,6 +97,7 @@ const useHeader = () => {
     title,
     button,
     customStyleHeader,
+    scrollToHeader,
   };
 };
 export default useHeader;

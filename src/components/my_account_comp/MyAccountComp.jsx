@@ -10,6 +10,8 @@ import ModalChangeMyData from "../modalChangeMyData/ModalChangeMyData.jsx";
 import useModalChangeTel from "../../hooks/useModalChangeTel";
 import useModalChangeAvatar from "../../hooks/useModalChangeAvatar";
 import ButtonUniversal from "../common/buttons/ButtonUniversal";
+import SpinLoader from "../common/skeletons/SpinLoader";
+import CircularLoader from "../common/skeletons/CircularLoader";
 
 function MyAccountComp() {
   const { handleUnLogin } = useMyAcc();
@@ -39,32 +41,40 @@ function MyAccountComp() {
     handleCancelAvatar,
     isModAvatarOpen,
     uploadAvatar,
+    isloading,
   } = useModalChangeAvatar();
 
   return (
     <div className="my_acc_wrapper">
       <div className="my_acc_avatar">
-        <div className="my_acc_edit_wrapper">
-          {user.avatar ? (
-            <img className="avatar" src={user.avatar} />
-          ) : (
-            <Avatar shape="square" size={128} icon={<UserOutlined />} />
-          )}
-          <ModalChangeMyData
-            isModalOpen={isModAvatarOpen}
-            handleUpdate={uploadAvatar}
-            handleCancel={handleCancelAvatar}
-            showModal={showModalAvatar}
-            setData={setAvatar}
-            data={avatar}
-            placeholder={"New name"}
-            title={"Change avatar"}
-            type={`file`}
-            user={user}
-            file={avatar}
-            editButtonText={`EDIT AVATAR`}
-          />
-        </div>
+        {isloading ? (
+          <CircularLoader />
+        ) : (
+          <div className="my_acc_edit_wrapper">
+            {user.avatar ? (
+              <>
+                <img className="avatar" src={user.avatar} />
+              </>
+            ) : (
+              <Avatar shape="square" size={128} icon={<UserOutlined />} />
+            )}
+
+            <ModalChangeMyData
+              isModalOpen={isModAvatarOpen}
+              handleUpdate={uploadAvatar}
+              handleCancel={handleCancelAvatar}
+              showModal={showModalAvatar}
+              setData={setAvatar}
+              data={avatar}
+              placeholder={"New name"}
+              title={"Change avatar"}
+              type={`file`}
+              user={user}
+              file={avatar}
+              editButtonText={`EDIT AVATAR`}
+            />
+          </div>
+        )}
       </div>
       <div className="my_acc_info_wrapper">
         <form className="my_acc_name">

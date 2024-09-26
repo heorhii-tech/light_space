@@ -1,10 +1,16 @@
-import React from "react";
-import TextBlock from "../components/text_block/TextBlock";
+import React, { useEffect } from "react";
+
 import { contactPageText, contactsInfoData } from "../constants/constants";
 import InformationBlock from "../components/information_block/InformationBlock";
 import Title from "../components/common/texts/Title";
 
 function ContactPage(props) {
+  useEffect(() => {
+    const headerElement = document.getElementById("header");
+    if (headerElement) {
+      headerElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
   return (
     <section className="contact-page">
       <div className="contact-page__wrapper">
