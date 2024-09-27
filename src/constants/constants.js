@@ -80,6 +80,8 @@ const homePageText = [
     ],
   },
 ];
+const headerHomeImg = `https://firebasestorage.googleapis.com/v0/b/svitlospace-b21f8.appspot.com/o/freepik-export-20240927094212zEco.jpeg?alt=media&token=afbaa3c1-65a4-493b-91b7-fde3a8259222`;
+const headerContactImg = `https://firebasestorage.googleapis.com/v0/b/svitlospace-b21f8.appspot.com/o/header_images%2Ffreepik-export-20240927105419Ki2W.jpeg?alt=media&token=8dce0b22-9b52-45ec-932c-a51d09118878`;
 const aboutUsPageText = [
   {
     title: ``,
@@ -95,9 +97,9 @@ const aboutUsPageText = [
   },
 ];
 const contactPageText = [
-      `You can contact us in any way convenient for you. `,
-      `We are always ready to answer your questions and provide detailed information about our services and events.`,
-      ``,
+  `You can contact us in any way convenient for you. `,
+  `We are always ready to answer your questions and provide detailed information about our services and events.`,
+  ``,
 ];
 const infoCards = [
   {
@@ -196,4 +198,6 @@ export {
   contactPageText,
   contactsInfoData,
   headerMenu,
+  headerHomeImg,
+  headerContactImg,
 };

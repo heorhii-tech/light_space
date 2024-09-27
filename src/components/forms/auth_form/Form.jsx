@@ -17,6 +17,7 @@ function Form({
   password,
   setPassword,
   text,
+  autoCompleteOff,
 }) {
   return (
     <div className="auth_form_wrapper">
@@ -32,6 +33,7 @@ function Form({
             onChange={(e) => setEmail(e.target.value.toLowerCase())}
             placeholder="Email"
             required
+            autoComplete={autoCompleteOff ? "nope" : "on"}
           />
           <input
             type="password"
@@ -40,6 +42,7 @@ function Form({
             placeholder="Password"
             required
             minLength={8}
+            autoComplete={autoCompleteOff ? "new-password" : "on"}
           />
 
           {!hide && (
@@ -48,8 +51,9 @@ function Form({
               pattern="[0-9]{10}"
               value={tel}
               onChange={(e) => setTel(e.target.value)}
-              placeholder="0638699561"
+              placeholder="0631234567"
               name="phone"
+              autoComplete={autoCompleteOff ? "nope" : "on"}
             />
           )}
 
@@ -60,6 +64,7 @@ function Form({
               onChange={(e) => setName(e.target.value)}
               placeholder="Name"
               required
+              autoComplete={autoCompleteOff ? "nope" : "on"}
             />
           )}
         </div>

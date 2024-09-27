@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import loginIcon from "../assets/login.png";
 import logoutIcon from "../assets/exit.png";
-import headerContacntImg from "../assets/headerContact.png";
-import ImageHome from "../assets/header2.svg";
+
+import { headerHomeImg, headerContactImg } from "../constants/constants";
 import ImageAboutUs from "../assets/aboutHeader.png";
 
 const useHeader = () => {
@@ -58,7 +58,7 @@ const useHeader = () => {
   useEffect(() => {
     switch (location.pathname) {
       case "/":
-        setImage(ImageHome);
+        setImage(headerHomeImg);
         setTitle(null);
         setButton("BOOK");
         break;
@@ -68,7 +68,7 @@ const useHeader = () => {
         setButton(null);
         break;
       case "/contact":
-        setImage(headerContacntImg);
+        setImage(headerContactImg);
         setTitle("Contact");
         setButton(null);
         break;
@@ -80,12 +80,12 @@ const useHeader = () => {
         break;
     }
   }, [location.pathname]);
-    function scrollToHeader() {
-      const headerElement = document.getElementById("header");
-      if (headerElement) {
-        headerElement.scrollIntoView({ behavior: "smooth" });
-      }
+  function scrollToHeader() {
+    const headerElement = document.getElementById("header");
+    if (headerElement) {
+      headerElement.scrollIntoView({ behavior: "smooth" });
     }
+  }
 
   return {
     showHeader,

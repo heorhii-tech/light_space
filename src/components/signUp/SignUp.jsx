@@ -38,6 +38,7 @@ function SignUp() {
           tel={tel}
           password={password}
           name={name}
+          autoCompleteOff={true}
         />
       )}
       {registered && (

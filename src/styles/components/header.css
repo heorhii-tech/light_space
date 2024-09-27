@@ -5,14 +5,14 @@ header {
 }
 
 .header {
-    @apply font-sans h-[50vh] xl:h-custom-height-full flex flex-col justify-end;
+    @apply font-sans h-[50vh] xl:min-h-[102vh] flex flex-col justify-end;
     background-color: rgba(1, 1, 1, 0.3);
     text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
   
     .header_main {
             @apply max-w-[var(--container-bg)] xl:w-full flex justify-center text-white  mb-8;
             .button{
-                @apply mx-auto mb-[50px];
+                @apply mx-auto mb-[60px];
             }
 
         }

@@ -1,5 +1,5 @@
 .login-page {
-    @apply w-full bg-[#ffff];
+    @apply w-full bg-[#ffff] min-h-[90vh];
 
     @apply xl:bg-[#ffff] xl:pb-[75px];
 }

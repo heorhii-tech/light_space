@@ -16,7 +16,7 @@ function Login(props) {
     loading,
   } = useLogin();
   return (
-    <div>
+    <>
       {contextHolder}
       {loading && <SpinLoader />}
 
@@ -30,7 +30,7 @@ function Login(props) {
         password={password}
         text={`LOG IN`}
       />
-    </div>
+    </>
   );
 }
 

@@ -15,14 +15,37 @@ const useLogin = () => {
   const [password, setPassword] = useState(``);
   const [verify, setVerify] = useState(``);
   const [errorMes, setErrorMes] = useState(``);
-
   const [messageApi, contextHolder] = message.useMessage();
   const [loading, setLoading] = useState(false);
   const [relocatePath, setRelocatePath] = useState(``);
+  const [loginMesForNext, setLoginMesForNext] = useState(``);
 
+  const location = useLocation();
   const dispatch = useDispatch();
 
   const auth = getAuth();
+  useEffect(() => {
+    const path = location.state?.from?.pathname;
+    console.log(path);
+    switch (path) {
+      case `/my_account`:
+        setLoginMesForNext(`PLEASE LOGIN TO OPEN YOUR ACCOUNT`);
+        break;
+      case `/reservation`:
+        setLoginMesForNext(`PLEASE LOG IN FOR RESERVATION`);
+        break;
+    }
+  }, [location]);
+
+  useEffect(() => {
+    if (loginMesForNext) {
+      messageApi.open({
+        type: "warning",
+        content: loginMesForNext,
+      });
+    }
+  }, [loginMesForNext]);
+
   useEffect(() => {
     if (errorMes) {
       messageApi.open({
@@ -77,12 +100,12 @@ const useLogin = () => {
         }
       });
   };
-   useEffect(() => {
-     const headerElement = document.getElementById("header");
-     if (headerElement) {
-       headerElement.scrollIntoView({ behavior: "smooth" });
-     }
-   }, []);
+  useEffect(() => {
+    const headerElement = document.getElementById("header");
+    if (headerElement) {
+      headerElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
   return {
     email,

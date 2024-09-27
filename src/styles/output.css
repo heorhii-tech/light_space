@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 
 .login-page{
+  min-height: 90vh;
   width: 100%;
   background-color: #ffff;
 }
@@ -1987,7 +1988,7 @@ header{
 
 @media (min-width: 1280px){
   .header{
-    height: calc(100vh - 20px);
+    min-height: 102vh;
   }
 }
 
@@ -2021,7 +2022,7 @@ header{
       margin-right: auto;
     }
     .button{
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
   }
 };
@@ -2634,6 +2635,7 @@ header{
     padding-right: 0px;
     padding-bottom: 69px;
     padding-top: 2.25rem;
+    align-items: center;
   }
 }
 
