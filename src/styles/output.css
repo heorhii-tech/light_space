@@ -630,136 +630,6 @@
   }
 }
 
-.current_resrvation_wrapper{
-  margin: auto;
-  display: grid;
-  max-width: 314px;
-  gap: 1rem;
-  background-color: #ffff;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  text-align: center;
-}
-
-@media (min-width: 1280px){
-  .current_resrvation_wrapper{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 100%;
-    justify-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-.current_resrvation_wrapper{
-  .reservation{
-    display: flex;
-  }
-  .reservation{
-    flex-direction: column;
-  }
-  .reservation{
-    gap: 10px;
-  }
-  .reservation{
-    border-radius: 20px;
-  }
-  .reservation{
-    --tw-bg-opacity: 1;
-    background-color: rgb(231 231 231 / var(--tw-bg-opacity));
-  }
-  @media (min-width: 1280px){
-    .reservation{
-      align-items: center;
-    }
-  }
-  .reservation{
-    padding-left: 17px;
-    padding-right: 17px;
-  }
-  .reservation{
-    padding-top: 33px;
-    padding-bottom: 33px;
-  }
-  .reservation{
-    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  }
-  .reservation{
-    --tw-shadow-color: #cbd5e1;
-    --tw-shadow: var(--tw-shadow-colored);
-  }
-  @media (min-width: 1280px){
-    .reservation{
-      gap: 0.75rem;
-    }
-  }
-  @media (min-width: 1280px){
-    .reservation{
-      width: 100%;
-    }
-  }
-  @media (min-width: 1280px){
-    .reservation{
-      max-width: 535px;
-    }
-  }
-  @media (min-width: 1280px){
-    .reservation{
-      padding-left: 74px;
-      padding-right: 74px;
-    }
-  }
-  @media (min-width: 1280px){
-    .reservation{
-      padding-top: 35px;
-      padding-bottom: 35px;
-    }
-  }
-  .reservation{
-    h3,h5{
-      border-radius: 23px;
-    }
-    h3,h5{
-      --tw-bg-opacity: 1;
-      background-color: rgb(242 242 242 / var(--tw-bg-opacity));
-    }
-    h3,h5{
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
-    }
-    h3,h5{
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
-    }
-    h3,h5{
-      text-align: left;
-    }
-    h3,h5{
-      color: rgba(0, 0, 0, 0.5);
-    }
-    @media (min-width: 1280px){
-      h3,h5{
-        width: 100%;
-      }
-    }
-    .primary-button{
-      margin-top: 3px;
-    }
-    @media (min-width: 1280px){
-      .primary-button{
-        margin-top: 14px;
-      }
-    }
-    @media (min-width: 1280px){
-      .primary-button{
-        max-width: 100%;
-      }
-    }
-  }
-}
-
 .tables_wrapper{
   margin: auto;
   display: flex;
@@ -1025,6 +895,143 @@
   --tw-bg-opacity: 0.5;
   z-index: 9;
   display: block;
+}
+
+.current_resrvation_wrapper{
+  margin: auto;
+  display: grid;
+  max-width: 314px;
+  gap: 1rem;
+  background-color: #ffff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+@media (min-width: 1280px){
+  .current_resrvation_wrapper{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 100%;
+    justify-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.current_resrvation_wrapper {
+  .reservation{
+    display: flex;
+  }
+  .reservation{
+    flex-direction: column;
+  }
+  .reservation{
+    gap: 10px;
+  }
+  .reservation{
+    border-radius: 20px;
+  }
+  .reservation{
+    --tw-bg-opacity: 1;
+    background-color: rgb(231 231 231 / var(--tw-bg-opacity));
+  }
+  @media (min-width: 1280px){
+    .reservation{
+      align-items: center;
+    }
+  }
+  .reservation{
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+  .reservation{
+    padding-top: 33px;
+    padding-bottom: 33px;
+  }
+  .reservation{
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+  .reservation{
+    --tw-shadow-color: #cbd5e1;
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+  @media (min-width: 1280px){
+    .reservation{
+      gap: 0.75rem;
+    }
+  }
+  @media (min-width: 1280px){
+    .reservation{
+      width: 100%;
+    }
+  }
+  @media (min-width: 1280px){
+    .reservation{
+      max-width: 535px;
+    }
+  }
+  @media (min-width: 1280px){
+    .reservation{
+      padding-left: 74px;
+      padding-right: 74px;
+    }
+  }
+  @media (min-width: 1280px){
+    .reservation{
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
+  }
+  .reservation {
+    h3,
+        h5{
+      border-radius: 23px;
+    }
+    h3,
+        h5{
+      --tw-bg-opacity: 1;
+      background-color: rgb(242 242 242 / var(--tw-bg-opacity));
+    }
+    h3,
+        h5{
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+    h3,
+        h5{
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+    h3,
+        h5{
+      text-align: left;
+    }
+    h3,
+        h5{
+      color: rgba(0, 0, 0, 0.5);
+    }
+    @media (min-width: 1280px){
+      h3,
+        h5{
+        width: 100%;
+      }
+    }
+    .primary-button{
+      margin-top: 3px;
+    }
+    @media (min-width: 1280px){
+      .primary-button{
+        margin-top: 14px;
+      }
+    }
+    @media (min-width: 1280px){
+      .primary-button{
+        max-width: 100%;
+      }
+    }
+  }
 }
 
 /* Покрытие заднего фона при открытии формы */
@@ -1794,6 +1801,7 @@ input:-webkit-autofill:active {
 
 @media (min-width: 1280px){
   .reservation-history-page__wrapper{
+    min-height: 80vh;
     max-width: 1400px;
   }
 }
@@ -2567,6 +2575,11 @@ header{
     background-color: transparent !important;
     scale: 1.05;
   }
+  @media (min-width: 1280px){
+    .button{
+      margin-top: auto;
+    }
+  }
 }
 
 .custom-ok-button {
@@ -2852,7 +2865,115 @@ input:-webkit-autofill:active {
   transition-delay: 9999s;
 }
 
-/* ! tailwindcss v3.4.10 | MIT License | https://tailwindcss.com */
+*, ::before, ::after{
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+::backdrop{
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+/* ! tailwindcss v3.4.13 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -3296,114 +3417,6 @@ video {
 
 [hidden] {
   display: none;
-}
-
-*, ::before, ::after{
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
-}
-
-::backdrop{
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
 }
 
 .table{

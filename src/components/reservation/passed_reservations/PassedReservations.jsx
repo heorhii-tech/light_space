@@ -3,12 +3,15 @@ import PassedReservation from "./PassedReservation";
 import { Empty } from "antd";
 
 function PassedReservations({ passedUserReservations, title }) {
-  return passedUserReservations.length > 0 ? (
-    <div className="current_reservation_wrapper">
+  console.log(passedUserReservations);
+  return passedUserReservations.length ? (
+    <div className="current_resrvation_wrapper">
       {passedUserReservations.map((reservation) => {
-        <div className="reservation" key={reservation.reservationID}>
-          <PassedReservation reservation={reservation} />
-        </div>;
+        return (
+          <div className="reservation" key={reservation.reservationID}>
+            <PassedReservation reservation={reservation} />
+          </div>
+        );
       })}
     </div>
   ) : (

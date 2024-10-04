@@ -15,23 +15,7 @@
  .reservation-page__background {
      @apply xl:bg-xanadu xl:h-[50px];
  }
-.current_resrvation_wrapper{
-    @apply bg-[#ffff]  text-center py-[30px] grid xl:grid-cols-2  gap-4 max-w-[314px] m-auto;
-    @apply xl:max-w-full xl:px-[20px] xl:justify-items-center;
-    .reservation{
-      @apply bg-pale_grey rounded-[20px] flex flex-col gap-[10px] xl:items-center;
-      @apply px-[17px] py-[33px] xl:gap-3 shadow-lg shadow-slate-300 ;
-      @apply xl:px-[74px] xl:py-[35px] xl:max-w-[535px] xl:w-full ;
-      h3,h5{
-        @apply bg-gray-95 xl:w-full py-3 px-5 rounded-[23px] text-left text-black-50 ;
-      }
-      .primary-button{
-        @apply mt-[3px];
-        @apply xl:max-w-full xl:mt-[14px];
-      }
-      
-    }
-}
+
 .tables_wrapper{
     @apply flex flex-wrap  gap-[24px] pt-[20px] justify-center p-4 bg-[#ffff] m-auto;
     @apply xl:grid xl:grid-cols-4;
@@ -109,5 +93,25 @@
      
      
  }
+.current_resrvation_wrapper {
+    @apply bg-[#ffff] text-center py-[30px] grid xl:grid-cols-2 gap-4 max-w-[314px] m-auto;
+    @apply xl:max-w-full xl:px-[20px] xl:justify-items-center;
 
+    .reservation {
+        @apply bg-pale_grey rounded-[20px] flex flex-col gap-[10px] xl:items-center;
+        @apply px-[17px] py-[33px] xl:gap-3 shadow-lg shadow-slate-300;
+        @apply xl:px-[74px] xl:py-[35px] xl:max-w-[535px] xl:w-full;
+
+        h3,
+        h5 {
+            @apply bg-gray-95 xl:w-full py-3 px-5 rounded-[23px] text-left text-black-50;
+        }
+
+        .primary-button {
+            @apply mt-[3px];
+            @apply xl:max-w-full xl:mt-[14px];
+        }
+
+    }
+}
  /* Покрытие заднего фона при открытии формы */

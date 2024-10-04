@@ -46,11 +46,11 @@ function SignUp() {
           <Result
             status="success"
             title="You have been successfully registered. Confirm your account using the link received via email. 
-           After 3 seconds you will be redirected to the homepage"
+           After 5 seconds you will be redirected to the homepage"
           />
         </div>
       )}
-      {registered && <AutoRedirect to={`/`} delay={3000} />}
+      {registered && <AutoRedirect to={`/`} delay={5000} />}
     </div>
   );
 }

@@ -97,6 +97,9 @@
             background-color: transparent !important;
             scale: 1.05;
         }
+    .button{
+        @apply xl:mt-auto;
+    }    
    
 }
 .custom-ok-button {

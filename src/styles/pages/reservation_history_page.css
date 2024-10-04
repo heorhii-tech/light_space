@@ -1,5 +1,5 @@
 .reservation-history-page{
-    @apply bg-[#ffff] pb-9;
+    @apply bg-[#ffff] pb-9 ;
     .univarsal_title_wrapper{
         @apply text-3xl text-center;
     };
@@ -10,5 +10,5 @@
 }
 .reservation-history-page__wrapper{
     @apply py-[20px];
-    @apply xl:max-w-[1400px] m-auto ;
+    @apply xl:max-w-[1400px] m-auto xl:min-h-[80vh];
 }

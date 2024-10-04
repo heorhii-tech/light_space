@@ -6,10 +6,11 @@ import Title from "../components/common/texts/Title";
 
 function ContactPage(props) {
   useEffect(() => {
-    const headerElement = document.getElementById("header");
-    if (headerElement) {
-      headerElement.scrollIntoView({ behavior: "smooth" });
-    }
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   }, []);
   return (
     <section className="contact-page">

@@ -62,10 +62,11 @@ const useSignUp = () => {
     }
   };
   useEffect(() => {
-    const headerElement = document.getElementById("header");
-    if (headerElement) {
-      headerElement.scrollIntoView({ behavior: "smooth" });
-    }
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   }, []);
 
   return {
