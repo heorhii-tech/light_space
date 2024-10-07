@@ -2,7 +2,7 @@ import React from "react";
 import instagramLogo from "../../assets/Instagram.png";
 import facebookLogo from "../../assets/Facebook.png";
 import logo from "../../assets/logo.png";
-import { tel, addres, headerMenu } from "../../constants/constants";
+import { tel, addres } from "../../constants/constants";
 import { Logo } from "../logo/Logo";
 import FooterContact from "./FooterContact";
 import FooterSocialMedia from "./FooterSocialMedia";
