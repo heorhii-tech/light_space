@@ -12,6 +12,7 @@ import RedirectIfAuthenticated from "../../hoc/RedirectIfAuthenticated";
 import ContactPage from "../../pages/ContactPage";
 import ReservationHistoryPage from "../../pages/ReservationHistoryPage";
 import ResetPasswordPage from "../../pages/ResetPasswordPage";
+import PaymentPage from "../../pages/PaymentPage";
 
 function App(props) {
   return (
@@ -31,6 +32,7 @@ function App(props) {
               }
             />
             <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/payment" element={<PaymentPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/reset_password" element={<ResetPasswordPage />} />
             <Route
@@ -41,6 +43,7 @@ function App(props) {
                 </RedirectIfAuthenticated>
               }
             />
+
             <Route
               path="/my_account"
               element={
