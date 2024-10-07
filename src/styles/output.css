@@ -725,12 +725,16 @@
   .table_card{
     background-color: rgba(0, 0, 0, 0.4);
     background-blend-mode: darken;
-    grid-template-rows: 40% 60%;
     p{
       align-self: flex-end;
     }
     p{
       color: #ffff;
+    }
+    @media (min-width: 1280px){
+      p{
+        min-width: 292px;
+      }
     }
     @media (min-width: 1280px){
       p{
@@ -748,6 +752,24 @@
     }
     @media (min-width: 1280px){
       h5{
+        font-size: 20px;
+      }
+    }
+    h6{
+      align-self: flex-end;
+    }
+    h6{
+      font-size: 12px;
+    }
+    @media (min-width: 1280px){
+      @media (min-width: 1280px){
+        h6{
+          margin-left: auto;
+        }
+      }
+    }
+    @media (min-width: 1280px){
+      h6{
         font-size: 20px;
       }
     }
@@ -874,6 +896,13 @@
       --tw-scale-y: 1.1;
       transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     }
+  }
+  h3{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  h3{
+    font-weight: 600;
   }
 }
 

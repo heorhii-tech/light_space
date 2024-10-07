@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import CurrentUserReservations from "../components/reservation/current_reservations/CurrentUserReservations";
 import useReservations from "../hooks/reservation/useReservations";
@@ -12,6 +12,7 @@ import useBasicModalReserv from "../hooks/reservation/useBasicModal";
 import ReservationForm from "../components/reservation/ReservationForm";
 import NavTabs from "../components/common/nav_tabs/NavTabs";
 import SuccessResult from "../components/reservation/SuccessReservResult";
+import { usePayment } from "../hooks/payment/usePayment";
 
 function ReservationsPage(props) {
   // Custom hook for managing modal reservation state
@@ -32,6 +33,7 @@ function ReservationsPage(props) {
     reservDate,
     filterTime,
     closeReservationModal,
+    amount,
   } = useReservations(handleCloseModalReserv);
 
   // Custom hook for formatting date and time
@@ -87,6 +89,7 @@ function ReservationsPage(props) {
             reservDate={reservDate}
             setReservDates={setReservDate}
             closeModal={closeReservationModal}
+            amount={amount}
           />
           <SuccessResult
             reservDate={reservDate}

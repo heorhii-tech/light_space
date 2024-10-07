@@ -14,6 +14,7 @@ function ReservationForm({
   closeModal,
   reservDate,
   setReservDates,
+  amount,
 }) {
   return (
     <form
@@ -22,6 +23,7 @@ function ReservationForm({
     >
       <div className="focused_table_wrapper">
         <FocusedTable focusedTable={currentTable} />
+        <h3>Total price: {amount ? amount : 0} €</h3>
       </div>
 
       {currentTable && !reserved && (

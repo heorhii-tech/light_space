@@ -14,6 +14,7 @@ import { parseISO } from "date-fns";
 import { useSelector } from "react-redux";
 import useTimeFilters from "./useTimeFilters";
 import useTables from "../useTables";
+import { usePayment } from "../payment/usePayment";
 
 const useReservations = (handleCloseModalReservation) => {
   const user = useSelector((state) => state.user); // Get user data from Redux store
@@ -30,7 +31,17 @@ const useReservations = (handleCloseModalReservation) => {
     startDate: null,
     endDate: null,
   }); // State to store reservation date range
+
   const [reserved, setReserved] = useState(false); // Flag to indicate if a reservation was made
+
+  const {
+    calculateHours,
+    setHours,
+    hours,
+    calculateAmount,
+    setAmount,
+    amount,
+  } = usePayment();
 
   // Fetch current user reservations from Firestore
   const fetchCurrentUserReservations = async () => {
@@ -156,6 +167,8 @@ const useReservations = (handleCloseModalReservation) => {
     }));
     setReloadCurrentReservations(true);
     handleCloseModalReservation();
+    setAmount(null);
+    setHours(null);
   };
 
   // useEffect hooks
@@ -187,6 +200,16 @@ const useReservations = (handleCloseModalReservation) => {
       behavior: "smooth",
     });
   }, []);
+  useEffect(() => {
+    if (reservDate.startDate !== null) {
+      setHours(calculateHours(reservDate.startDate, reservDate.endDate));
+    }
+  }, [reservDate]);
+  useEffect(() => {
+    if (hours !== null && currentTable.price) {
+      setAmount(calculateAmount(hours, currentTable.price));
+    }
+  }, [hours, currentTable.price]);
 
   return {
     fetchCurrentUserReservations,
@@ -207,6 +230,7 @@ const useReservations = (handleCloseModalReservation) => {
     setReservDate,
     reservDate,
     passedUserReservations,
+    amount,
   };
 };
 

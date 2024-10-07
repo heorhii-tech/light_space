@@ -26,15 +26,19 @@
         @apply bg-cover xl:w-auto xl:h-[280px] xl:text-[34px] duration-300 ease-out xl:hover:scale-105 xl:cursor-pointer;
         background-color: rgba(0, 0, 0, 0.4);    
         background-blend-mode: darken;
-        grid-template-rows: 40% 60%;
+        
         
         p{
             @apply text-[#ffff] self-end;
-            @apply xl:text-[34px];
+            @apply xl:text-[34px] xl:min-w-[292px];
         }
         h5{
             @apply text-[12px] text-[#ffff] self-start;
             @apply xl:text-[20px];
+        }
+        h6{
+            @apply text-[12px] self-end;
+            @apply xl:text-[20px] xl:xl:ml-auto;
         }
     }
     
@@ -74,6 +78,9 @@
     @apply flex justify-between items-start;
     img{
         @apply transition xl:hover:scale-110 duration-300 ease-in-out xl:cursor-pointer;
+    };
+    h3{
+        @apply text-xl font-semibold;
     }
     }
 .focused_table{
