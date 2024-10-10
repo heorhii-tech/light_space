@@ -11,6 +11,8 @@ function SuccessResult({
   formatDate,
   formatTime,
   closeModal,
+  amount,
+  paymentFunction,
 }) {
   return (
     <Card
@@ -58,6 +60,17 @@ function SuccessResult({
           onClick={closeModal}
         >
           Go Back
+        </Button>
+        <Button
+          onClick={() => paymentFunction(amount, currentTable)}
+          variant="contained"
+          className="primary-button button"
+          sx={{
+            backgroundColor: "#687D6B",
+            borderRadius: "12px",
+          }}
+        >
+          Pay {amount}
         </Button>
       </CardContent>
     </Card>

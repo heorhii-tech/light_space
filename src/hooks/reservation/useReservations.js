@@ -41,6 +41,7 @@ const useReservations = (handleCloseModalReservation) => {
     calculateAmount,
     setAmount,
     amount,
+    handlePayment,
   } = usePayment();
 
   // Fetch current user reservations from Firestore
@@ -231,6 +232,7 @@ const useReservations = (handleCloseModalReservation) => {
     reservDate,
     passedUserReservations,
     amount,
+    handlePayment,
   };
 };
 

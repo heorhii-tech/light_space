@@ -1,57 +1,48 @@
-import { loadStripe } from "@stripe/stripe-js";
-import {
-  Elements,
-  CardElement,
-  useStripe,
-  useElements,
-} from "@stripe/react-stripe-js";
 import React from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements, useStripe, useElements } from "@stripe/react-stripe-js";
 
-export function PaymentForm({ totalCost }) {
+// Инициализация Stripe
+const stripePromise = loadStripe(
+  "pk_test_51Q7EXM08cnbHQ8RO5IW5ZgCqAojDbjwZguiU0Tssdkjsux2y0Q8UvSwZE8unFYwseY1bPPIRGmxBoavOPvsZEIeJ000W8kVVuI"
+); // Вставь свой publishable key
+
+const CheckoutButton = ({ amount }) => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const handlePaymentSubmit = async (event) => {
-    event.preventDefault();
+  const handleClick = async () => {
+    const response = await fetch("/createCheckoutSession", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ amount: amount, currency: "usd" }), // Укажи сумму и валюту
+    });
 
-    if (!stripe || !elements) {
-      return;
-    }
+    const session = await response.json();
 
-    const cardElement = elements.getElement(CardElement);
-
-    // Создание платежа
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: "card",
-      card: cardElement,
+    // Редирект на Stripe для оплаты
+    const { error } = await stripe.redirectToCheckout({
+      sessionId: session.id,
     });
 
     if (error) {
-      console.log("[error]", error);
-    } else {
-      console.log("[PaymentMethod]", paymentMethod);
-      // Здесь вы можете отправить данные на сервер для дальнейшей обработки
-      // Например, создание платежа на вашем сервере
+      console.error("Error redirecting to Stripe:", error);
     }
   };
 
   return (
-    <form onSubmit={handlePaymentSubmit}>
-      <CardElement
-        options={{
-          style: {
-            base: {
-              fontSize: "16px",
-              color: "#424770",
-              "::placeholder": { color: "#aab7c4" },
-            },
-            invalid: { color: "#9e2146" },
-          },
-        }}
-      />
-      <button type="submit" disabled={!stripe}>
-        Оплатить {totalCost} EUR
-      </button>
-    </form>
+    <button onClick={handleClick} disabled={!stripe}>
+      Оплатить {amount / 100} USD
+    </button>
+  );
+};
+
+export default function CheckoutPage() {
+  return (
+    <Elements stripe={stripePromise}>
+      <CheckoutButton amount={1000} /> {/* Пример суммы: 1000 = 10.00 USD */}
+    </Elements>
   );
 }

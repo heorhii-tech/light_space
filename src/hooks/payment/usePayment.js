@@ -1,9 +1,23 @@
-import { useEffect, useState } from "react";
+import { React, useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { getFunctions, httpsCallable } from "firebase/functions";
 
 export const usePayment = () => {
   const [hours, setHours] = useState(null);
   const [amount, setAmount] = useState(null);
 
+  const handlePayment = async (amount, table) => {
+    fetch("http://localhost:3000/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      if (response.redirected) {
+        window.location.href = response.url; // Перенаправление на страницу оплаты Stripe
+      }
+    });
+  };
   const calculateHours = (startDate, endDate) => {
     if (!startDate || !endDate) return 0; // Если даты не заданы
     const millisecondsInHour = 1000 * 60 * 60; // Количество миллисекунд в часе
@@ -24,5 +38,6 @@ export const usePayment = () => {
     calculateAmount,
     setAmount,
     amount,
+    handlePayment,
   };
 };

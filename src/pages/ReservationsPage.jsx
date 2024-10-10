@@ -34,6 +34,7 @@ function ReservationsPage(props) {
     filterTime,
     closeReservationModal,
     amount,
+    handlePayment,
   } = useReservations(handleCloseModalReserv);
 
   // Custom hook for formatting date and time
@@ -97,6 +98,8 @@ function ReservationsPage(props) {
             formatDate={formatDate}
             formatTime={formatTime}
             closeModal={closeReservationModal}
+            amount={amount}
+            paymentFunction={handlePayment}
           />
         </BasicModal>
       </div>
