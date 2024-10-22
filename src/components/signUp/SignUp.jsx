@@ -23,7 +23,7 @@ function SignUp() {
 
   return (
     <div>
-      {loading && <SpinLoader />}
+      {loading && <SpinLoader fullscreen={true} />}
       {contextHolder}
       {!registered && (
         <Form

@@ -13,6 +13,7 @@ import ReservationForm from "../components/reservation/ReservationForm";
 import NavTabs from "../components/common/nav_tabs/NavTabs";
 import SuccessResult from "../components/reservation/SuccessReservResult";
 import { usePayment } from "../hooks/payment/usePayment";
+import SpinLoader from "../components/common/skeletons/SpinLoader";
 
 function ReservationsPage(props) {
   // Custom hook for managing modal reservation state
@@ -35,6 +36,7 @@ function ReservationsPage(props) {
     closeReservationModal,
     amount,
     handlePayment,
+    isPaymentLoading,
   } = useReservations(handleCloseModalReserv);
 
   // Custom hook for formatting date and time
@@ -100,6 +102,7 @@ function ReservationsPage(props) {
             closeModal={closeReservationModal}
             amount={amount}
             paymentFunction={handlePayment}
+            isPaymentLoading={isPaymentLoading}
           />
         </BasicModal>
       </div>

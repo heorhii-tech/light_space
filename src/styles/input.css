@@ -7,7 +7,7 @@
 @import "./pages/contact.css";
 @import "./pages/reset_password_page.css";
 @import "./pages/reservation_history_page.css";
-
+@import "./components/custom_loader.css";
 @import "./components/burger_menu.css";
 @import "./components/textBlock.css";
 @import "./components/header.css";

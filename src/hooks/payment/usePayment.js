@@ -1,22 +1,47 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import { getFunctions, httpsCallable } from "firebase/functions";
+import { functions } from "../../firebaseConfig";
+import { httpsCallable } from "firebase/functions";
 
 export const usePayment = () => {
   const [hours, setHours] = useState(null);
   const [amount, setAmount] = useState(null);
+  const [isPaymentLoading, setIsPaymentLoading] = useState(false);
+  const stripePromise = loadStripe(
+    "pk_test_51Q7EXM08cnbHQ8RO5IW5ZgCqAojDbjwZguiU0Tssdkjsux2y0Q8UvSwZE8unFYwseY1bPPIRGmxBoavOPvsZEIeJ000W8kVVuI"
+  );
 
   const handlePayment = async (amount, table) => {
-    fetch("http://localhost:3000/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((response) => {
-      if (response.redirected) {
-        window.location.href = response.url; // Перенаправление на страницу оплаты Stripe
+    setIsPaymentLoading(true);
+    const stripe = await stripePromise;
+
+    // Call the createStripeCheckoutSession cloud function
+    const createCheckoutSession = httpsCallable(
+      functions,
+      "createStripeCheckoutSession"
+    );
+
+    try {
+      const response = await createCheckoutSession({
+        amount,
+        productName: table.tableID,
+      });
+      const sessionId = response.data.id;
+      if (sessionId) {
+        setIsPaymentLoading(false);
       }
-    });
+
+      // Redirect to Stripe Checkout
+      const { error } = await stripe.redirectToCheckout({ sessionId });
+
+      if (error) {
+        console.error("Error redirecting to checkout:", error);
+        setIsPaymentLoading(false);
+      }
+    } catch (error) {
+      console.error("Error creating checkout session:", error);
+      setIsPaymentLoading(false);
+    }
   };
   const calculateHours = (startDate, endDate) => {
     if (!startDate || !endDate) return 0; // Если даты не заданы
@@ -39,5 +64,6 @@ export const usePayment = () => {
     setAmount,
     amount,
     handlePayment,
+    isPaymentLoading,
   };
 };

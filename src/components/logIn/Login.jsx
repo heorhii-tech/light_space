@@ -18,7 +18,7 @@ function Login(props) {
   return (
     <>
       {contextHolder}
-      {loading && <SpinLoader />}
+      {loading && <SpinLoader fullscreen={true} />}
 
       <Form
         setEmail={setEmail}

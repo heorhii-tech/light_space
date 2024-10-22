@@ -10,7 +10,6 @@ import ModalChangeMyData from "../modalChangeMyData/ModalChangeMyData.jsx";
 import useModalChangeTel from "../../hooks/useModalChangeTel";
 import useModalChangeAvatar from "../../hooks/useModalChangeAvatar";
 import ButtonUniversal from "../common/buttons/ButtonUniversal";
-import SpinLoader from "../common/skeletons/SpinLoader";
 import CircularLoader from "../common/skeletons/CircularLoader";
 
 function MyAccountComp() {

@@ -4,6 +4,8 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import React from "react";
+import SpinLoader from "../common/skeletons/SpinLoader";
+import CustomLoader from "../common/skeletons/CustomLoader";
 
 function SuccessResult({
   reservDate,
@@ -13,6 +15,7 @@ function SuccessResult({
   closeModal,
   amount,
   paymentFunction,
+  isPaymentLoading,
 }) {
   return (
     <Card
@@ -64,13 +67,14 @@ function SuccessResult({
         <Button
           onClick={() => paymentFunction(amount, currentTable)}
           variant="contained"
-          className="primary-button button"
+          className="button"
           sx={{
-            backgroundColor: "#687D6B",
+            marginTop: "12px",
             borderRadius: "12px",
+           
           }}
         >
-          Pay {amount}
+          Pay {amount} €{isPaymentLoading && <CustomLoader />}
         </Button>
       </CardContent>
     </Card>
