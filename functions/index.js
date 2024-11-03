@@ -50,3 +50,38 @@ exports.createStripeCheckoutSession = functions.https.onCall(
     }
   }
 );
+
+exports.deleteOldUnapprovedReservations = functions.https.onRequest(
+  async (req, res) => {
+    const db = admin.firestore();
+    const fiveMinutesAgo = Date.now() - 1 * 60 * 1000;
+
+    try {
+      // Получаем все резервирования с approved: false и createdAt менее 5 минут назад
+      const snapshot = await db
+        .collection("reservations")
+        .where("approved", "==", false)
+        .where("startTime", "<=", new Date(fiveMinutesAgo)) // Убедитесь, что createdAt хранится правильно
+        .get();
+
+      if (snapshot.empty) {
+        console.log("No old unapproved reservations found.");
+        return res.status(204).send(); // Выход, если нет старых резервирований
+      }
+
+      const batch = db.batch();
+      snapshot.forEach((doc) => {
+        batch.delete(doc.ref); // Удаляем все просроченные резервирования
+      });
+
+      await batch.commit();
+      console.log("Deleted old unapproved reservations.");
+      return res.status(200).send("Old unapproved reservations deleted.");
+    } catch (error) {
+      console.error("Error deleting old unapproved reservations:", error);
+      return res
+        .status(500)
+        .send("Error deleting old unapproved reservations.");
+    }
+  }
+);

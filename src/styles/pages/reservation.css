@@ -121,4 +121,6 @@
 
     }
 }
- /* Покрытие заднего фона при открытии формы */
+.reservation-page__basket-nav-tabs{
+    @apply xl:flex xl:justify-between;
+}

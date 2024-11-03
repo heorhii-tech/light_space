@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+
 import CurrentUserReservations from "../components/reservation/current_reservations/CurrentUserReservations";
 import useReservations from "../hooks/reservation/useReservations";
 import Tables from "../components/tables/Tables";
@@ -12,8 +12,9 @@ import useBasicModalReserv from "../hooks/reservation/useBasicModal";
 import ReservationForm from "../components/reservation/ReservationForm";
 import NavTabs from "../components/common/nav_tabs/NavTabs";
 import SuccessResult from "../components/reservation/SuccessReservResult";
+import Basket from "../components/shopping_cart/Cart";
 import { usePayment } from "../hooks/payment/usePayment";
-import SpinLoader from "../components/common/skeletons/SpinLoader";
+import useCart from "../hooks/modals/useCart";
 
 function ReservationsPage(props) {
   // Custom hook for managing modal reservation state
@@ -30,35 +31,55 @@ function ReservationsPage(props) {
     setCurrentTable,
     user,
     reserved,
-    handleSubmitForm,
+    handleAddToCart,
     reservDate,
     filterTime,
     closeReservationModal,
-    amount,
+    currentReservationAmount,
     handlePayment,
     isPaymentLoading,
+    tables,
+    handleSubmitReservations,
+    unApprovedReservations,
+    totalAmount,
+    handlePayByCash,
+    paymentLoading,
+    setPaymentLoading,
+    fetchCurrentUserReservations,
   } = useReservations(handleCloseModalReserv);
 
   // Custom hook for formatting date and time
   const { formatDate, formatTime } = useTimeFilters();
 
+  const { isCartOpen, cartActions } = useCart();
+
   const {} = useUser();
   const location = useLocation();
   const value = location.pathname === "/reservation" ? 0 : 1;
-  // Get tables data from Redux store
-  const tables = useSelector((state) => state.tables.tables);
 
   return (
     <section className="reservation-page">
       <div className="extra-header__background"></div>
       <div className="reservation-page__wrapper">
-        <NavTabs
-          labelOne={`Current reservation`}
-          labelTwo={`All reservations`}
-          linkOne={`/reservation`}
-          linkTwo={`/reservations_history`}
-          value={value}
-        />
+        <div className="reservation-page__basket-nav-tabs">
+          <NavTabs
+            labelOne={`Current reservation`}
+            labelTwo={`All reservations`}
+            linkOne={`/reservation`}
+            linkTwo={`/reservations_history`}
+            value={value}
+          />
+          <Basket
+            unApprovedReservations={unApprovedReservations}
+            handleDeleteCurrentReservation={handleDeleteCurrentReservation}
+            totalAmount={totalAmount}
+            payByCash={handlePayByCash}
+            paymentLoading={paymentLoading}
+            setPaymentLoading={setPaymentLoading}
+            isCartOpen={isCartOpen}
+            cartActions={cartActions}
+          />
+        </div>
         <Title text={`CHOOSE A TABLE`} />
 
         {/* Component to display tables and handle table selection */}
@@ -85,14 +106,14 @@ function ReservationsPage(props) {
             user={user}
             currentTable={currentTable}
             reserved={reserved}
-            handleSubmitForm={handleSubmitForm}
+            handleAddToCart={handleAddToCart}
             filterTime={filterTime}
             formatDate={formatDate}
             formatTime={formatTime}
             reservDate={reservDate}
             setReservDates={setReservDate}
             closeModal={closeReservationModal}
-            amount={amount}
+            currentReservationAmount={currentReservationAmount}
           />
           <SuccessResult
             reservDate={reservDate}
@@ -100,9 +121,11 @@ function ReservationsPage(props) {
             formatDate={formatDate}
             formatTime={formatTime}
             closeModal={closeReservationModal}
-            amount={amount}
+            currentReservationAmount={currentReservationAmount}
             paymentFunction={handlePayment}
             isPaymentLoading={isPaymentLoading}
+            submitReservations={handleSubmitReservations}
+            cartActions={cartActions}
           />
         </BasicModal>
       </div>
