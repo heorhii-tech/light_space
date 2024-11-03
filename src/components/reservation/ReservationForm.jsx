@@ -8,22 +8,27 @@ import ButtonUniversal from "../common/buttons/ButtonUniversal";
 function ReservationForm({
   currentTable,
   reserved,
-  handleSubmitForm,
+  handleAddToCart,
   filterTime,
   user,
   closeModal,
   reservDate,
   setReservDates,
-  amount,
+  currentReservationAmount,
 }) {
   return (
     <form
       className="reservation_form"
-      onSubmit={(e) => handleSubmitForm(e, currentTable.tableID)}
+      onSubmit={(e) => {
+        handleAddToCart(e, currentTable);
+      }}
     >
       <div className="focused_table_wrapper">
         <FocusedTable focusedTable={currentTable} />
-        <h3>Total price: {amount ? amount : 0} €</h3>
+        <h3>
+          Total price: {currentReservationAmount ? currentReservationAmount : 0}{" "}
+          €
+        </h3>
       </div>
 
       {currentTable && !reserved && (
@@ -82,7 +87,7 @@ function ReservationForm({
             filterTime={filterTime}
           />
           <button className="primary-button button" type="submit">
-            Submit
+            Add reservation to your cart
           </button>
           <ButtonUniversal
             className={`cancel_button button`}

@@ -1063,7 +1063,12 @@
   }
 }
 
-/* Покрытие заднего фона при открытии формы */
+@media (min-width: 1280px){
+  .reservation-page__basket-nav-tabs{
+    display: flex;
+    justify-content: space-between;
+  }
+}
 
 .home-page{
   --tw-bg-opacity: 1;
@@ -2917,6 +2922,12 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition-delay: 9999s;
+}
+
+.cart-items{
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 *, ::before, ::after{

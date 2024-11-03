@@ -5,9 +5,12 @@ const SpinLoader = ({ fullscreen }) => {
   const [percent, setPercent] = React.useState(0);
 
   return (
-    <>
-      <Spin spinning={spinning} percent={percent} fullscreen={fullscreen} />
-    </>
+    <Spin
+      spinning={spinning}
+      percent={percent}
+      fullscreen={fullscreen}
+      
+    />
   );
 };
 export default SpinLoader;

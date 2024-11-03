@@ -16,6 +16,7 @@
 @import "./my_account.css";
 @import "./components/footer.css";
 @import "./common.css";
+@import "./components/shopping-cart.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

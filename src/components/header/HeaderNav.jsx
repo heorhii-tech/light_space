@@ -20,6 +20,7 @@ function HeaderNav({
 }) {
   const [burgerOpen, setBurgerOpen] = useState(false);
   const user = useSelector((state) => state.user);
+
   const setBurgerMenu = () => {
     if (burgerOpen) {
       document.body.style.overflow = "auto";
@@ -57,6 +58,7 @@ function HeaderNav({
         <img className="logo" src={logo}></img>
       </Button>
       <HeaderNavLinks headerMenu={headerMenu} />
+
       <HeaderAuth
         linkHeaderAuth={linkHeaderAuth}
         funcHeaderAuth={funcHeaderAuth}

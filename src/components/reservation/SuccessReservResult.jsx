@@ -4,7 +4,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import React from "react";
-import SpinLoader from "../common/skeletons/SpinLoader";
 import CustomLoader from "../common/skeletons/CustomLoader";
 
 function SuccessResult({
@@ -14,8 +13,8 @@ function SuccessResult({
   formatTime,
   closeModal,
   amount,
-  paymentFunction,
   isPaymentLoading,
+  cartActions,
 }) {
   return (
     <Card
@@ -24,7 +23,7 @@ function SuccessResult({
         padding: "20px",
         maxWidth: {
           xs: "340px",
-          sm: "500px",
+          sm: "600px",
         },
         transform: "translateY(50%)",
         margin: "auto",
@@ -35,7 +34,7 @@ function SuccessResult({
       }}
     >
       <Typography variant="h5" component="div">
-        Successfully booked {currentTable.tableID} table
+        Successfully added {currentTable.tableID} table in your cart
       </Typography>
       <CheckCircleOutlineIcon
         sx={{ fontSize: 80, color: "#6DBE45", marginTop: "20px" }}
@@ -62,19 +61,22 @@ function SuccessResult({
           }}
           onClick={closeModal}
         >
-          Go Back
+          BOOK MORE
         </Button>
+
         <Button
-          onClick={() => paymentFunction(amount, currentTable)}
+          onClick={() => {
+            cartActions.showCart();
+            closeModal();
+          }}
           variant="contained"
           className="button"
           sx={{
             marginTop: "12px",
             borderRadius: "12px",
-           
           }}
         >
-          Pay {amount} €{isPaymentLoading && <CustomLoader />}
+          Pay
         </Button>
       </CardContent>
     </Card>

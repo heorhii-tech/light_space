@@ -1,0 +1,3 @@
+.cart-items{
+    @apply flex flex-col gap-3;
+}
