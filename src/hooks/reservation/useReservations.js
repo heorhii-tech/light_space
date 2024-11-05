@@ -49,9 +49,10 @@ const useReservations = (handleCloseModalReservation) => {
     totalAmount,
     handlePayByCash,
     reservationSuccessPaid,
-    setReservationsSuccessPaid,
+    handlePayOnline,
     paymentLoading,
     setPaymentLoading,
+    paymentMethods,
   } = usePayment(unApprovedReservations);
 
   const handleAddToCart = async (e, table) => {
@@ -96,7 +97,7 @@ const useReservations = (handleCloseModalReservation) => {
     try {
       const db = getFirestore();
       unApprovedReservations.map((reservation) => {
-        addDoc(collection(db, "reservation"), {
+        addDoc(collection(db, "reservations"), {
           startTime: reservation.startTime,
           endTime: reservation.endTime,
           tableID: reservation.tableID,
@@ -191,7 +192,6 @@ const useReservations = (handleCloseModalReservation) => {
       setPassedUserReservations(passedReservations);
       setUnApprovedReservations(unApprovedReservations);
       setReloadCurrentReservations(false);
-      setReservationsSuccessPaid(false);
     } catch (error) {
       console.error("Error fetching reservations:", error);
       console.log(error);
@@ -204,8 +204,6 @@ const useReservations = (handleCloseModalReservation) => {
     try {
       const reservationRef = doc(db, "reservations", reservationID);
       await deleteDoc(reservationRef);
-
-      console.log("Reservation deleted successfully");
     } catch (e) {
       console.error("Error deleting reservation:", e);
     }
@@ -321,7 +319,7 @@ const useReservations = (handleCloseModalReservation) => {
     reservDate,
     passedUserReservations,
     currentReservationAmount,
-    handlePayment,
+
     isPaymentLoading,
     handleSubmitReservations,
     tables,
@@ -330,6 +328,9 @@ const useReservations = (handleCloseModalReservation) => {
     handleAddToCart,
     paymentLoading,
     setPaymentLoading,
+    reservationSuccessPaid,
+    handlePayOnline,
+    paymentMethods,
   };
 };
 

@@ -12,6 +12,9 @@
       ]
     }
   ],
+  "nodejs": {
+    "experimentalRawBody": true
+  },
   "emulators": {
     "functions": {
       "port": 5001
