@@ -37,15 +37,16 @@ function ReservationsPage(props) {
     closeReservationModal,
     currentReservationAmount,
     handlePayment,
-    isPaymentLoading,
+
     tables,
     handleSubmitReservations,
     unApprovedReservations,
     totalAmount,
-    handlePayByCash,
+
     paymentLoading,
     setPaymentLoading,
-    fetchCurrentUserReservations,
+    reservationSuccessPaid,
+    paymentMethods,
   } = useReservations(handleCloseModalReserv);
 
   // Custom hook for formatting date and time
@@ -73,11 +74,12 @@ function ReservationsPage(props) {
             unApprovedReservations={unApprovedReservations}
             handleDeleteCurrentReservation={handleDeleteCurrentReservation}
             totalAmount={totalAmount}
-            payByCash={handlePayByCash}
+            paymentMethods={paymentMethods}
             paymentLoading={paymentLoading}
             setPaymentLoading={setPaymentLoading}
             isCartOpen={isCartOpen}
             cartActions={cartActions}
+            reservationSuccessPaid={reservationSuccessPaid}
           />
         </div>
         <Title text={`CHOOSE A TABLE`} />
@@ -123,7 +125,6 @@ function ReservationsPage(props) {
             closeModal={closeReservationModal}
             currentReservationAmount={currentReservationAmount}
             paymentFunction={handlePayment}
-            isPaymentLoading={isPaymentLoading}
             submitReservations={handleSubmitReservations}
             cartActions={cartActions}
           />

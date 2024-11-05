@@ -6,7 +6,7 @@
  *
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
-const functions = require("firebase-functions");
+const functions = require("firebase-functions/v1");
 const admin = require("firebase-admin");
 admin.initializeApp();
 
@@ -17,8 +17,9 @@ const stripe = new Stripe(functions.config().stripe.secret, {
 
 // Создание Stripe Checkout сессии
 exports.createStripeCheckoutSession = functions.https.onCall(
-  async (snap, context) => {
-    const { amount, table } = snap.data();
+  async (data, context) => {
+    const { amount, productName, reservations } = data;
+    console.log(reservations);
 
     try {
       const session = await stripe.checkout.sessions.create({
@@ -26,18 +27,17 @@ exports.createStripeCheckoutSession = functions.https.onCall(
         line_items: [
           {
             price_data: {
-              currency: "usd", // Замените на свою валюту
-              product_data: {
-                name: table, // Название вашего товара или услуги
-              },
-              unit_amount: amount, // Цена в центах (в этом случае $50.00)
+              currency: "usd",
+              product_data: { name: productName }, // Убедитесь, что product_data и name передаются правильно
+              unit_amount: amount * 100, // Stripe требует указания суммы в центах
             },
             quantity: 1,
           },
         ],
         mode: "payment",
-        success_url: "http://localhost:5000/", // URL для успешной оплаты
-        cancel_url: "http://localhost:5000/", // URL для отмены оплаты
+        success_url: "https://light-space.onrender.com/#/reservation", // URL для успешной оплаты
+        cancel_url: "https://light-space.onrender.com/#/reservation", // URL для отмены оплаты
+        metadata: { reservations: reservations },
       });
 
       return { id: session.id }; // Верните ID сессии для клиента
@@ -50,38 +50,49 @@ exports.createStripeCheckoutSession = functions.https.onCall(
     }
   }
 );
+exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
+  const endpointSecret = functions.config().stripe.webhook_secret;
 
-exports.deleteOldUnapprovedReservations = functions.https.onRequest(
-  async (req, res) => {
-    const db = admin.firestore();
-    const fiveMinutesAgo = Date.now() - 1 * 60 * 1000;
+  // Убедитесь, что используется `rawBody`
+  if (req.method !== "POST") {
+    return res.status(405).send("Method Not Allowed");
+  }
+
+  const sig = req.headers["stripe-signature"];
+  let event;
+
+  try {
+    event = stripe.webhooks.constructEvent(req.rawBody, sig, endpointSecret);
+  } catch (err) {
+    console.error("Error verifying Stripe signature:", err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  // Обработка события Stripe
+  if (event.type === "checkout.session.completed") {
+    const session = event.data.object;
+
+    console.log("Payment was successful. Session ID:", session.id);
 
     try {
-      // Получаем все резервирования с approved: false и createdAt менее 5 минут назад
-      const snapshot = await db
-        .collection("reservations")
-        .where("approved", "==", false)
-        .where("startTime", "<=", new Date(fiveMinutesAgo)) // Убедитесь, что createdAt хранится правильно
-        .get();
+      const reservations = JSON.parse(session.metadata.reservations);
 
-      if (snapshot.empty) {
-        console.log("No old unapproved reservations found.");
-        return res.status(204).send(); // Выход, если нет старых резервирований
-      }
-
-      const batch = db.batch();
-      snapshot.forEach((doc) => {
-        batch.delete(doc.ref); // Удаляем все просроченные резервирования
+      reservations.forEach(async (reservationID) => {
+        const reservationRef = admin
+          .firestore()
+          .collection("reservations")
+          .doc(reservationID);
+        await reservationRef.update({
+          approved: true,
+          paymentMethod: "Online",
+          paid: true,
+        });
+        console.log(`Reservation ${reservationID} updated successfully.`);
       });
-
-      await batch.commit();
-      console.log("Deleted old unapproved reservations.");
-      return res.status(200).send("Old unapproved reservations deleted.");
     } catch (error) {
-      console.error("Error deleting old unapproved reservations:", error);
-      return res
-        .status(500)
-        .send("Error deleting old unapproved reservations.");
+      console.error(`Error updating reservation: ${error.message}`);
     }
   }
-);
+
+  res.json({ received: true });
+});

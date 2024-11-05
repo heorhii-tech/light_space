@@ -14,31 +14,38 @@ export const usePayment = (unApprovedReservations) => {
   const [currentReservationHours, setCurrentReservationHours] = useState(null);
   const [currentReservationAmount, setCurrentreservatinAmount] = useState(0);
   const [totalAmount, setTotalAmount] = useState(null);
-  const [isPaymentLoading, setIsPaymentLoading] = useState(false);
+
   const [reservationSuccessPaid, setReservationsSuccessPaid] = useState(false);
   const [paymentLoading, setPaymentLoading] = useState(false);
   const stripePromise = loadStripe(
     "pk_test_51Q7EXM08cnbHQ8RO5IW5ZgCqAojDbjwZguiU0Tssdkjsux2y0Q8UvSwZE8unFYwseY1bPPIRGmxBoavOPvsZEIeJ000W8kVVuI"
   );
+  const db = getFirestore();
 
-  const handlePayment = async (amount, table) => {
-    setIsPaymentLoading(true);
+  const handlePayOnline = async (reservations) => {
+    setPaymentLoading(true);
     const stripe = await stripePromise;
 
-    // Call the createStripeCheckoutSession cloud function
+    //Call the createStripeCheckoutSession cloud function
     const createCheckoutSession = httpsCallable(
       functions,
       "createStripeCheckoutSession"
     );
 
     try {
+      let reservationsID = [];
+      reservations.forEach((reservation) => {
+        reservationsID.push(reservation.reservationID);
+      });
+
       const response = await createCheckoutSession({
-        amount,
-        productName: table.tableID,
+        amount: totalAmount,
+        productName: `Reservation`,
+        reservations: JSON.stringify(reservationsID),
       });
       const sessionId = response.data.id;
       if (sessionId) {
-        setIsPaymentLoading(false);
+        setPaymentLoading(false);
       }
 
       // Redirect to Stripe Checkout
@@ -46,16 +53,15 @@ export const usePayment = (unApprovedReservations) => {
 
       if (error) {
         console.error("Error redirecting to checkout:", error);
-        setIsPaymentLoading(false);
+        setPaymentLoading(false);
       }
     } catch (error) {
       console.error("Error creating checkout session:", error);
-      setIsPaymentLoading(false);
+      setPaymentLoading(false);
     }
   };
   // pay by cash later. set in DB payment method : cash
   const handlePayByCash = async (reservations) => {
-    const db = getFirestore();
     setPaymentLoading(true);
     try {
       reservations.map(async (reservation) => {
@@ -81,6 +87,10 @@ export const usePayment = (unApprovedReservations) => {
       setPaymentLoading(false);
     }
   };
+  const paymentMethods = {
+    payOnline: handlePayOnline,
+    payByCash: handlePayByCash,
+  };
 
   const calculateAmount = (hours, price) => {
     if (!hours || !price) return 0;
@@ -94,18 +104,24 @@ export const usePayment = (unApprovedReservations) => {
 
   useEffect(() => {
     if (unApprovedReservations.length) {
-      const totalAmount = unApprovedReservations.reduce((acc, reservation) => {
-        let hours = calculateHours(
-          reservation.timeStampStart.seconds,
-          reservation.timeStampEnd.seconds
-        );
-        let price = calculateAmount(hours, reservation.price);
-
-        return acc + parseFloat(price);
-      }, 0);
+      let totalAmount = 0;
+      unApprovedReservations.forEach((reservation) => {
+        totalAmount += reservation.price;
+      });
       setTotalAmount(totalAmount);
     }
   }, [unApprovedReservations]);
+
+  // use effect for close  showing in Cart success result after payment
+  useEffect(() => {
+    if (reservationSuccessPaid) {
+      const timer = setTimeout(() => {
+        setReservationsSuccessPaid(false);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [reservationSuccessPaid]);
 
   return {
     calculateHours,
@@ -114,10 +130,9 @@ export const usePayment = (unApprovedReservations) => {
     calculateAmount,
     setCurrentreservatinAmount,
     currentReservationAmount,
-    handlePayment,
-    isPaymentLoading,
+
     totalAmount,
-    handlePayByCash,
+    paymentMethods,
     reservationSuccessPaid,
     paymentLoading,
     setPaymentLoading,

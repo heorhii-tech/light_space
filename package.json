@@ -9,6 +9,9 @@
     "start": "webpack-dev-server --open",
     "tailwindcss": "tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch"
   },
+  "nodejs": {
+    "experimentalRawBody": true
+  },
   "author": "George Madzharov",
   "license": "ISC",
   "devDependencies": {

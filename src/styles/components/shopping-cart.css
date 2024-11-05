@@ -1,3 +1,10 @@
 .cart-items{
     @apply flex flex-col gap-3;
 }
+.cart_success{
+    @apply xl:max-w-full m-auto flex flex-col items-center;
+}
+.cart_icon_badge{
+    @apply w-full mt-4;
+    @apply xl:w-auto xl:mt-0;
+}
