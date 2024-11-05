@@ -5,6 +5,6 @@
     @apply xl:max-w-full m-auto flex flex-col items-center;
 }
 .cart_icon_badge{
-    @apply w-full mt-4;
-    @apply xl:w-auto xl:mt-0;
+    @apply w-[90%] mt-4 mx-auto;
+    @apply xl:w-auto xl:mt-0 xl:mx-0;
 }

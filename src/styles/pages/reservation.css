@@ -28,18 +28,20 @@
         background-blend-mode: darken;
         
         
-        p{
-            @apply text-[#ffff] self-end;
-            @apply xl:text-[34px] xl:min-w-[292px];
-        }
-        h5{
-            @apply text-[12px] text-[#ffff] self-start;
-            @apply xl:text-[20px];
-        }
-        h6{
-            @apply text-[12px] self-end;
-            @apply xl:text-[20px] xl:xl:ml-auto;
-        }
+        p {
+                @apply text-[#ffff] text-[18px] self-end;
+                @apply xl:text-[34px] xl:min-w-[292px];
+            }
+        
+            h5 {
+                @apply text-[14px] text-[#ffff] self-start;
+                @apply xl:text-[20px];
+            }
+        
+            h6 {
+                @apply text-[14px] self-end;
+                @apply xl:text-[20px] xl:xl:ml-auto;
+            }
     }
     
 }
@@ -122,5 +124,8 @@
     }
 }
 .reservation-page__basket-nav-tabs{
-    @apply xl:flex xl:justify-between;
+    @apply flex flex-col;
+    @apply xl:flex xl:justify-between xl:flex-row;
+    
+
 }
