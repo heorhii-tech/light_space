@@ -13,8 +13,8 @@ import ReservationForm from "../components/reservation/ReservationForm";
 import NavTabs from "../components/common/nav_tabs/NavTabs";
 import SuccessResult from "../components/reservation/SuccessReservResult";
 import Basket from "../components/shopping_cart/Cart";
-import { usePayment } from "../hooks/payment/usePayment";
 import useCart from "../hooks/modals/useCart";
+import SpinLoader from "../components/common/skeletons/SpinLoader";
 
 function ReservationsPage(props) {
   // Custom hook for managing modal reservation state
@@ -37,16 +37,16 @@ function ReservationsPage(props) {
     closeReservationModal,
     currentReservationAmount,
     handlePayment,
-
     tables,
     handleSubmitReservations,
     unApprovedReservations,
     totalAmount,
-
+    contextHolder,
     paymentLoading,
     setPaymentLoading,
     reservationSuccessPaid,
     paymentMethods,
+    isLoadingReservation,
   } = useReservations(handleCloseModalReserv);
 
   // Custom hook for formatting date and time
@@ -62,6 +62,8 @@ function ReservationsPage(props) {
     <section className="reservation-page">
       <div className="extra-header__background"></div>
       <div className="reservation-page__wrapper">
+        {contextHolder}
+        {isLoadingReservation && <SpinLoader fullscreen={true} />}
         <div className="reservation-page__basket-nav-tabs">
           <NavTabs
             labelOne={`Current reservation`}

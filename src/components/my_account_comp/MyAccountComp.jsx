@@ -105,7 +105,7 @@ function MyAccountComp() {
               data={tel}
               placeholder={"New number"}
               title={"Change number"}
-              type={`text`}
+              type={`number`}
               editButtonText={`EDIT NUMBER`}
             />
           </div>

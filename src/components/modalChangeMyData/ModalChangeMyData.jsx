@@ -43,14 +43,16 @@ function ModalChangeMyData({
         okButtonProps={{ className: "custom-ok-button", disabled: !data }}
         cancelButtonProps={{ className: "custom-cancel-button" }}
         onOk={
-          type === `text` ? handleUpdate : () => handleUpdate(file, user.uid)
+          type === `text` || type === "number"
+            ? handleUpdate
+            : () => handleUpdate(file, user.uid)
         }
         onCancel={handleCancel}
       >
-        {type === "text" ? (
+        {type === "text" || type === "number" ? (
           <input
             className="input"
-            type="text"
+            type={type}
             placeholder={placeholder}
             value={data}
             onChange={(e) => setData(e.target.value)}

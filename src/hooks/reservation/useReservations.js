@@ -9,12 +9,13 @@ import {
   doc,
   deleteDoc,
 } from "firebase/firestore";
-
 import { parseISO } from "date-fns";
 import { useSelector, useDispatch } from "react-redux";
 import useTimeFilters from "./useTimeFilters";
 import useTables from "../useTables";
 import { usePayment } from "../payment/usePayment";
+import { message } from "antd";
+
 const useReservations = (handleCloseModalReservation) => {
   const user = useSelector((state) => state.user); // Get user data from Redux store
   const [currentUserReservations, setCurrentUserReservations] = useState([]); // State to store current user reservations
@@ -22,8 +23,6 @@ const useReservations = (handleCloseModalReservation) => {
   const [reloadCurrentReservations, setReloadCurrentReservations] =
     useState(true); // Flag to trigger re-fetching of reservations
   const [disabledTimes, setDisabledTimes] = useState([]); // State to store reserved times for the current table
-  const { filterTime, isTimeOverlapping, isReservationPast, timestampToDate } =
-    useTimeFilters(disabledTimes); // Custom hook for time filtering functions
   const [currentTable, setCurrentTable] = useState(""); // State to store currently selected table
   const { fetchTables } = useTables();
   const [reservDate, setReservDate] = useState({
@@ -33,9 +32,21 @@ const useReservations = (handleCloseModalReservation) => {
 
   const [unApprovedReservations, setUnApprovedReservations] = useState([]);
   const [reserved, setReserved] = useState(false); // Flag to indicate if a reservation was made
+  // show reservation time error
+  const [reservError, setReserError] = useState(null);
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const [isLoadingReservation, setIsLoadingReservation] = useState(false);
 
   // Get tables data from Redux store
   let tables = useSelector((state) => state.tables.tables);
+
+  const {
+    filterTime,
+    isReservationPast,
+    timestampToDate,
+    validateReservationTime,
+  } = useTimeFilters(disabledTimes); // Custom hook for time filtering functions
 
   const {
     calculateHours,
@@ -44,7 +55,6 @@ const useReservations = (handleCloseModalReservation) => {
     calculateAmount,
     setCurrentreservatinAmount,
     currentReservationAmount,
-    handlePayment,
     isPaymentLoading,
     totalAmount,
     handlePayByCash,
@@ -57,13 +67,13 @@ const useReservations = (handleCloseModalReservation) => {
 
   const handleAddToCart = async (e, table) => {
     e.preventDefault();
+    setIsLoadingReservation(true);
+    const startTime = reservDate.startDate;
+    const endTime = reservDate.endDate;
+    const error = validateReservationTime(startTime, endTime, disabledTimes);
 
-    if (
-      reservDate.startDate &&
-      reservDate.endDate &&
-      isTimeOverlapping(reservDate.startDate, reservDate.endDate, disabledTimes)
-    ) {
-      alert("The selected time overlaps with an existing reservation.");
+    if (error !== null) {
+      setReserError(error);
       return;
     }
 
@@ -88,6 +98,7 @@ const useReservations = (handleCloseModalReservation) => {
       console.error("Error adding document:", e);
       console.log(e);
     }
+    setIsLoadingReservation(false);
   };
 
   //
@@ -200,6 +211,7 @@ const useReservations = (handleCloseModalReservation) => {
 
   // Delete a reservation by its ID
   const handleDeleteCurrentReservation = async (reservationID) => {
+    setIsLoadingReservation(true);
     const db = getFirestore();
     try {
       const reservationRef = doc(db, "reservations", reservationID);
@@ -208,6 +220,7 @@ const useReservations = (handleCloseModalReservation) => {
       console.error("Error deleting reservation:", e);
     }
     setReloadCurrentReservations(true);
+    setIsLoadingReservation(false);
   };
 
   // Fetch reservations for the current table and update disabled times
@@ -299,6 +312,16 @@ const useReservations = (handleCloseModalReservation) => {
     reservationSuccessPaid && fetchCurrentUserReservations();
   }, [reservationSuccessPaid]);
 
+  //show reservation time error
+  useEffect(() => {
+    if (reservError) {
+      messageApi.open({
+        type: "error",
+        content: reservError,
+      });
+    }
+  }, [reservError, messageApi]);
+
   return {
     fetchCurrentUserReservations,
     currentUserReservations,
@@ -319,7 +342,6 @@ const useReservations = (handleCloseModalReservation) => {
     reservDate,
     passedUserReservations,
     currentReservationAmount,
-
     isPaymentLoading,
     handleSubmitReservations,
     tables,
@@ -331,6 +353,8 @@ const useReservations = (handleCloseModalReservation) => {
     reservationSuccessPaid,
     handlePayOnline,
     paymentMethods,
+    contextHolder,
+    isLoadingReservation,
   };
 };
 

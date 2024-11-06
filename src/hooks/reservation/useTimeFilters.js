@@ -11,7 +11,11 @@ const useTimeFilters = (disabledTimes) => {
     const date = new Date(dateStr);
     return date.getTime();
   };
-
+  const isStartTimeCorrect = (start, end) => {
+    let startTime = convertToTimeStamp(start);
+    let endTime = convertToTimeStamp(end);
+    return endTime < startTime ? true : false;
+  };
   const filterTime = (time) => {
     return !isTimeOverlapping(time, addMinutes(time, 15), disabledTimes);
   };
@@ -23,6 +27,20 @@ const useTimeFilters = (disabledTimes) => {
     if (endTimeMilliseconds < new Date().getTime()) {
       return endTime;
     }
+  };
+
+  const validateReservationTime = (startTime, endTime, disabledTimes) => {
+    if (!startTime || !endTime) return null;
+
+    if (isTimeOverlapping(startTime, endTime, disabledTimes)) {
+      return "The selected time overlaps with an existing reservation.";
+    }
+
+    if (isStartTimeCorrect(startTime, endTime)) {
+      return "The start time is later than the end time.";
+    }
+
+    return null;
   };
 
   function timestampToDate(timestamp) {
@@ -53,6 +71,8 @@ const useTimeFilters = (disabledTimes) => {
     timestampToDate,
     formatDate,
     formatTime,
+    isStartTimeCorrect,
+    validateReservationTime,
   };
 };
 

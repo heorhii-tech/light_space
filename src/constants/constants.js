@@ -27,7 +27,7 @@ const burgerMenu = [
     link: `/contact`,
   },
   {
-    item: `Reservation`,
+    item: `Reservations`,
     link: `/reservation`,
   },
   {
@@ -57,7 +57,7 @@ const headerMenu = [
     link: `/contact`,
   },
   {
-    item: `Reservation`,
+    item: `Reservations`,
     link: `/reservation`,
   },
 

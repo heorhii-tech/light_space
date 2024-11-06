@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../store/user/userSlice";
 
 import { message } from "antd";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const useLogin = () => {
   const [email, setEmail] = useState(``);
