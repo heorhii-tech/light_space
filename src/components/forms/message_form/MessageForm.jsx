@@ -24,6 +24,7 @@ function MessageForm({ handleReviewSubmit, className }) {
           id="name"
           placeholder="Enter your name"
           required
+          minLength={3}
           {...register("name")}
         />
       </div>
@@ -81,10 +82,10 @@ function MessageForm({ handleReviewSubmit, className }) {
 
       {/* Review Field */}
       <div className="textearea-input-container">
-        <label htmlFor="review">Message</label>
+        <label htmlFor="message">Message</label>
         <textarea
-          id="review"
-          placeholder="Enter your review"
+          id="message"
+          placeholder="Enter your message"
           {...register("message", { required: "Review is required" })}
         />
         {errors.review && <span>{errors.review.message}</span>}
